@@ -26,7 +26,7 @@ from modules import *
 from widgets import *
 from imageManipultation import preprocessing
 os.environ["QT_FONT_DPI"] = "96"  # FIX Problem for High DPI and Scale above 100%
-
+#VEGA
 from imageManipultation import *
 
 # SET AS GLOBAL WIDGETS
