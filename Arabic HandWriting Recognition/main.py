@@ -81,7 +81,7 @@ class MainWindow(QMainWindow):
 
         # LEFT MENUS
         widgets.btn_home.clicked.connect(self.buttonClick)
-        widgets.btn_segmentaion.clicked.connect(self.buttonClick)
+        widgets.btn_widgets.clicked.connect(self.buttonClick)
         widgets.selectBtn.clicked.connect(self.browsefiles)
         widgets.threshHoldSlider.valueChanged.connect(self.number_changed)
 
@@ -122,8 +122,8 @@ class MainWindow(QMainWindow):
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
 
         # SHOW Segmentation PAGE
-        if btnName == "btn_segmentaion":
-            widgets.stackedWidget.setCurrentWidget(widgets.widgets)
+        if btnName == "btn_widgets":
+            widgets.stackedWidget.setCurrentWidget(widgets.new_page)
             UIFunctions.resetStyle(self, btnName)
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
 

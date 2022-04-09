@@ -14,9 +14,9 @@ target = Executable(
 
 # SETUP CX FREEZE
 setup(
-    name = "PyDracula",
+    name = "Arabic HandWriting Recognition",
     version = "1.0",
-    description = "Modern GUI for Python applications",
+    description = "",
     author = "Wanderson M. Pimenta",
     options = {'build_exe' : {'include_files' : files}},
     executables = [target]
