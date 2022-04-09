@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainiqUbQq.ui'
+## Form generated from reading UI file 'mainNxCmOU.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.2.4
 ##
@@ -18,7 +18,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLabel,
     QMainWindow, QPushButton, QSizePolicy, QSlider,
     QSpacerItem, QStackedWidget, QVBoxLayout, QWidget)
-from .resources_rc import *
+from . resources_rc import *
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -871,6 +871,13 @@ class Ui_MainWindow(object):
         sizePolicy3.setHeightForWidth(self.label.sizePolicy().hasHeightForWidth())
         self.label.setSizePolicy(sizePolicy3)
         self.label.setMinimumSize(QSize(700, 0))
+        self.label.setStyleSheet(u"\n"
+"border-style: outset;\n"
+"border-width: 1px;\n"
+"border-radius: 15px;\n"
+"border-color: black;\n"
+"padding: 4px;\n"
+"")
         self.label.setScaledContents(True)
 
         self.horizontalLayout_7.addWidget(self.label)
@@ -972,6 +979,13 @@ class Ui_MainWindow(object):
 
         self.pushButton = QPushButton(self.widget_2)
         self.pushButton.setObjectName(u"pushButton")
+        self.pushButton.setStyleSheet(u"\n"
+"border-style: outset;\n"
+"border-width: 2px;\n"
+"border-radius: 15px;\n"
+"border-color: black;\n"
+"padding: 4px;\n"
+"")
 
         self.verticalLayout_5.addWidget(self.pushButton, 0, Qt.AlignBottom)
 

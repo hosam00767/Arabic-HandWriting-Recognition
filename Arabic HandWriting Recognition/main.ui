@@ -7,8 +7,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>940</width>
-    <height>714</height>
+    <width>1023</width>
+    <height>776</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -1360,6 +1360,15 @@ background-repeat: no-repeat;</string>
                               <height>0</height>
                              </size>
                             </property>
+                            <property name="styleSheet">
+                             <string notr="true">
+border-style: outset;
+border-width: 1px;
+border-radius: 15px;
+border-color: black;
+padding: 4px;
+</string>
+                            </property>
                             <property name="text">
                              <string/>
                             </property>
@@ -1371,7 +1380,7 @@ background-repeat: no-repeat;</string>
                          </layout>
                         </widget>
                        </item>
-                       <item alignment="Qt::AlignTop">
+                       <item>
                         <widget class="QWidget" name="widget_2" native="true">
                          <property name="sizePolicy">
                           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -1447,7 +1456,7 @@ background-repeat: no-repeat;</string>
                             </layout>
                            </widget>
                           </item>
-                          <item>
+                          <item alignment="Qt::AlignTop">
                            <widget class="QFrame" name="frame_2">
                             <property name="sizePolicy">
                              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -1490,7 +1499,7 @@ background-repeat: no-repeat;</string>
                                 <number>2</number>
                                </property>
                                <property name="value">
-                                <number>127</number>
+                                <number>0</number>
                                </property>
                                <property name="orientation">
                                 <enum>Qt::Horizontal</enum>
@@ -1503,27 +1512,39 @@ background-repeat: no-repeat;</string>
                                </property>
                               </widget>
                              </item>
-                             <item>
-                              <spacer name="verticalSpacer">
-                               <property name="orientation">
-                                <enum>Qt::Vertical</enum>
-                               </property>
-                               <property name="sizeHint" stdset="0">
-                                <size>
-                                 <width>20</width>
-                                 <height>40</height>
-                                </size>
-                               </property>
-                              </spacer>
-                             </item>
-                             <item alignment="Qt::AlignBottom">
-                              <widget class="QPushButton" name="pushButton">
-                               <property name="text">
-                                <string>APPLY</string>
-                               </property>
-                              </widget>
-                             </item>
                             </layout>
+                           </widget>
+                          </item>
+                          <item>
+                           <spacer name="verticalSpacer">
+                            <property name="orientation">
+                             <enum>Qt::Vertical</enum>
+                            </property>
+                            <property name="sizeType">
+                             <enum>QSizePolicy::MinimumExpanding</enum>
+                            </property>
+                            <property name="sizeHint" stdset="0">
+                             <size>
+                              <width>20</width>
+                              <height>40</height>
+                             </size>
+                            </property>
+                           </spacer>
+                          </item>
+                          <item alignment="Qt::AlignBottom">
+                           <widget class="QPushButton" name="pushButton">
+                            <property name="styleSheet">
+                             <string notr="true">
+border-style: outset;
+border-width: 2px;
+border-radius: 15px;
+border-color: black;
+padding: 4px;
+</string>
+                            </property>
+                            <property name="text">
+                             <string>Apply</string>
+                            </property>
                            </widget>
                           </item>
                          </layout>

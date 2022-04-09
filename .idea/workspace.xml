@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="985a25ac-2575-4ff7-a952-e343daf067cf" name="Default Changelist" comment="&quot;edit to the preprocessing window&quot;">
+    <list default="true" id="985a25ac-2575-4ff7-a952-e343daf067cf" name="Default Changelist" comment="&quot;edit 2.0 to the preprocessing window&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/main.ui" beforeDir="false" afterPath="$PROJECT_DIR$/Arabic HandWriting Recognition/main.ui" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/modules/ui_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Arabic HandWriting Recognition/modules/ui_main.py" afterDir="false" />
@@ -156,7 +156,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649511667850</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="&quot;edit 2.0 to the preprocessing window&quot;">
+      <created>1649524592856</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1649524592856</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -179,6 +186,7 @@
     <MESSAGE value="&quot;adding preprocessing.py methods methods&quot;" />
     <MESSAGE value="&quot;&quot;" />
     <MESSAGE value="&quot;edit to the preprocessing window&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;edit to the preprocessing window&quot;" />
+    <MESSAGE value="&quot;edit 2.0 to the preprocessing window&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;edit 2.0 to the preprocessing window&quot;" />
   </component>
 </project>
