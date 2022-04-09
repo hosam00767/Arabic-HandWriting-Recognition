@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'maintSORlH.ui'
+## Form generated from reading UI file 'mainLQIiYx.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.2.4
 ##
@@ -28,7 +28,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1058, 836)
+        MainWindow.resize(940, 765)
         MainWindow.setMinimumSize(QSize(940, 560))
         self.styleSheet = QWidget(MainWindow)
         self.styleSheet.setObjectName(u"styleSheet")
@@ -564,6 +564,7 @@ class Ui_MainWindow(object):
         self.appMargins.setContentsMargins(10, 10, 10, 10)
         self.bgApp = QFrame(self.styleSheet)
         self.bgApp.setObjectName(u"bgApp")
+        self.bgApp.setMaximumSize(QSize(1888, 16777215))
         self.bgApp.setStyleSheet(u"")
         self.bgApp.setFrameShape(QFrame.NoFrame)
         self.bgApp.setFrameShadow(QFrame.Raised)
@@ -1208,7 +1209,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
         self.label = QLabel(self.frame)
         self.label.setObjectName(u"label")
-        sizePolicy5 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
+        sizePolicy5 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.MinimumExpanding)
         sizePolicy5.setHorizontalStretch(0)
         sizePolicy5.setVerticalStretch(0)
         sizePolicy5.setHeightForWidth(self.label.sizePolicy().hasHeightForWidth())
