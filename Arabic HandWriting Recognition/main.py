@@ -13,7 +13,7 @@
 # https://doc.qt.io/qtforpython/licenses.html
 #
 # ///////////////////////////////////////////////////////////////
-x=11
+aaaa="bbbb"
 import sys
 import os
 import cv2 as cv
