@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'maintUHGrD.ui'
+## Form generated from reading UI file 'mainlZPrzq.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.2.4
 ##
@@ -18,13 +18,13 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLabel,
     QMainWindow, QPushButton, QSizePolicy, QSlider,
     QSpacerItem, QStackedWidget, QVBoxLayout, QWidget)
-from .resources_rc import *
+from . resources_rc import *
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1118, 717)
+        MainWindow.resize(1113, 650)
         MainWindow.setMinimumSize(QSize(940, 560))
         self.styleSheet = QWidget(MainWindow)
         self.styleSheet.setObjectName(u"styleSheet")
@@ -905,11 +905,14 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_11.addWidget(self.label_2, 0, Qt.AlignTop)
 
-        self.horizontalSlider = QSlider(self.frame)
-        self.horizontalSlider.setObjectName(u"horizontalSlider")
-        self.horizontalSlider.setOrientation(Qt.Horizontal)
+        self.angelSlider = QSlider(self.frame)
+        self.angelSlider.setObjectName(u"angelSlider")
+        self.angelSlider.setMinimum(-180)
+        self.angelSlider.setMaximum(180)
+        self.angelSlider.setValue(0)
+        self.angelSlider.setOrientation(Qt.Horizontal)
 
-        self.verticalLayout_11.addWidget(self.horizontalSlider)
+        self.verticalLayout_11.addWidget(self.angelSlider)
 
 
         self.verticalLayout_5.addWidget(self.frame, 0, Qt.AlignTop)
@@ -925,11 +928,17 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_10.addWidget(self.label_4, 0, Qt.AlignTop)
 
-        self.horizontalSlider_2 = QSlider(self.frame_3)
-        self.horizontalSlider_2.setObjectName(u"horizontalSlider_2")
-        self.horizontalSlider_2.setOrientation(Qt.Horizontal)
+        self.kernalSlider = QSlider(self.frame_3)
+        self.kernalSlider.setObjectName(u"kernalSlider")
+        self.kernalSlider.setMinimum(1)
+        self.kernalSlider.setMaximum(11)
+        self.kernalSlider.setSingleStep(3)
+        self.kernalSlider.setPageStep(0)
+        self.kernalSlider.setOrientation(Qt.Horizontal)
+        self.kernalSlider.setTickPosition(QSlider.TicksAbove)
+        self.kernalSlider.setTickInterval(2)
 
-        self.verticalLayout_10.addWidget(self.horizontalSlider_2, 0, Qt.AlignBottom)
+        self.verticalLayout_10.addWidget(self.kernalSlider, 0, Qt.AlignBottom)
 
 
         self.verticalLayout_5.addWidget(self.frame_3, 0, Qt.AlignTop)
@@ -1085,7 +1094,7 @@ class Ui_MainWindow(object):
         self.imageView.setText("")
         self.btn_select.setText(QCoreApplication.translate("MainWindow", u"Select an Image", None))
         self.label.setText("")
-        self.label_2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt; font-weight:700;\">Change The Rotaion of The Image</span></p></body></html>", None))
+        self.label_2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt; font-weight:700;\">Chane The Rotaion of The Image</span></p></body></html>", None))
         self.label_4.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt; font-weight:700;\">Change The Blur Kernal    </span></p></body></html>", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt; font-weight:700;\">Change The Thresh hold value</span></p></body></html>", None))
         self.btn_apply_processing.setText(QCoreApplication.translate("MainWindow", u"Apply", None))

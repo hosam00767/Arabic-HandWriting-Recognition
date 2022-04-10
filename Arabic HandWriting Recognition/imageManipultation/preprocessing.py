@@ -1,12 +1,20 @@
 # remover the noise by blurring the image and then do a threshold with a certain value to only show the writings
 import cv2 as cv
 import numpy as np
-def preprocess(img,x):
-    gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
-    gaussian = cv.GaussianBlur(gray, (5, 5), 0)
-    ret, thresh = cv.threshold(gaussian, x, 255, cv.THRESH_BINARY_INV)
 
+
+def preprocess(img, thresh_value, kernal_value):
+    gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
+    gaussian = cv.GaussianBlur(gray, (kernal_value, kernal_value), 0)
+    ret, thresh = cv.threshold(gaussian, thresh_value, 255, cv.THRESH_BINARY_INV)
     return thresh
+
+
+def rotate_image(image, angle):
+    image_center = tuple(np.array(image.shape[1::-1]) / 2)
+    rot_mat = cv.getRotationMatrix2D(image_center, angle, 1.0)
+    result = cv.warpAffine(image, rot_mat, image.shape[1::-1], flags=cv.INTER_LINEAR)
+    return result
 
 
 def horizontal_proj(img):
@@ -29,6 +37,7 @@ def vertical_proj(img):
         cv.line(vproj_img, (col, thresh_line.shape[0]), (col, thresh_line.shape[0] - int(vproj[col])), (255, 255, 255),
                 1)
     return vproj_img, vproj
+
 
 # stack images with same width vertically
 def vconcat_resize_min(im_list, interpolation=cv.INTER_CUBIC):

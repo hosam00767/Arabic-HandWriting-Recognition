@@ -7,8 +7,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1118</width>
-    <height>717</height>
+    <width>1113</width>
+    <height>650</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -1413,7 +1413,7 @@ padding: 4px;
                              <item alignment="Qt::AlignTop">
                               <widget class="QLabel" name="label_2">
                                <property name="text">
-                                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;Change The Rotaion of The Image&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;Chane The Rotaion of The Image&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                                </property>
                               </widget>
                              </item>
@@ -1444,7 +1444,19 @@ padding: 4px;
                               </widget>
                              </item>
                              <item alignment="Qt::AlignBottom">
-                              <widget class="QSlider" name="horizontalSlider_2">
+                              <widget class="QSlider" name="kernalSlider">
+                               <property name="minimum">
+                                <number>1</number>
+                               </property>
+                               <property name="maximum">
+                                <number>11</number>
+                               </property>
+                               <property name="singleStep">
+                                <number>2</number>
+                               </property>
+                               <property name="pageStep">
+                                <number>2</number>
+                               </property>
                                <property name="orientation">
                                 <enum>Qt::Horizontal</enum>
                                </property>

@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="985a25ac-2575-4ff7-a952-e343daf067cf" name="Default Changelist" comment="&quot;ui changes + removed un nesunnecessary methods from ui_functions.py&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/imageManipultation/preprocessing.py" beforeDir="false" afterPath="$PROJECT_DIR$/Arabic HandWriting Recognition/imageManipultation/preprocessing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Arabic HandWriting Recognition/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/main.ui" beforeDir="false" afterPath="$PROJECT_DIR$/Arabic HandWriting Recognition/main.ui" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/modules/ui_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Arabic HandWriting Recognition/modules/ui_main.py" afterDir="false" />
     </list>
@@ -208,12 +210,12 @@
       <option name="project" value="LOCAL" />
       <updated>1649613568312</updated>
     </task>
-    <task id="LOCAL-00017" summary="test">
-      <created>1649618615542</created>
+    <task id="LOCAL-00017" summary="&quot;ui changes + removed un nesunnecessary methods from ui_functions.py&quot;">
+      <created>1649614818887</created>
       <option name="number" value="00017" />
       <option name="presentableId" value="LOCAL-00017" />
       <option name="project" value="LOCAL" />
-      <updated>1649618615542</updated>
+      <updated>1649614818887</updated>
     </task>
     <option name="localTasksCounter" value="18" />
     <servers />
@@ -228,6 +230,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="&quot;TEST&quot;" />
@@ -240,7 +243,6 @@
     <MESSAGE value="&quot;edit 2.0 to the preprocessing window&quot;" />
     <MESSAGE value="&quot;tesst 2.0&quot;" />
     <MESSAGE value="&quot;ui changes + removed un nesunnecessary methods from ui_functions.py&quot;" />
-    <MESSAGE value="test" />
-    <option name="LAST_COMMIT_MESSAGE" value="test" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;ui changes + removed un nesunnecessary methods from ui_functions.py&quot;" />
   </component>
 </project>

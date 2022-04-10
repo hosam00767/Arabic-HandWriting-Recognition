@@ -1,4 +1,3 @@
-
 import sys
 import os
 import cv2 as cv
@@ -19,7 +18,8 @@ from imageManipultation import *
 # ///////////////////////////////////////////////////////////////
 widgets = None
 imagePath = None
-h=3
+
+
 
 def cv2pxi(img):
     if len(img.shape) < 3:
@@ -47,8 +47,6 @@ class MainWindow(QMainWindow):
         # ///////////////////////////////////////////////////////////////
         Settings.ENABLE_CUSTOM_TITLE_BAR = True
 
-
-
         # TOGGLE MENU
         # ///////////////////////////////////////////////////////////////
         widgets.toggleButton.clicked.connect(lambda: UIFunctions.toggleMenu(self, True))
@@ -57,18 +55,17 @@ class MainWindow(QMainWindow):
         # ///////////////////////////////////////////////////////////////
         UIFunctions.uiDefinitions(self)
 
-
-
         # LEFT MENU
         widgets.btn_home.clicked.connect(self.buttonClick)
         widgets.btn_preProcessing.clicked.connect(self.buttonClick)
         widgets.btn_select.clicked.connect(self.browsefiles)
         widgets.threshHoldSlider.valueChanged.connect(self.number_changed)
+        widgets.kernalSlider.valueChanged.connect(self.number_changed)
+        widgets.angelSlider.valueChanged.connect(self.changeAngel)
 
         # SHOW APP
         # ///////////////////////////////////////////////////////////////
         self.show()
-
 
         # SET HOME PAGE AND SELECT MENU
         # ///////////////////////////////////////////////////////////////
@@ -102,13 +99,13 @@ class MainWindow(QMainWindow):
         UIFunctions.resize_grips(self)
 
     def number_changed(self):
-        print(self.ui.threshHoldSlider.value())
-        new_value = int(str(self.ui.threshHoldSlider.value()))
         global imagePath
-
+        thresh_value = int(str(self.ui.threshHoldSlider.value()))
+        kernal_value = int(str(self.ui.kernalSlider.value()))
+        if kernal_value % 2 == 0:
+            kernal_value += 1
         img = cv.imread(imagePath[0])
-
-        x = preprocessing.preprocess(img, new_value)
+        x = preprocessing.preprocess(img, thresh_value, kernal_value)
         widgets.label.setPixmap(QPixmap(cv2pxi(x)))
 
     def browsefiles(self):
@@ -120,6 +117,11 @@ class MainWindow(QMainWindow):
             widgets.imageView.setPixmap(QPixmap(imagePath[0]))
             widgets.label.setPixmap(QPixmap(imagePath[0]))
 
+    def changeAngel(self):
+        angel_value = int(str(self.ui.angelSlider.value()))
+        img = cv.imread(imagePath[0])
+        img=preprocessing.rotate_image(img,angel_value)
+        widgets.label.setPixmap(QPixmap(cv2pxi(img)))
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
