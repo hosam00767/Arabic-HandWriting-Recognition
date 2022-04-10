@@ -13,7 +13,6 @@
 # https://doc.qt.io/qtforpython/licenses.html
 #
 # ///////////////////////////////////////////////////////////////
-aaaa="bbbb"
 import sys
 import os
 import cv2 as cv
@@ -81,8 +80,8 @@ class MainWindow(QMainWindow):
 
         # LEFT MENUS
         widgets.btn_home.clicked.connect(self.buttonClick)
-        widgets.btn_widgets.clicked.connect(self.buttonClick)
-        widgets.selectBtn.clicked.connect(self.browsefiles)
+        widgets.btn_preProcessing.clicked.connect(self.buttonClick)
+        widgets.btn_select.clicked.connect(self.browsefiles)
         widgets.threshHoldSlider.valueChanged.connect(self.number_changed)
 
         # SHOW APP
@@ -122,7 +121,7 @@ class MainWindow(QMainWindow):
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
 
         # SHOW Segmentation PAGE
-        if btnName == "btn_widgets":
+        if btnName == "btn_preProcessing":
             widgets.stackedWidget.setCurrentWidget(widgets.new_page)
             UIFunctions.resetStyle(self, btnName)
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))

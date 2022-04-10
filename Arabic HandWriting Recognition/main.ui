@@ -7,8 +7,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1023</width>
-    <height>776</height>
+    <width>1118</width>
+    <height>717</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -770,7 +770,7 @@ Button */
                  </widget>
                 </item>
                 <item>
-                 <widget class="QPushButton" name="btn_widgets">
+                 <widget class="QPushButton" name="btn_preProcessing">
                   <property name="sizePolicy">
                    <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                     <horstretch>0</horstretch>
@@ -798,14 +798,11 @@ Button */
                    <enum>Qt::LeftToRight</enum>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-image: url(:/icons/images/icons/cil-gamepad.png);</string>
+                   <string notr="true">background-image: url(:/icons/images/icons/cil-pencil.png);
+</string>
                   </property>
                   <property name="text">
-                   <string>Widgets</string>
-                  </property>
-                  <property name="icon">
-                   <iconset resource="resources.qrc">
-                    <normaloff>:/icons/images/icons/cil-pencil.png</normaloff>:/icons/images/icons/cil-pencil.png</iconset>
+                   <string>PreProcessing</string>
                   </property>
                  </widget>
                 </item>
@@ -1290,7 +1287,7 @@ background-repeat: no-repeat;</string>
                         </widget>
                        </item>
                        <item>
-                        <widget class="QPushButton" name="selectBtn">
+                        <widget class="QPushButton" name="btn_select">
                          <property name="text">
                           <string>Select an Image</string>
                          </property>
@@ -1492,6 +1489,9 @@ padding: 4px;
                                  <verstretch>0</verstretch>
                                 </sizepolicy>
                                </property>
+                               <property name="styleSheet">
+                                <string notr="true"/>
+                               </property>
                                <property name="maximum">
                                 <number>255</number>
                                </property>
@@ -1532,13 +1532,12 @@ padding: 4px;
                            </spacer>
                           </item>
                           <item alignment="Qt::AlignBottom">
-                           <widget class="QPushButton" name="pushButton">
+                           <widget class="QPushButton" name="btn_apply_processing">
                             <property name="styleSheet">
                              <string notr="true">
-border-style: outset;
 border-width: 2px;
 border-radius: 15px;
-border-color: black;
+background-color:#ff79c6;
 padding: 4px;
 </string>
                             </property>

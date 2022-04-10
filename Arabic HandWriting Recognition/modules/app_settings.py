@@ -9,7 +9,7 @@ class Settings():
 
     # BTNS LEFT AND RIGHT BOX COLORS
     BTN_LEFT_BOX_COLOR = "background-color: rgb(44, 49, 58);"
-    BTN_RIGHT_BOX_COLOR = "background-color: #ff79c6;"
+
 
     # MENU SELECTED STYLESHEET
     MENU_SELECTED_STYLESHEET = """

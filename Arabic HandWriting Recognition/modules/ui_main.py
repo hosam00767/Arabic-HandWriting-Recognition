@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainxJdUpL.ui'
+## Form generated from reading UI file 'mainxqMDWi.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.2.4
 ##
@@ -24,7 +24,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1023, 776)
+        MainWindow.resize(1118, 717)
         MainWindow.setMinimumSize(QSize(940, 560))
         self.styleSheet = QWidget(MainWindow)
         self.styleSheet.setObjectName(u"styleSheet")
@@ -632,20 +632,18 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_8.addWidget(self.btn_home)
 
-        self.btn_widgets = QPushButton(self.topMenu)
-        self.btn_widgets.setObjectName(u"btn_widgets")
-        sizePolicy.setHeightForWidth(self.btn_widgets.sizePolicy().hasHeightForWidth())
-        self.btn_widgets.setSizePolicy(sizePolicy)
-        self.btn_widgets.setMinimumSize(QSize(0, 45))
-        self.btn_widgets.setFont(font)
-        self.btn_widgets.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_widgets.setLayoutDirection(Qt.LeftToRight)
-        self.btn_widgets.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-gamepad.png);")
-        icon = QIcon()
-        icon.addFile(u":/icons/images/icons/cil-pencil.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.btn_widgets.setIcon(icon)
+        self.btn_preProcessing = QPushButton(self.topMenu)
+        self.btn_preProcessing.setObjectName(u"btn_preProcessing")
+        sizePolicy.setHeightForWidth(self.btn_preProcessing.sizePolicy().hasHeightForWidth())
+        self.btn_preProcessing.setSizePolicy(sizePolicy)
+        self.btn_preProcessing.setMinimumSize(QSize(0, 45))
+        self.btn_preProcessing.setFont(font)
+        self.btn_preProcessing.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_preProcessing.setLayoutDirection(Qt.LeftToRight)
+        self.btn_preProcessing.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-pencil.png);\n"
+"")
 
-        self.verticalLayout_8.addWidget(self.btn_widgets)
+        self.verticalLayout_8.addWidget(self.btn_preProcessing)
 
 
         self.verticalMenuLayout.addWidget(self.topMenu, 0, Qt.AlignTop)
@@ -740,9 +738,9 @@ class Ui_MainWindow(object):
         self.settingsTopBtn.setMinimumSize(QSize(28, 28))
         self.settingsTopBtn.setMaximumSize(QSize(28, 28))
         self.settingsTopBtn.setCursor(QCursor(Qt.PointingHandCursor))
-        icon1 = QIcon()
-        icon1.addFile(u":/icons/images/icons/icon_settings.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.settingsTopBtn.setIcon(icon1)
+        icon = QIcon()
+        icon.addFile(u":/icons/images/icons/icon_settings.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.settingsTopBtn.setIcon(icon)
         self.settingsTopBtn.setIconSize(QSize(20, 20))
 
         self.horizontalLayout_2.addWidget(self.settingsTopBtn)
@@ -752,9 +750,9 @@ class Ui_MainWindow(object):
         self.minimizeAppBtn.setMinimumSize(QSize(28, 28))
         self.minimizeAppBtn.setMaximumSize(QSize(28, 28))
         self.minimizeAppBtn.setCursor(QCursor(Qt.PointingHandCursor))
-        icon2 = QIcon()
-        icon2.addFile(u":/icons/images/icons/icon_minimize.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.minimizeAppBtn.setIcon(icon2)
+        icon1 = QIcon()
+        icon1.addFile(u":/icons/images/icons/icon_minimize.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.minimizeAppBtn.setIcon(icon1)
         self.minimizeAppBtn.setIconSize(QSize(20, 20))
 
         self.horizontalLayout_2.addWidget(self.minimizeAppBtn)
@@ -771,9 +769,9 @@ class Ui_MainWindow(object):
         font1.setStyleStrategy(QFont.PreferDefault)
         self.maximizeRestoreAppBtn.setFont(font1)
         self.maximizeRestoreAppBtn.setCursor(QCursor(Qt.PointingHandCursor))
-        icon3 = QIcon()
-        icon3.addFile(u":/icons/images/icons/icon_maximize.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.maximizeRestoreAppBtn.setIcon(icon3)
+        icon2 = QIcon()
+        icon2.addFile(u":/icons/images/icons/icon_maximize.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.maximizeRestoreAppBtn.setIcon(icon2)
         self.maximizeRestoreAppBtn.setIconSize(QSize(20, 20))
 
         self.horizontalLayout_2.addWidget(self.maximizeRestoreAppBtn)
@@ -783,9 +781,9 @@ class Ui_MainWindow(object):
         self.closeAppBtn.setMinimumSize(QSize(28, 28))
         self.closeAppBtn.setMaximumSize(QSize(28, 28))
         self.closeAppBtn.setCursor(QCursor(Qt.PointingHandCursor))
-        icon4 = QIcon()
-        icon4.addFile(u":/icons/images/icons/icon_close.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.closeAppBtn.setIcon(icon4)
+        icon3 = QIcon()
+        icon3.addFile(u":/icons/images/icons/icon_close.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.closeAppBtn.setIcon(icon3)
         self.closeAppBtn.setIconSize(QSize(20, 20))
 
         self.horizontalLayout_2.addWidget(self.closeAppBtn)
@@ -837,10 +835,10 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_21.addWidget(self.imageView, 0, Qt.AlignHCenter)
 
-        self.selectBtn = QPushButton(self.home)
-        self.selectBtn.setObjectName(u"selectBtn")
+        self.btn_select = QPushButton(self.home)
+        self.btn_select.setObjectName(u"btn_select")
 
-        self.verticalLayout_21.addWidget(self.selectBtn)
+        self.verticalLayout_21.addWidget(self.btn_select)
 
         self.stackedWidget.addWidget(self.home)
         self.widgets = QWidget()
@@ -961,6 +959,7 @@ class Ui_MainWindow(object):
         sizePolicy6.setVerticalStretch(0)
         sizePolicy6.setHeightForWidth(self.threshHoldSlider.sizePolicy().hasHeightForWidth())
         self.threshHoldSlider.setSizePolicy(sizePolicy6)
+        self.threshHoldSlider.setStyleSheet(u"")
         self.threshHoldSlider.setMaximum(255)
         self.threshHoldSlider.setPageStep(2)
         self.threshHoldSlider.setValue(0)
@@ -977,17 +976,16 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_5.addItem(self.verticalSpacer)
 
-        self.pushButton = QPushButton(self.widget_2)
-        self.pushButton.setObjectName(u"pushButton")
-        self.pushButton.setStyleSheet(u"\n"
-"border-style: outset;\n"
+        self.btn_apply_processing = QPushButton(self.widget_2)
+        self.btn_apply_processing.setObjectName(u"btn_apply_processing")
+        self.btn_apply_processing.setStyleSheet(u"\n"
 "border-width: 2px;\n"
 "border-radius: 15px;\n"
-"border-color: black;\n"
+"background-color:#ff79c6;\n"
 "padding: 4px;\n"
 "")
 
-        self.verticalLayout_5.addWidget(self.pushButton, 0, Qt.AlignBottom)
+        self.verticalLayout_5.addWidget(self.btn_apply_processing, 0, Qt.AlignBottom)
 
 
         self.horizontalLayout_6.addWidget(self.widget_2)
@@ -1065,7 +1063,7 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
         self.toggleButton.setText(QCoreApplication.translate("MainWindow", u"Hide", None))
         self.btn_home.setText(QCoreApplication.translate("MainWindow", u"Home", None))
-        self.btn_widgets.setText(QCoreApplication.translate("MainWindow", u"Widgets", None))
+        self.btn_preProcessing.setText(QCoreApplication.translate("MainWindow", u"PreProcessing", None))
         self.toggleLeftBox.setText(QCoreApplication.translate("MainWindow", u"Left Box", None))
         self.titleRightInfo.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-weight:700;\">Arabic HandWriting Recogniton</span></p></body></html>", None))
 #if QT_CONFIG(tooltip)
@@ -1085,12 +1083,12 @@ class Ui_MainWindow(object):
 #endif // QT_CONFIG(tooltip)
         self.closeAppBtn.setText("")
         self.imageView.setText("")
-        self.selectBtn.setText(QCoreApplication.translate("MainWindow", u"Select an Image", None))
+        self.btn_select.setText(QCoreApplication.translate("MainWindow", u"Select an Image", None))
         self.label.setText("")
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt; font-weight:700;\">Chane The Rotaion of The Image</span></p></body></html>", None))
         self.label_4.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt; font-weight:700;\">Change The Blur Kernal    </span></p></body></html>", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt; font-weight:700;\">Change The Thresh hold value</span></p></body></html>", None))
-        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"Apply", None))
+        self.btn_apply_processing.setText(QCoreApplication.translate("MainWindow", u"Apply", None))
         self.creditsLabel.setText(QCoreApplication.translate("MainWindow", u"By: Hossam Mamdouh ,Sondos Khaled ,Hanan Isamael", None))
         self.version.setText(QCoreApplication.translate("MainWindow", u"v1.0.3", None))
     # retranslateUi
