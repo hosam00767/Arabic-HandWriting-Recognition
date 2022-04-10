@@ -19,7 +19,7 @@ from imageManipultation import *
 # ///////////////////////////////////////////////////////////////
 widgets = None
 imagePath = None
-h=2
+h=3
 
 def cv2pxi(img):
     if len(img.shape) < 3:
