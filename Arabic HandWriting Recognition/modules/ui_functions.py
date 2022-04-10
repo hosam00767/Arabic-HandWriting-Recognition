@@ -20,7 +20,7 @@ from main import *
 
 # GLOBALS
 # ///////////////////////////////////////////////////////////////
-GLOBAL_STATE = True
+GLOBAL_STATE = False
 GLOBAL_TITLE_BAR = True
 
 class UIFunctions(MainWindow):
