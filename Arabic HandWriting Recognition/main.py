@@ -10,7 +10,7 @@ import shutil
 from modules import *
 from widgets import *
 from imageManipultation import preprocessing as pp
-from imageManipultation import segmentaion_to_paws
+from imageManipultation import segmentaion_to_paws as stp
 
 os.environ["QT_FONT_DPI"] = "96"  # FIX Problem for High DPI and Scale above 100%
 
@@ -106,7 +106,7 @@ class MainWindow(QMainWindow):
         self.dragPos = event.globalPos()
 
     def number_changed(self):
-
+        stp.segment_img_to_PAWS()
         global originalImagePath
         thresh_value = int(str(self.ui.threshHoldSlider.value()))
         kernal_value = int(str(self.ui.kernalSlider.value()))

@@ -1,5 +1,5 @@
 import math
-import preprocessing
+from  .preprocessing import *
 import cv2 as cv
 import numpy as np
 
@@ -41,10 +41,11 @@ def merge_ctrs(ctrs_to_merge):
     return ctr
 
 
-def segment_img_to_PAWS(img):
+def segment_img_to_PAWS():
+    img = cv.imread(r"E:\PROJECT IMPORTANT\das.png")
     dots = []
     component = []
-    p = preprocessing.preprocess(img)
+    p = preprocess(img)
     contours, _ = cv.findContours(image=p, mode=cv.RETR_EXTERNAL, method=cv.CHAIN_APPROX_NONE)
 
     for cnt in contours:
@@ -79,7 +80,7 @@ def segment_img_to_PAWS(img):
 
 
 def exract(img, component):
-    image = cv.imread(r"images\source_image\main_image.png")
+    image = cv.imread(r"E:\PROJECT IMPORTANT\das.png")
     for i in range(len(component)):
         mask = zero = np.ones_like(img) * 255
         hull = cv.convexHull(component[i])
