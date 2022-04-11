@@ -16,7 +16,6 @@ os.environ["QT_FONT_DPI"] = "96"  # FIX Problem for High DPI and Scale above 100
 # SET AS GLOBAL VARIABLE
 # ///////////////////////////////////////////////////////////////
 widgets = None
-imagePath = None
 originalImagePath = None
 
 
@@ -114,11 +113,10 @@ class MainWindow(QMainWindow):
             self.ui.kernalSlider.setValue(kernal_value)
 
         img = cv.imread(originalImagePath)
-        x = pp.preprocess(img,thresh_value, kernal_value)
+        x = pp.preprocess(img, thresh_value, kernal_value)
         widgets.label.setPixmap(QPixmap(cv2pxi(x)))
 
     def selectTheImage(self):
-
         global originalImagePath
         originalImagePath = r"images/source_image"
 
@@ -160,7 +158,6 @@ class MainWindow(QMainWindow):
     def changeDotArea(self):
         thresh_value = int(str(self.ui.threshHoldSlider.value()))
         kernal_value = int(str(self.ui.kernalSlider.value()))
-
 
         print(kernal_value)
         dotsArea_value = int(str(self.ui.dotsSlider.value()))

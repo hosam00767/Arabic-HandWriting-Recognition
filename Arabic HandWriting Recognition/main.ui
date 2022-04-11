@@ -1248,7 +1248,7 @@ Button */
                       <string notr="true">background: transparent;</string>
                      </property>
                      <property name="currentIndex">
-                      <number>2</number>
+                      <number>0</number>
                      </property>
                      <widget class="QWidget" name="home_page">
                       <property name="styleSheet">
@@ -1494,6 +1494,9 @@ padding: 4px;
                                <property name="pageStep">
                                 <number>0</number>
                                </property>
+                               <property name="value">
+                                <number>3</number>
+                               </property>
                                <property name="orientation">
                                 <enum>Qt::Horizontal</enum>
                                </property>
@@ -1554,7 +1557,7 @@ padding: 4px;
                                 <number>2</number>
                                </property>
                                <property name="value">
-                                <number>0</number>
+                                <number>127</number>
                                </property>
                                <property name="orientation">
                                 <enum>Qt::Horizontal</enum>
@@ -1590,6 +1593,9 @@ padding: 4px;
                               <widget class="QSlider" name="dotsSlider">
                                <property name="maximum">
                                 <number>100</number>
+                               </property>
+                               <property name="value">
+                                <number>28</number>
                                </property>
                                <property name="orientation">
                                 <enum>Qt::Horizontal</enum>
