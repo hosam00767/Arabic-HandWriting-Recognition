@@ -10,7 +10,7 @@ import shutil
 from modules import *
 from widgets import *
 from imageManipultation import preprocessing as pp
-
+from imageManipultation import *
 os.environ["QT_FONT_DPI"] = "96"  # FIX Problem for High DPI and Scale above 100%
 
 # SET AS GLOBAL VARIABLE
@@ -29,6 +29,7 @@ class MainWindow(QMainWindow):
         self.ui.setupUi(self)
         global widgets
         widgets = self.ui
+
 
         # USE CUSTOM TITLE BAR | USE AS "False" FOR MAC OR LINUX
         # ///////////////////////////////////////////////////////////////
@@ -104,6 +105,7 @@ class MainWindow(QMainWindow):
         self.dragPos = event.globalPos()
 
     def number_changed(self):
+
         global originalImagePath
         thresh_value = int(str(self.ui.threshHoldSlider.value()))
         kernal_value = int(str(self.ui.kernalSlider.value()))
@@ -125,7 +127,7 @@ class MainWindow(QMainWindow):
             os.makedirs(originalImagePath)
 
         widgets.textView.setText("")
-        imagePath = QFileDialog.getOpenFileName(self, 'Open file', "", 'Images (*.png, *.xmp *.jpg)')
+        imagePath = QFileDialog.getOpenFileName(self, 'Open file', "", 'Images ( *.png, *.xmp *.jpg)')
         if len(imagePath[0]) == 0:
             widgets.textView.setText("no Image Select")
         else:
