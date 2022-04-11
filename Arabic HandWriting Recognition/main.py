@@ -14,22 +14,11 @@ os.environ["QT_FONT_DPI"] = "96"  # FIX Problem for High DPI and Scale above 100
 
 from imageManipultation import *
 
-# SET AS GLOBAL WIDGETS
+# SET AS GLOBAL VARIABLE
 # ///////////////////////////////////////////////////////////////
 widgets = None
 imagePath = None
-
-
-
-def cv2pxi(img):
-    if len(img.shape) < 3:
-        frame = cv.cvtColor(img, cv.COLOR_GRAY2RGB)
-    else:
-        frame = cv.cvtColor(img, cv.COLOR_BGR2RGB)
-    h, w = img.shape[:2]
-    bytesPerLine = 3 * w
-    qimage = QImage(frame.data, w, h, bytesPerLine, QImage.Format.Format_RGB888)
-    return qimage
+original_image=None
 
 
 class MainWindow(QMainWindow):
@@ -69,11 +58,10 @@ class MainWindow(QMainWindow):
 
         # SET HOME PAGE AND SELECT MENU
         # ///////////////////////////////////////////////////////////////
-        widgets.stackedWidget.setCurrentWidget(widgets.home)
+        widgets.stackedWidget.setCurrentWidget(widgets.home_page)
         widgets.btn_home.setStyleSheet(UIFunctions.selectMenu(widgets.btn_home.styleSheet()))
 
-    # BUTTONS CLICK
-    # Post here your functions for clicked buttons
+    # BUTTONS FUNCTIONS
     # ///////////////////////////////////////////////////////////////
     def buttonClick(self):
         # GET BUTTON CLICKED
@@ -82,13 +70,13 @@ class MainWindow(QMainWindow):
 
         # SHOW HOME PAGE
         if btnName == "btn_home":
-            widgets.stackedWidget.setCurrentWidget(widgets.home)
+            widgets.stackedWidget.setCurrentWidget(widgets.home_page)
             UIFunctions.resetStyle(self, btnName)
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
 
         # SHOW Segmentation PAGE
         if btnName == "btn_preProcessing":
-            widgets.stackedWidget.setCurrentWidget(widgets.new_page)
+            widgets.stackedWidget.setCurrentWidget(widgets.preprocessing_page)
             UIFunctions.resetStyle(self, btnName)
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
 
@@ -98,12 +86,21 @@ class MainWindow(QMainWindow):
         # Update Size Grips
         UIFunctions.resize_grips(self)
 
+    # MOUSE CLICK EVENTS
+    # DRAG THE APPLICATION FUNCTION
+    # ///////////////////////////////////////////////////////////////
+
+    def mousePressEvent(self, event):
+        self.dragPos = event.globalPos()
+
     def number_changed(self):
         global imagePath
         thresh_value = int(str(self.ui.threshHoldSlider.value()))
+
         kernal_value = int(str(self.ui.kernalSlider.value()))
         if kernal_value % 2 == 0:
             kernal_value += 1
+
         img = cv.imread(imagePath[0])
         x = preprocessing.preprocess(img, thresh_value, kernal_value)
         widgets.label.setPixmap(QPixmap(cv2pxi(x)))
@@ -120,8 +117,22 @@ class MainWindow(QMainWindow):
     def changeAngel(self):
         angel_value = int(str(self.ui.angelSlider.value()))
         img = cv.imread(imagePath[0])
-        img=preprocessing.rotate_image(img,angel_value)
+        img = preprocessing.rotate_image(img, angel_value)
         widgets.label.setPixmap(QPixmap(cv2pxi(img)))
+
+
+# RECONSTRUCT THE IMAGE FROM NUMPY ARRAY TO PXI IMAGE
+# ///////////////////////////////////////////////////////////////
+def cv2pxi(img):
+    if len(img.shape) < 3:
+        frame = cv.cvtColor(img, cv.COLOR_GRAY2RGB)
+    else:
+        frame = cv.cvtColor(img, cv.COLOR_BGR2RGB)
+    h, w = img.shape[:2]
+    bytesPerLine = 3 * w
+    qimage = QImage(frame.data, w, h, bytesPerLine, QImage.Format.Format_RGB888)
+    return qimage
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

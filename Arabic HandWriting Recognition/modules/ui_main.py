@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainlZPrzq.ui'
+## Form generated from reading UI file 'mainLVfJuS.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.2.4
 ##
@@ -18,7 +18,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLabel,
     QMainWindow, QPushButton, QSizePolicy, QSlider,
     QSpacerItem, QStackedWidget, QVBoxLayout, QWidget)
-from . resources_rc import *
+from  . resources_rc import *
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -645,6 +645,13 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_8.addWidget(self.btn_preProcessing)
 
+        self.btn_segmentaion = QPushButton(self.topMenu)
+        self.btn_segmentaion.setObjectName(u"btn_segmentaion")
+        self.btn_segmentaion.setMinimumSize(QSize(0, 45))
+        self.btn_segmentaion.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-cut.png);")
+
+        self.verticalLayout_8.addWidget(self.btn_segmentaion)
+
 
         self.verticalMenuLayout.addWidget(self.topMenu, 0, Qt.AlignTop)
 
@@ -822,38 +829,38 @@ class Ui_MainWindow(object):
         self.stackedWidget = QStackedWidget(self.pagesContainer)
         self.stackedWidget.setObjectName(u"stackedWidget")
         self.stackedWidget.setStyleSheet(u"background: transparent;")
-        self.home = QWidget()
-        self.home.setObjectName(u"home")
-        self.home.setStyleSheet(u"\n"
+        self.home_page = QWidget()
+        self.home_page.setObjectName(u"home_page")
+        self.home_page.setStyleSheet(u"\n"
 "background-position: center;\n"
 "background-repeat: no-repeat;")
-        self.verticalLayout_21 = QVBoxLayout(self.home)
+        self.verticalLayout_21 = QVBoxLayout(self.home_page)
         self.verticalLayout_21.setObjectName(u"verticalLayout_21")
-        self.imageView = QLabel(self.home)
+        self.imageView = QLabel(self.home_page)
         self.imageView.setObjectName(u"imageView")
         self.imageView.setScaledContents(True)
 
         self.verticalLayout_21.addWidget(self.imageView, 0, Qt.AlignHCenter)
 
-        self.btn_select = QPushButton(self.home)
+        self.btn_select = QPushButton(self.home_page)
         self.btn_select.setObjectName(u"btn_select")
 
         self.verticalLayout_21.addWidget(self.btn_select)
 
-        self.stackedWidget.addWidget(self.home)
-        self.widgets = QWidget()
-        self.widgets.setObjectName(u"widgets")
-        self.widgets.setStyleSheet(u"b")
-        self.verticalLayout = QVBoxLayout(self.widgets)
+        self.stackedWidget.addWidget(self.home_page)
+        self.segmentation_page = QWidget()
+        self.segmentation_page.setObjectName(u"segmentation_page")
+        self.segmentation_page.setStyleSheet(u"b")
+        self.verticalLayout = QVBoxLayout(self.segmentation_page)
         self.verticalLayout.setSpacing(10)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.verticalLayout.setContentsMargins(10, 10, 10, 10)
-        self.stackedWidget.addWidget(self.widgets)
-        self.new_page = QWidget()
-        self.new_page.setObjectName(u"new_page")
-        self.horizontalLayout_6 = QHBoxLayout(self.new_page)
+        self.stackedWidget.addWidget(self.segmentation_page)
+        self.preprocessing_page = QWidget()
+        self.preprocessing_page.setObjectName(u"preprocessing_page")
+        self.horizontalLayout_6 = QHBoxLayout(self.preprocessing_page)
         self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
-        self.widget = QWidget(self.new_page)
+        self.widget = QWidget(self.preprocessing_page)
         self.widget.setObjectName(u"widget")
         sizePolicy2.setHeightForWidth(self.widget.sizePolicy().hasHeightForWidth())
         self.widget.setSizePolicy(sizePolicy2)
@@ -883,7 +890,7 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_6.addWidget(self.widget)
 
-        self.widget_2 = QWidget(self.new_page)
+        self.widget_2 = QWidget(self.preprocessing_page)
         self.widget_2.setObjectName(u"widget_2")
         sizePolicy4 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
         sizePolicy4.setHorizontalStretch(0)
@@ -999,7 +1006,7 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_6.addWidget(self.widget_2)
 
-        self.stackedWidget.addWidget(self.new_page)
+        self.stackedWidget.addWidget(self.preprocessing_page)
 
         self.verticalLayout_15.addWidget(self.stackedWidget)
 
@@ -1062,7 +1069,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(2)
+        self.stackedWidget.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1073,6 +1080,7 @@ class Ui_MainWindow(object):
         self.toggleButton.setText(QCoreApplication.translate("MainWindow", u"Hide", None))
         self.btn_home.setText(QCoreApplication.translate("MainWindow", u"Home", None))
         self.btn_preProcessing.setText(QCoreApplication.translate("MainWindow", u"PreProcessing", None))
+        self.btn_segmentaion.setText(QCoreApplication.translate("MainWindow", u"PushButton", None))
         self.toggleLeftBox.setText(QCoreApplication.translate("MainWindow", u"Left Box", None))
         self.titleRightInfo.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-weight:700;\">Arabic HandWriting Recogniton</span></p></body></html>", None))
 #if QT_CONFIG(tooltip)
