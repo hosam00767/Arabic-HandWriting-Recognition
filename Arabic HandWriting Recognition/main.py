@@ -31,7 +31,6 @@ class MainWindow(QMainWindow):
         global widgets
         widgets = self.ui
 
-
         # USE CUSTOM TITLE BAR | USE AS "False" FOR MAC OR LINUX
         # ///////////////////////////////////////////////////////////////
         Settings.ENABLE_CUSTOM_TITLE_BAR = True
@@ -59,6 +58,14 @@ class MainWindow(QMainWindow):
 
         widgets.dotsSlider.valueChanged.connect(self.changeDotArea)
 
+        # SETTING THE VALUE OF THE SLIDERS
+        thresh_value = int(str(self.ui.threshHoldSlider.value()))
+        kernal_value = int(str(self.ui.kernalSlider.value()))
+        dotsArea_value = int(str(self.ui.dotsSlider.value()))
+
+        widgets.thresh_value.setText(str(thresh_value))
+        widgets.blur_value.setText(str(kernal_value))
+        widgets.dot_value.setText(str(dotsArea_value))
         # SHOW APP
         # ///////////////////////////////////////////////////////////////
         self.show()
@@ -106,7 +113,7 @@ class MainWindow(QMainWindow):
         self.dragPos = event.globalPos()
 
     def number_changed(self):
-        stp.segment_img_to_PAWS()
+
         global originalImagePath
         thresh_value = int(str(self.ui.threshHoldSlider.value()))
         kernal_value = int(str(self.ui.kernalSlider.value()))
@@ -114,6 +121,9 @@ class MainWindow(QMainWindow):
         if kernal_value % 2 == 0:
             kernal_value += 1
             self.ui.kernalSlider.setValue(kernal_value)
+
+        widgets.thresh_value.setText(str(thresh_value))
+        widgets.blur_value.setText(str(kernal_value))
 
         img = cv.imread(originalImagePath)
         x = pp.preprocess(img, thresh_value, kernal_value)
@@ -161,9 +171,8 @@ class MainWindow(QMainWindow):
     def changeDotArea(self):
         thresh_value = int(str(self.ui.threshHoldSlider.value()))
         kernal_value = int(str(self.ui.kernalSlider.value()))
-
-        print(kernal_value)
         dotsArea_value = int(str(self.ui.dotsSlider.value()))
+        widgets.dot_value.setText(str(dotsArea_value))
         img = cv.imread(originalImagePath)
         img = pp.showDots(img, thresh_value, kernal_value, dotsArea_value)
         widgets.label.setPixmap(QPixmap(cv2pxi(img)))

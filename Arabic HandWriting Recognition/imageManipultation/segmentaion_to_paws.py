@@ -1,5 +1,5 @@
 import math
-from .preprocessing import *
+from . preprocessing import *
 
 
 def distance(p1, p2):
@@ -40,7 +40,7 @@ def merge_ctrs(ctrs_to_merge):
 
 
 def exract(img, component):
-    image = cv.imread(r"E:\PROJECT IMPORTANT\das.png")
+    image = cv.imread(r"E:\PROJECT IMPORTANT\w.jpg.png")
     for i in range(len(component)):
         mask = zero = np.ones_like(img) * 255
         hull = cv.convexHull(component[i])
@@ -50,7 +50,7 @@ def exract(img, component):
 
 
 def segment_img_to_PAWS():
-    img = cv.imread(r"E:\PROJECT IMPORTANT\das.png")
+    img = cv.imread(r"E:\PROJECT IMPORTANT\w.jpg.png")
     dots = []
     component = []
     p = preprocess(img)

@@ -26,7 +26,7 @@ def showDots(img, thresh_value, kernal_value, dotArea_value):
 
         if cv.contourArea(cnt) < dotArea_value:
             print(dotArea_value)
-            cv.drawContours(x, cnt, -1, (255, 0, 255), -1)
+            cv.drawContours(x, cnt, -1, (255, 0, 255), 3)
     return x
 
 

@@ -7,8 +7,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>974</width>
-    <height>728</height>
+    <width>979</width>
+    <height>799</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -1151,7 +1151,7 @@ Button */
                   </property>
                   <property name="icon">
                    <iconset resource="resources.qrc">
-                    <normaloff>:/icons/images/icons/icon_close.png</normaloff>:/icons/images/icons/icon_close.png</iconset>
+                    <normaloff>:/icons/images/icons/cil-x.png</normaloff>:/icons/images/icons/cil-x.png</iconset>
                   </property>
                   <property name="iconSize">
                    <size>
@@ -1231,16 +1231,16 @@ Button */
                     <number>0</number>
                    </property>
                    <property name="leftMargin">
-                    <number>10</number>
+                    <number>0</number>
                    </property>
                    <property name="topMargin">
-                    <number>10</number>
+                    <number>0</number>
                    </property>
                    <property name="rightMargin">
-                    <number>10</number>
+                    <number>0</number>
                    </property>
                    <property name="bottomMargin">
-                    <number>10</number>
+                    <number>0</number>
                    </property>
                    <item>
                     <widget class="QStackedWidget" name="stackedWidget">
@@ -1257,8 +1257,14 @@ background-position: center;
 background-repeat: no-repeat;</string>
                       </property>
                       <layout class="QVBoxLayout" name="verticalLayout_21">
-                       <item alignment="Qt::AlignHCenter">
+                       <item>
                         <widget class="QLabel" name="imageView">
+                         <property name="sizePolicy">
+                          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                           <horstretch>0</horstretch>
+                           <verstretch>0</verstretch>
+                          </sizepolicy>
+                         </property>
                          <property name="text">
                           <string/>
                          </property>
@@ -1267,7 +1273,7 @@ background-repeat: no-repeat;</string>
                          </property>
                         </widget>
                        </item>
-                       <item alignment="Qt::AlignHCenter|Qt::AlignBottom">
+                       <item>
                         <widget class="QLabel" name="textView">
                          <property name="sizePolicy">
                           <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
@@ -1324,7 +1330,7 @@ background-repeat: no-repeat;</string>
                        <item>
                         <widget class="QWidget" name="widget" native="true">
                          <property name="sizePolicy">
-                          <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                            <horstretch>0</horstretch>
                            <verstretch>0</verstretch>
                           </sizepolicy>
@@ -1348,7 +1354,7 @@ background-repeat: no-repeat;</string>
                           <item>
                            <widget class="QLabel" name="label">
                             <property name="sizePolicy">
-                             <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
+                             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                               <horstretch>0</horstretch>
                               <verstretch>0</verstretch>
                              </sizepolicy>
@@ -1382,14 +1388,20 @@ padding: 4px;
                        <item>
                         <widget class="QWidget" name="widget_2" native="true">
                          <property name="sizePolicy">
-                          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                          <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
                            <horstretch>0</horstretch>
                            <verstretch>0</verstretch>
                           </sizepolicy>
                          </property>
+                         <property name="minimumSize">
+                          <size>
+                           <width>250</width>
+                           <height>0</height>
+                          </size>
+                         </property>
                          <property name="maximumSize">
                           <size>
-                           <width>300</width>
+                           <width>250</width>
                            <height>16777215</height>
                           </size>
                          </property>
@@ -1409,7 +1421,7 @@ padding: 4px;
                           <property name="bottomMargin">
                            <number>0</number>
                           </property>
-                          <item alignment="Qt::AlignTop">
+                          <item>
                            <widget class="QFrame" name="frame">
                             <property name="frameShape">
                              <enum>QFrame::StyledPanel</enum>
@@ -1442,23 +1454,52 @@ padding: 4px;
                               </widget>
                              </item>
                              <item>
-                              <widget class="QPushButton" name="btn_applyRotation">
-                               <property name="styleSheet">
-                                <string notr="true">background-color:#2EFF2E;</string>
+                              <widget class="QFrame" name="frame_5">
+                               <property name="frameShape">
+                                <enum>QFrame::StyledPanel</enum>
                                </property>
-                               <property name="text">
-                                <string>Apply</string>
+                               <property name="frameShadow">
+                                <enum>QFrame::Raised</enum>
                                </property>
-                              </widget>
-                             </item>
-                             <item>
-                              <widget class="QPushButton" name="btn_revertRotaion">
-                               <property name="styleSheet">
-                                <string notr="true">background-color:#FF0000;</string>
-                               </property>
-                               <property name="text">
-                                <string>Revert</string>
-                               </property>
+                               <layout class="QHBoxLayout" name="horizontalLayout_8">
+                                <item alignment="Qt::AlignHCenter">
+                                 <widget class="QPushButton" name="btn_applyRotation">
+                                  <property name="styleSheet">
+                                   <string notr="true">QPushButton:hover {
+	background-color: rgb(40, 44, 52);
+}
+QPushButton:pressed {	
+	background-color: rgb(0, 255, 0);
+	color: rgb(255, 255, 255);
+}</string>
+                                  </property>
+                                  <property name="text">
+                                   <string/>
+                                  </property>
+                                  <property name="icon">
+                                   <iconset resource="resources.qrc">
+                                    <normaloff>:/icons/images/icons/cil-check-alt.png</normaloff>:/icons/images/icons/cil-check-alt.png</iconset>
+                                  </property>
+                                 </widget>
+                                </item>
+                                <item alignment="Qt::AlignHCenter">
+                                 <widget class="QPushButton" name="btn_revertRotaion">
+                                  <property name="styleSheet">
+                                   <string notr="true">QPushButton:pressed {	
+	background-color: rgb(255, 0, 0);
+
+}</string>
+                                  </property>
+                                  <property name="text">
+                                   <string/>
+                                  </property>
+                                  <property name="icon">
+                                   <iconset resource="resources.qrc">
+                                    <normaloff>:/icons/images/icons/cil-x.png</normaloff>:/icons/images/icons/cil-x.png</iconset>
+                                  </property>
+                                 </widget>
+                                </item>
+                               </layout>
                               </widget>
                              </item>
                             </layout>
@@ -1480,32 +1521,76 @@ padding: 4px;
                                </property>
                               </widget>
                              </item>
-                             <item alignment="Qt::AlignBottom">
-                              <widget class="QSlider" name="kernalSlider">
-                               <property name="minimum">
-                                <number>1</number>
+                             <item>
+                              <widget class="QFrame" name="frame_6">
+                               <property name="frameShape">
+                                <enum>QFrame::StyledPanel</enum>
                                </property>
-                               <property name="maximum">
-                                <number>11</number>
+                               <property name="frameShadow">
+                                <enum>QFrame::Raised</enum>
                                </property>
-                               <property name="singleStep">
-                                <number>3</number>
-                               </property>
-                               <property name="pageStep">
-                                <number>0</number>
-                               </property>
-                               <property name="value">
-                                <number>3</number>
-                               </property>
-                               <property name="orientation">
-                                <enum>Qt::Horizontal</enum>
-                               </property>
-                               <property name="tickPosition">
-                                <enum>QSlider::TicksAbove</enum>
-                               </property>
-                               <property name="tickInterval">
-                                <number>2</number>
-                               </property>
+                               <layout class="QHBoxLayout" name="horizontalLayout_9">
+                                <property name="rightMargin">
+                                 <number>0</number>
+                                </property>
+                                <item>
+                                 <widget class="QSlider" name="kernalSlider">
+                                  <property name="minimum">
+                                   <number>1</number>
+                                  </property>
+                                  <property name="maximum">
+                                   <number>11</number>
+                                  </property>
+                                  <property name="singleStep">
+                                   <number>3</number>
+                                  </property>
+                                  <property name="pageStep">
+                                   <number>0</number>
+                                  </property>
+                                  <property name="value">
+                                   <number>3</number>
+                                  </property>
+                                  <property name="orientation">
+                                   <enum>Qt::Horizontal</enum>
+                                  </property>
+                                  <property name="tickPosition">
+                                   <enum>QSlider::TicksAbove</enum>
+                                  </property>
+                                  <property name="tickInterval">
+                                   <number>2</number>
+                                  </property>
+                                 </widget>
+                                </item>
+                                <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+                                 <widget class="QLabel" name="blur_value">
+                                  <property name="sizePolicy">
+                                   <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+                                    <horstretch>0</horstretch>
+                                    <verstretch>0</verstretch>
+                                   </sizepolicy>
+                                  </property>
+                                  <property name="minimumSize">
+                                   <size>
+                                    <width>20</width>
+                                    <height>20</height>
+                                   </size>
+                                  </property>
+                                  <property name="maximumSize">
+                                   <size>
+                                    <width>20</width>
+                                    <height>20</height>
+                                   </size>
+                                  </property>
+                                  <property name="styleSheet">
+                                   <string notr="true">background-color:rgb(33, 37, 43);
+  text-align: center;</string>
+                                  </property>
+                                  <property name="text">
+                                   <string/>
+                                  </property>
+                                 </widget>
+                                </item>
+                               </layout>
                               </widget>
                              </item>
                             </layout>
@@ -1526,6 +1611,9 @@ padding: 4px;
                              <enum>QFrame::Raised</enum>
                             </property>
                             <layout class="QVBoxLayout" name="verticalLayout_7">
+                             <property name="rightMargin">
+                              <number>0</number>
+                             </property>
                              <item>
                               <widget class="QLabel" name="label_3">
                                <property name="sizePolicy">
@@ -1540,34 +1628,75 @@ padding: 4px;
                               </widget>
                              </item>
                              <item>
-                              <widget class="QSlider" name="threshHoldSlider">
-                               <property name="sizePolicy">
-                                <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
-                                 <horstretch>0</horstretch>
-                                 <verstretch>0</verstretch>
-                                </sizepolicy>
+                              <widget class="QFrame" name="frame_7">
+                               <property name="frameShape">
+                                <enum>QFrame::StyledPanel</enum>
                                </property>
-                               <property name="styleSheet">
-                                <string notr="true"/>
+                               <property name="frameShadow">
+                                <enum>QFrame::Raised</enum>
                                </property>
-                               <property name="maximum">
-                                <number>255</number>
-                               </property>
-                               <property name="pageStep">
-                                <number>2</number>
-                               </property>
-                               <property name="value">
-                                <number>127</number>
-                               </property>
-                               <property name="orientation">
-                                <enum>Qt::Horizontal</enum>
-                               </property>
-                               <property name="invertedAppearance">
-                                <bool>false</bool>
-                               </property>
-                               <property name="invertedControls">
-                                <bool>false</bool>
-                               </property>
+                               <layout class="QHBoxLayout" name="horizontalLayout_10">
+                                <item>
+                                 <widget class="QSlider" name="threshHoldSlider">
+                                  <property name="sizePolicy">
+                                   <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
+                                    <horstretch>0</horstretch>
+                                    <verstretch>0</verstretch>
+                                   </sizepolicy>
+                                  </property>
+                                  <property name="styleSheet">
+                                   <string notr="true"/>
+                                  </property>
+                                  <property name="maximum">
+                                   <number>255</number>
+                                  </property>
+                                  <property name="pageStep">
+                                   <number>2</number>
+                                  </property>
+                                  <property name="value">
+                                   <number>127</number>
+                                  </property>
+                                  <property name="orientation">
+                                   <enum>Qt::Horizontal</enum>
+                                  </property>
+                                  <property name="invertedAppearance">
+                                   <bool>false</bool>
+                                  </property>
+                                  <property name="invertedControls">
+                                   <bool>false</bool>
+                                  </property>
+                                 </widget>
+                                </item>
+                                <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+                                 <widget class="QLabel" name="thresh_value">
+                                  <property name="sizePolicy">
+                                   <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+                                    <horstretch>0</horstretch>
+                                    <verstretch>0</verstretch>
+                                   </sizepolicy>
+                                  </property>
+                                  <property name="minimumSize">
+                                   <size>
+                                    <width>20</width>
+                                    <height>20</height>
+                                   </size>
+                                  </property>
+                                  <property name="maximumSize">
+                                   <size>
+                                    <width>20</width>
+                                    <height>20</height>
+                                   </size>
+                                  </property>
+                                  <property name="styleSheet">
+                                   <string notr="true">background-color:rgb(33, 37, 43);
+  text-align: center;</string>
+                                  </property>
+                                  <property name="text">
+                                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                                  </property>
+                                 </widget>
+                                </item>
+                               </layout>
                               </widget>
                              </item>
                             </layout>
@@ -1590,16 +1719,67 @@ padding: 4px;
                               </widget>
                              </item>
                              <item>
-                              <widget class="QSlider" name="dotsSlider">
-                               <property name="maximum">
-                                <number>100</number>
+                              <widget class="QFrame" name="frame_8">
+                               <property name="frameShape">
+                                <enum>QFrame::StyledPanel</enum>
                                </property>
-                               <property name="value">
-                                <number>28</number>
+                               <property name="frameShadow">
+                                <enum>QFrame::Raised</enum>
                                </property>
-                               <property name="orientation">
-                                <enum>Qt::Horizontal</enum>
-                               </property>
+                               <layout class="QHBoxLayout" name="horizontalLayout_11">
+                                <property name="rightMargin">
+                                 <number>0</number>
+                                </property>
+                                <item>
+                                 <widget class="QSlider" name="dotsSlider">
+                                  <property name="maximum">
+                                   <number>100</number>
+                                  </property>
+                                  <property name="value">
+                                   <number>28</number>
+                                  </property>
+                                  <property name="orientation">
+                                   <enum>Qt::Horizontal</enum>
+                                  </property>
+                                 </widget>
+                                </item>
+                                <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+                                 <widget class="QLabel" name="dot_value">
+                                  <property name="sizePolicy">
+                                   <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+                                    <horstretch>0</horstretch>
+                                    <verstretch>0</verstretch>
+                                   </sizepolicy>
+                                  </property>
+                                  <property name="minimumSize">
+                                   <size>
+                                    <width>20</width>
+                                    <height>13</height>
+                                   </size>
+                                  </property>
+                                  <property name="maximumSize">
+                                   <size>
+                                    <width>20</width>
+                                    <height>20</height>
+                                   </size>
+                                  </property>
+                                  <property name="styleSheet">
+                                   <string notr="true">background-color:rgb(33, 37, 43);
+border-radius: 15px;
+overflow: hidden;
+border-width: 2px;
+border-radius: 15px;
+perspective: 1px;
+  text-align: center;
+
+</string>
+                                  </property>
+                                  <property name="text">
+                                   <string/>
+                                  </property>
+                                 </widget>
+                                </item>
+                               </layout>
                               </widget>
                              </item>
                             </layout>
