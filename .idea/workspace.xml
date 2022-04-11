@@ -1,266 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="985a25ac-2575-4ff7-a952-e343daf067cf" name="Default Changelist" comment="&quot;small edits&quot;">
+    <list default="true" id="985a25ac-2575-4ff7-a952-e343daf067cf" name="Default Changelist" comment="&quot;...&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-3d.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-4k.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-account-logout.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-action-redo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-action-undo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-airplane-mode-off.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-airplane-mode.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-alarm.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-align-center.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-align-left.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-align-right.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-arrow-bottom-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-arrow-bottom.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-arrow-circle-bottom.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-arrow-circle-left.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-arrow-circle-right.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-arrow-circle-top.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-arrow-left.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-arrow-right.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-arrow-top.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-at.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-av-timer.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-ban.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-battery-0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-battery-3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-battery-5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-battery-alert.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-battery-slash.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-bell.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-bluetooth.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-briefcase.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-browser.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-calendar-check.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-camera-roll.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-camera.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-caret-bottom.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-caret-left.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-caret-right.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-caret-top.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-cart.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-cast.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-chart-line.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-chart-pie.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-chart.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-chat-bubble.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-check-alt.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-check-circle.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-check.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-chevron-bottom.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-chevron-circle-down-alt.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-chevron-circle-left-alt.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-chevron-circle-right-alt.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-chevron-circle-up-alt.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-chevron-double-down.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-chevron-double-left.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-chevron-double-right.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-chevron-double-up-alt.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-chevron-double-up.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-chevron-left.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-chevron-right.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-chevron-top.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-circle.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-clipboard.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-clock.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-clone.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-closed-captioning.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-cloud-download.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-cloud-upload.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-cloudy.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-code.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-coffee.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-comment-bubble.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-comment-square.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-credit-card.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-cursor-move.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-cursor.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-cut.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-data-transfer-down.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-data-transfer-up.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-deaf.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-description.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-devices.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-dialpad.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-dog.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-door.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-double-quote-sans-left.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-double-quote-sans-right.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-drop.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-envelope-closed.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-envelope-letter.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-envelope-open.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-equalizer.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-ethernet.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-exit-to-app.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-expand-down.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-expand-left.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-expand-right.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-expand-up.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-exposure.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-external-link.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-face-dead.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-featured-playlist.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-file.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-find-in-page.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-fingerprint.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-fire.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-flip-to-back.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-folder-open.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-folder.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-frown.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-gamepad.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-hand-point-down.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-hand-point-left.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-hand-point-right.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-hand-point-up.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-hd.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-hdr.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-headphones.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-heart.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-highligt.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-history.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-home.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-house.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-image-plus.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-image1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-infinity.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-input-power.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-input.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-justify-center.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-justify-left.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-justify-right.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-keyboard.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-laptop.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-layers.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-level-down.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-level-up.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-library-add.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-library.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-lightbulb.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-link-alt.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-link-broken.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-link.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-location-pin.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-lock-locked.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-lock-unlocked.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-loop-1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-loop-circular.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-loop.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-low-vision.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-magnifying-glass.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-map.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-media-eject.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-media-pause.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-media-play.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-media-skip-backward.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-media-skip-forward.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-media-step-backward.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-media-step-forward.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-media-stop.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-medical-cross.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-meh.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-menu.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-microphone.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-minus.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-mobile-landscape.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-mobile.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-mood-bad.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-mood-good.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-mood-very-bad.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-mood-very-good.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-moon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-mouse.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-move.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-movie.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-mug-tea.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-mug.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-notes.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-options-horizontal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-options.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-paint-bucket.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-paper-plane.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-paperclip.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-paragraph.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-pen-alt.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-pencil.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-people.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-phone.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-pin.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-plus.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-power-standby.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-print.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-rectangle.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-reload.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-remove.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-rss.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-satelite.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-save.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-screen-desktop.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-screen-smartphone.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-settings.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-share-boxed.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-share.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-signal-cellular-0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-signal-cellular-3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-size-grip.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-smile.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-speaker.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-speech.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-speedometer.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-star.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-tags.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-task.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-terminal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-text-size.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-text-square.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-text.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-thumb-down.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-thumb-up.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-transfer.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-triangle.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-truck.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-user-female.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-user-follow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-user-unfollow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-user.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-vertical-align-bottom.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-view-column.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-view-module.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-view-quilt.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-view-stream.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-voice-over-record.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-volume-high.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-volume-low.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-volume-off.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-wallet.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-watch.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-wifi-signal-0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-wifi-signal-1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-wifi-signal-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-wifi-signal-4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-wifi-signal-off.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-window-maximize.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-window-minimize.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-window-restore.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-wrap-text.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-x-circle.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-zoom-in.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/cil-zoom-out.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/icon_close.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/icon_maximize.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/icon_menu.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/icon_minimize.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/icon_restore.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/icons/icon_settings.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/images/PyDracula.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/images/PyDracula_horizontal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/images/PyDracula_vertical.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/imageManipultation/preprocessing.py" beforeDir="false" afterPath="$PROJECT_DIR$/Arabic HandWriting Recognition/imageManipultation/preprocessing.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Arabic HandWriting Recognition/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/main.ui" beforeDir="false" afterPath="$PROJECT_DIR$/Arabic HandWriting Recognition/main.ui" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/modules/ui_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Arabic HandWriting Recognition/modules/ui_main.py" afterDir="false" />
@@ -502,7 +245,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649672692757</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="&quot;...&quot;">
+      <created>1649675982754</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1649675982754</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -532,6 +282,7 @@
     <MESSAGE value="&quot;adding lines function &quot;" />
     <MESSAGE value="&quot;small editing + segmentaion button+page &quot;" />
     <MESSAGE value="&quot;small edits&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;small edits&quot;" />
+    <MESSAGE value="&quot;...&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;...&quot;" />
   </component>
 </project>

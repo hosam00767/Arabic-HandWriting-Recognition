@@ -1441,6 +1441,26 @@ padding: 4px;
                                </property>
                               </widget>
                              </item>
+                             <item>
+                              <widget class="QPushButton" name="btn_applyRotation">
+                               <property name="styleSheet">
+                                <string notr="true">background-color:#2EFF2E;</string>
+                               </property>
+                               <property name="text">
+                                <string>Apply</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item>
+                              <widget class="QPushButton" name="btn_revertRotaion">
+                               <property name="styleSheet">
+                                <string notr="true">background-color:#FF0000;</string>
+                               </property>
+                               <property name="text">
+                                <string>Revert</string>
+                               </property>
+                              </widget>
+                             </item>
                             </layout>
                            </widget>
                           </item>
@@ -1453,7 +1473,7 @@ padding: 4px;
                              <enum>QFrame::Raised</enum>
                             </property>
                             <layout class="QVBoxLayout" name="verticalLayout_10">
-                             <item alignment="Qt::AlignTop">
+                             <item>
                               <widget class="QLabel" name="label_4">
                                <property name="text">
                                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;Change The Blur Kernal    &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -1550,21 +1570,34 @@ padding: 4px;
                             </layout>
                            </widget>
                           </item>
-                          <item>
-                           <spacer name="verticalSpacer">
-                            <property name="orientation">
-                             <enum>Qt::Vertical</enum>
+                          <item alignment="Qt::AlignTop">
+                           <widget class="QFrame" name="frame_4">
+                            <property name="frameShape">
+                             <enum>QFrame::StyledPanel</enum>
                             </property>
-                            <property name="sizeType">
-                             <enum>QSizePolicy::MinimumExpanding</enum>
+                            <property name="frameShadow">
+                             <enum>QFrame::Raised</enum>
                             </property>
-                            <property name="sizeHint" stdset="0">
-                             <size>
-                              <width>20</width>
-                              <height>40</height>
-                             </size>
-                            </property>
-                           </spacer>
+                            <layout class="QVBoxLayout" name="verticalLayout_12">
+                             <item>
+                              <widget class="QLabel" name="label_5">
+                               <property name="text">
+                                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;Edit The Thresh hold for The Dots&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item>
+                              <widget class="QSlider" name="dotsSlider">
+                               <property name="maximum">
+                                <number>100</number>
+                               </property>
+                               <property name="orientation">
+                                <enum>Qt::Horizontal</enum>
+                               </property>
+                              </widget>
+                             </item>
+                            </layout>
+                           </widget>
                           </item>
                           <item alignment="Qt::AlignBottom">
                            <widget class="QPushButton" name="btn_apply_processing">

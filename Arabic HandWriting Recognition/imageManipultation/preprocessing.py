@@ -3,7 +3,7 @@ import cv2 as cv
 import numpy as np
 
 
-def preprocess(img, thresh_value, kernal_value):
+def preprocess(img, thresh_value=0, kernal_value=1):
     gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
     gaussian = cv.GaussianBlur(gray, (kernal_value, kernal_value), 0)
     ret, thresh = cv.threshold(gaussian, thresh_value, 255, cv.THRESH_BINARY_INV)
@@ -14,7 +14,20 @@ def rotate_image(image, angle):
     image_center = tuple(np.array(image.shape[1::-1]) / 2)
     rot_mat = cv.getRotationMatrix2D(image_center, angle, 1.0)
     result = cv.warpAffine(image, rot_mat, image.shape[1::-1], flags=cv.INTER_LINEAR)
+
     return result
+
+
+def showDots(img, thresh_value, kernal_value, dotArea_value):
+    x=img.copy()
+    thresh = preprocess(img, thresh_value, kernal_value)
+    contours, _ = cv.findContours(image=thresh, mode=cv.RETR_EXTERNAL, method=cv.CHAIN_APPROX_NONE)
+    for cnt in contours:
+
+        if cv.contourArea(cnt) < dotArea_value:
+            print(dotArea_value)
+            cv.drawContours(x, cnt, -1, (255, 0, 255), -1)
+    return x
 
 
 def horizontal_proj(img):
@@ -46,14 +59,5 @@ def vconcat_resize_min(im_list, interpolation=cv.INTER_CUBIC):
                       for im in im_list]
     return cv.vconcat(im_list_resize)
 
-
 # returns a preprocessed image that 3 channels image that each dot of that image is painted in white for not being
 # detected in the preprocessing
-def remove_dots(img):
-    without_dots = img.copy()
-    preprocessed = preprocess(img)
-    contours, _ = cv.findContours(image=preprocessed, mode=cv.RETR_EXTERNAL, method=cv.CHAIN_APPROX_NONE)
-    for cnt in contours:
-        if cv.contourArea(cnt) < 35:
-            cv.drawContours(without_dots, cnt, -1, (255, 255, 255), 2)
-    return without_dots

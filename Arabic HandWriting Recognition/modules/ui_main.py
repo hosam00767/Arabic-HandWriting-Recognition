@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainGdkSfy.ui'
+## Form generated from reading UI file 'mainjXIcJM.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.2.4
 ##
@@ -17,8 +17,8 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLabel,
     QMainWindow, QPushButton, QSizePolicy, QSlider,
-    QSpacerItem, QStackedWidget, QVBoxLayout, QWidget)
-from . resources_rc import  *
+    QStackedWidget, QVBoxLayout, QWidget)
+from . resources_rc import *
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -921,6 +921,18 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_11.addWidget(self.angelSlider)
 
+        self.btn_applyRotation = QPushButton(self.frame)
+        self.btn_applyRotation.setObjectName(u"btn_applyRotation")
+        self.btn_applyRotation.setStyleSheet(u"background-color:#2EFF2E;")
+
+        self.verticalLayout_11.addWidget(self.btn_applyRotation)
+
+        self.btn_revertRotaion = QPushButton(self.frame)
+        self.btn_revertRotaion.setObjectName(u"btn_revertRotaion")
+        self.btn_revertRotaion.setStyleSheet(u"background-color:#FF0000;")
+
+        self.verticalLayout_11.addWidget(self.btn_revertRotaion)
+
 
         self.verticalLayout_5.addWidget(self.frame, 0, Qt.AlignTop)
 
@@ -933,7 +945,7 @@ class Ui_MainWindow(object):
         self.label_4 = QLabel(self.frame_3)
         self.label_4.setObjectName(u"label_4")
 
-        self.verticalLayout_10.addWidget(self.label_4, 0, Qt.AlignTop)
+        self.verticalLayout_10.addWidget(self.label_4)
 
         self.kernalSlider = QSlider(self.frame_3)
         self.kernalSlider.setObjectName(u"kernalSlider")
@@ -941,6 +953,7 @@ class Ui_MainWindow(object):
         self.kernalSlider.setMaximum(11)
         self.kernalSlider.setSingleStep(3)
         self.kernalSlider.setPageStep(0)
+        self.kernalSlider.setValue(3)
         self.kernalSlider.setOrientation(Qt.Horizontal)
         self.kernalSlider.setTickPosition(QSlider.TicksAbove)
         self.kernalSlider.setTickInterval(2)
@@ -978,7 +991,7 @@ class Ui_MainWindow(object):
         self.threshHoldSlider.setStyleSheet(u"")
         self.threshHoldSlider.setMaximum(255)
         self.threshHoldSlider.setPageStep(2)
-        self.threshHoldSlider.setValue(0)
+        self.threshHoldSlider.setValue(127)
         self.threshHoldSlider.setOrientation(Qt.Horizontal)
         self.threshHoldSlider.setInvertedAppearance(False)
         self.threshHoldSlider.setInvertedControls(False)
@@ -988,9 +1001,27 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_5.addWidget(self.frame_2, 0, Qt.AlignTop)
 
-        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.MinimumExpanding)
+        self.frame_4 = QFrame(self.widget_2)
+        self.frame_4.setObjectName(u"frame_4")
+        self.frame_4.setFrameShape(QFrame.StyledPanel)
+        self.frame_4.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_12 = QVBoxLayout(self.frame_4)
+        self.verticalLayout_12.setObjectName(u"verticalLayout_12")
+        self.label_5 = QLabel(self.frame_4)
+        self.label_5.setObjectName(u"label_5")
 
-        self.verticalLayout_5.addItem(self.verticalSpacer)
+        self.verticalLayout_12.addWidget(self.label_5)
+
+        self.dotsSlider = QSlider(self.frame_4)
+        self.dotsSlider.setObjectName(u"dotsSlider")
+        self.dotsSlider.setMaximum(100)
+        self.dotsSlider.setValue(28)
+        self.dotsSlider.setOrientation(Qt.Horizontal)
+
+        self.verticalLayout_12.addWidget(self.dotsSlider)
+
+
+        self.verticalLayout_5.addWidget(self.frame_4, 0, Qt.AlignTop)
 
         self.btn_apply_processing = QPushButton(self.widget_2)
         self.btn_apply_processing.setObjectName(u"btn_apply_processing")
@@ -1100,8 +1131,11 @@ class Ui_MainWindow(object):
         self.btn_select.setText(QCoreApplication.translate("MainWindow", u"Select an Image", None))
         self.label.setText("")
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt; font-weight:700;\">Fix The Rotaion of The Image</span></p></body></html>", None))
+        self.btn_applyRotation.setText(QCoreApplication.translate("MainWindow", u"Apply", None))
+        self.btn_revertRotaion.setText(QCoreApplication.translate("MainWindow", u"Revert", None))
         self.label_4.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt; font-weight:700;\">Change The Blur Kernal    </span></p></body></html>", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt; font-weight:700;\">Change The Thresh hold value</span></p></body></html>", None))
+        self.label_5.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt; font-weight:700;\">Edit The Thresh hold for The Dots</span></p></body></html>", None))
         self.btn_apply_processing.setText(QCoreApplication.translate("MainWindow", u"Apply", None))
         self.creditsLabel.setText(QCoreApplication.translate("MainWindow", u"By: Hossam Mamdouh ,Sondos Khaled ,Hanan Isamael", None))
         self.version.setText(QCoreApplication.translate("MainWindow", u"v1.0.3", None))

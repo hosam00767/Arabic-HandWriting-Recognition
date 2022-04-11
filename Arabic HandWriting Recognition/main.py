@@ -17,7 +17,7 @@ os.environ["QT_FONT_DPI"] = "96"  # FIX Problem for High DPI and Scale above 100
 # ///////////////////////////////////////////////////////////////
 widgets = None
 imagePath = None
-original_image = None
+originalImagePath = None
 
 
 class MainWindow(QMainWindow):
@@ -49,9 +49,14 @@ class MainWindow(QMainWindow):
         widgets.btn_segmentation.clicked.connect(self.buttonClick)
 
         widgets.btn_select.clicked.connect(self.selectTheImage)
+
+        widgets.btn_revertRotaion.clicked.connect(self.changeAngel)
+        widgets.btn_applyRotation.clicked.connect(self.changeAngel)
         widgets.threshHoldSlider.valueChanged.connect(self.number_changed)
         widgets.kernalSlider.valueChanged.connect(self.number_changed)
         widgets.angelSlider.valueChanged.connect(self.changeAngel)
+
+        widgets.dotsSlider.valueChanged.connect(self.changeDotArea)
 
         # SHOW APP
         # ///////////////////////////////////////////////////////////////
@@ -100,19 +105,24 @@ class MainWindow(QMainWindow):
         self.dragPos = event.globalPos()
 
     def number_changed(self):
-        global imagePath
+        global originalImagePath
         thresh_value = int(str(self.ui.threshHoldSlider.value()))
         kernal_value = int(str(self.ui.kernalSlider.value()))
+        dotsArea_value = int(str(self.ui.dotsSlider.value()))
         if kernal_value % 2 == 0:
             kernal_value += 1
+            self.ui.kernalSlider.setValue(kernal_value)
 
-        img = cv.imread(imagePath[0])
-        x = pp.preprocess(img, thresh_value, kernal_value)
+        img = cv.imread(originalImagePath)
+        x = pp.preprocess(img,thresh_value, kernal_value)
         widgets.label.setPixmap(QPixmap(cv2pxi(x)))
 
     def selectTheImage(self):
+
+        global originalImagePath
         originalImagePath = r"images/source_image"
-        global imagePath
+
+        # MAKES THE DIRECTORY TO STORE OUR IMAGE IN THE PROJECT
         if not os.path.exists(originalImagePath):
             os.makedirs(originalImagePath)
 
@@ -121,17 +131,41 @@ class MainWindow(QMainWindow):
         if len(imagePath[0]) == 0:
             widgets.textView.setText("no Image Select")
         else:
-            newPath=originalImagePath+"/main_image.png"
+            originalImagePath = originalImagePath + "/main_image.png"
             img = cv.imread(imagePath[0])
-            cv.imwrite(newPath, img)
+            cv.imwrite(originalImagePath, img)
+            widgets.imageView.setPixmap(QPixmap(originalImagePath))
+            widgets.label.setPixmap(QPixmap(originalImagePath))
 
-            widgets.imageView.setPixmap(QPixmap(newPath))
-            widgets.label.setPixmap(QPixmap(newPath))
-
+    # CHANGES THE ANGLE OF THE INPUT IMAGE
     def changeAngel(self):
         angel_value = int(str(self.ui.angelSlider.value()))
-        img = cv.imread(imagePath[0])
-        img = pp.rotate_image(img, angel_value)
+        btn = self.sender()
+        btnName = btn.objectName()
+        img = cv.imread(originalImagePath)
+
+        if btnName == "angelSlider":
+            img = pp.rotate_image(img, angel_value)
+            widgets.label.setPixmap(QPixmap(cv2pxi(img)))
+
+        elif btnName == "btn_applyRotation":
+            img = pp.rotate_image(img, angel_value)
+            cv.imwrite(originalImagePath, img)
+
+        elif btnName == "btn_revertRotaion":
+            img = pp.rotate_image(img, 0)
+            widgets.label.setPixmap(QPixmap(cv2pxi(img)))
+            self.ui.angelSlider.setValue(0)
+
+    def changeDotArea(self):
+        thresh_value = int(str(self.ui.threshHoldSlider.value()))
+        kernal_value = int(str(self.ui.kernalSlider.value()))
+
+
+        print(kernal_value)
+        dotsArea_value = int(str(self.ui.dotsSlider.value()))
+        img = cv.imread(originalImagePath)
+        img = pp.showDots(img, thresh_value, kernal_value, dotsArea_value)
         widgets.label.setPixmap(QPixmap(cv2pxi(img)))
 
 
