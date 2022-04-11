@@ -12,13 +12,11 @@ from imageManipultation import preprocessing
 
 os.environ["QT_FONT_DPI"] = "96"  # FIX Problem for High DPI and Scale above 100%
 
-from imageManipultation import *
-
 # SET AS GLOBAL VARIABLE
 # ///////////////////////////////////////////////////////////////
 widgets = None
 imagePath = None
-original_image=None
+original_image = None
 
 
 class MainWindow(QMainWindow):
@@ -44,9 +42,12 @@ class MainWindow(QMainWindow):
         # ///////////////////////////////////////////////////////////////
         UIFunctions.uiDefinitions(self)
 
-        # LEFT MENU
+        # LEFT MENU BUTTONS
         widgets.btn_home.clicked.connect(self.buttonClick)
-        widgets.btn_preProcessing.clicked.connect(self.buttonClick)
+        widgets.btn_preprocessing.clicked.connect(self.buttonClick)
+        widgets.btn_segmentation.clicked.connect(self.buttonClick)
+
+
         widgets.btn_select.clicked.connect(self.browsefiles)
         widgets.threshHoldSlider.valueChanged.connect(self.number_changed)
         widgets.kernalSlider.valueChanged.connect(self.number_changed)
@@ -74,9 +75,15 @@ class MainWindow(QMainWindow):
             UIFunctions.resetStyle(self, btnName)
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
 
-        # SHOW Segmentation PAGE
-        if btnName == "btn_preProcessing":
+        # SHOW PREPROCESSING PAGE
+        if btnName == "btn_preprocessing":
             widgets.stackedWidget.setCurrentWidget(widgets.preprocessing_page)
+            UIFunctions.resetStyle(self, btnName)
+            btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
+
+        # SHOW THE SEGMENTATION PAGE
+        if btnName == "btn_segmentation":
+            widgets.stackedWidget.setCurrentWidget(widgets.segmentation_page)
             UIFunctions.resetStyle(self, btnName)
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
 
@@ -130,8 +137,8 @@ def cv2pxi(img):
         frame = cv.cvtColor(img, cv.COLOR_BGR2RGB)
     h, w = img.shape[:2]
     bytesPerLine = 3 * w
-    qimage = QImage(frame.data, w, h, bytesPerLine, QImage.Format.Format_RGB888)
-    return qimage
+    img = QImage(frame.data, w, h, bytesPerLine, QImage.Format.Format_RGB888)
+    return img
 
 
 if __name__ == "__main__":
