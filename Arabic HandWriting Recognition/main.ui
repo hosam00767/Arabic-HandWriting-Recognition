@@ -1289,6 +1289,13 @@ background-repeat: no-repeat;</string>
                         </widget>
                        </item>
                        <item>
+                        <widget class="QLabel" name="label_6">
+                         <property name="text">
+                          <string>TextLabel</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
                         <widget class="QPushButton" name="btn_select">
                          <property name="text">
                           <string>Select an Image</string>
