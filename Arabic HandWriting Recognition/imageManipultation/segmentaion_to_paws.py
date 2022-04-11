@@ -1,5 +1,5 @@
 import math
-from . preprocessing import *
+from .preprocessing import *
 
 
 def distance(p1, p2):
@@ -46,8 +46,7 @@ def exract(img, component):
         hull = cv.convexHull(component[i])
         cv.drawContours(mask, [hull], -1, (0, 0, 0), -1)
         zero[mask == (0, 0, 0)] = image[mask == (0, 0, 0)]
-        cv.imshow("r", zero)
-        cv.waitKey(0)
+        cv.imwrite(r"images\paws\s" + str(i) + ".png", zero)
 
 
 def segment_img_to_PAWS():
