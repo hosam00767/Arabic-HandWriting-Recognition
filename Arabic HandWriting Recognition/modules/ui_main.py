@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'maineoObSR.ui'
+## Form generated from reading UI file 'mainGdkSfy.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.2.4
 ##
@@ -18,7 +18,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLabel,
     QMainWindow, QPushButton, QSizePolicy, QSlider,
     QSpacerItem, QStackedWidget, QVBoxLayout, QWidget)
-from  . resources_rc import *
+from . resources_rc import  *
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -830,6 +830,17 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_21.addWidget(self.imageView, 0, Qt.AlignHCenter)
 
+        self.textView = QLabel(self.home_page)
+        self.textView.setObjectName(u"textView")
+        sizePolicy3 = QSizePolicy(QSizePolicy.MinimumExpanding, QSizePolicy.Preferred)
+        sizePolicy3.setHorizontalStretch(0)
+        sizePolicy3.setVerticalStretch(0)
+        sizePolicy3.setHeightForWidth(self.textView.sizePolicy().hasHeightForWidth())
+        self.textView.setSizePolicy(sizePolicy3)
+        self.textView.setFont(font)
+
+        self.verticalLayout_21.addWidget(self.textView, 0, Qt.AlignHCenter|Qt.AlignBottom)
+
         self.btn_select = QPushButton(self.home_page)
         self.btn_select.setObjectName(u"btn_select")
 
@@ -858,11 +869,11 @@ class Ui_MainWindow(object):
         self.horizontalLayout_7.setContentsMargins(0, 0, 0, 0)
         self.label = QLabel(self.widget)
         self.label.setObjectName(u"label")
-        sizePolicy3 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Expanding)
-        sizePolicy3.setHorizontalStretch(0)
-        sizePolicy3.setVerticalStretch(0)
-        sizePolicy3.setHeightForWidth(self.label.sizePolicy().hasHeightForWidth())
-        self.label.setSizePolicy(sizePolicy3)
+        sizePolicy4 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Expanding)
+        sizePolicy4.setHorizontalStretch(0)
+        sizePolicy4.setVerticalStretch(0)
+        sizePolicy4.setHeightForWidth(self.label.sizePolicy().hasHeightForWidth())
+        self.label.setSizePolicy(sizePolicy4)
         self.label.setMinimumSize(QSize(500, 0))
         self.label.setStyleSheet(u"\n"
 "border-style: outset;\n"
@@ -880,11 +891,12 @@ class Ui_MainWindow(object):
 
         self.widget_2 = QWidget(self.preprocessing_page)
         self.widget_2.setObjectName(u"widget_2")
-        sizePolicy4 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
-        sizePolicy4.setHorizontalStretch(0)
-        sizePolicy4.setVerticalStretch(0)
-        sizePolicy4.setHeightForWidth(self.widget_2.sizePolicy().hasHeightForWidth())
-        self.widget_2.setSizePolicy(sizePolicy4)
+        sizePolicy5 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        sizePolicy5.setHorizontalStretch(0)
+        sizePolicy5.setVerticalStretch(0)
+        sizePolicy5.setHeightForWidth(self.widget_2.sizePolicy().hasHeightForWidth())
+        self.widget_2.setSizePolicy(sizePolicy5)
+        self.widget_2.setMaximumSize(QSize(300, 16777215))
         self.verticalLayout_5 = QVBoxLayout(self.widget_2)
         self.verticalLayout_5.setSpacing(0)
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
@@ -940,29 +952,29 @@ class Ui_MainWindow(object):
 
         self.frame_2 = QFrame(self.widget_2)
         self.frame_2.setObjectName(u"frame_2")
-        sizePolicy4.setHeightForWidth(self.frame_2.sizePolicy().hasHeightForWidth())
-        self.frame_2.setSizePolicy(sizePolicy4)
+        sizePolicy5.setHeightForWidth(self.frame_2.sizePolicy().hasHeightForWidth())
+        self.frame_2.setSizePolicy(sizePolicy5)
         self.frame_2.setFrameShape(QFrame.StyledPanel)
         self.frame_2.setFrameShadow(QFrame.Raised)
         self.verticalLayout_7 = QVBoxLayout(self.frame_2)
         self.verticalLayout_7.setObjectName(u"verticalLayout_7")
         self.label_3 = QLabel(self.frame_2)
         self.label_3.setObjectName(u"label_3")
-        sizePolicy5 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.MinimumExpanding)
-        sizePolicy5.setHorizontalStretch(0)
-        sizePolicy5.setVerticalStretch(0)
-        sizePolicy5.setHeightForWidth(self.label_3.sizePolicy().hasHeightForWidth())
-        self.label_3.setSizePolicy(sizePolicy5)
+        sizePolicy6 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.MinimumExpanding)
+        sizePolicy6.setHorizontalStretch(0)
+        sizePolicy6.setVerticalStretch(0)
+        sizePolicy6.setHeightForWidth(self.label_3.sizePolicy().hasHeightForWidth())
+        self.label_3.setSizePolicy(sizePolicy6)
 
         self.verticalLayout_7.addWidget(self.label_3)
 
         self.threshHoldSlider = QSlider(self.frame_2)
         self.threshHoldSlider.setObjectName(u"threshHoldSlider")
-        sizePolicy6 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.MinimumExpanding)
-        sizePolicy6.setHorizontalStretch(0)
-        sizePolicy6.setVerticalStretch(0)
-        sizePolicy6.setHeightForWidth(self.threshHoldSlider.sizePolicy().hasHeightForWidth())
-        self.threshHoldSlider.setSizePolicy(sizePolicy6)
+        sizePolicy7 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.MinimumExpanding)
+        sizePolicy7.setHorizontalStretch(0)
+        sizePolicy7.setVerticalStretch(0)
+        sizePolicy7.setHeightForWidth(self.threshHoldSlider.sizePolicy().hasHeightForWidth())
+        self.threshHoldSlider.setSizePolicy(sizePolicy7)
         self.threshHoldSlider.setStyleSheet(u"")
         self.threshHoldSlider.setMaximum(255)
         self.threshHoldSlider.setPageStep(2)
@@ -1084,9 +1096,10 @@ class Ui_MainWindow(object):
 #endif // QT_CONFIG(tooltip)
         self.closeAppBtn.setText("")
         self.imageView.setText("")
+        self.textView.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:12pt; font-weight:700;\"><br/></span></p></body></html>", None))
         self.btn_select.setText(QCoreApplication.translate("MainWindow", u"Select an Image", None))
         self.label.setText("")
-        self.label_2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt; font-weight:700;\">Chane The Rotaion of The Image</span></p></body></html>", None))
+        self.label_2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt; font-weight:700;\">Fix The Rotaion of The Image</span></p></body></html>", None))
         self.label_4.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt; font-weight:700;\">Change The Blur Kernal    </span></p></body></html>", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt; font-weight:700;\">Change The Thresh hold value</span></p></body></html>", None))
         self.btn_apply_processing.setText(QCoreApplication.translate("MainWindow", u"Apply", None))

@@ -3,12 +3,13 @@ import os
 import cv2 as cv
 import platform
 import numpy as np
+import shutil
 
 # IMPORT / GUI AND MODULES AND WIDGETS
 # ///////////////////////////////////////////////////////////////
 from modules import *
 from widgets import *
-from imageManipultation import preprocessing
+from imageManipultation import preprocessing as pp
 
 os.environ["QT_FONT_DPI"] = "96"  # FIX Problem for High DPI and Scale above 100%
 
@@ -47,8 +48,7 @@ class MainWindow(QMainWindow):
         widgets.btn_preprocessing.clicked.connect(self.buttonClick)
         widgets.btn_segmentation.clicked.connect(self.buttonClick)
 
-
-        widgets.btn_select.clicked.connect(self.browsefiles)
+        widgets.btn_select.clicked.connect(self.selectTheImage)
         widgets.threshHoldSlider.valueChanged.connect(self.number_changed)
         widgets.kernalSlider.valueChanged.connect(self.number_changed)
         widgets.angelSlider.valueChanged.connect(self.changeAngel)
@@ -62,7 +62,7 @@ class MainWindow(QMainWindow):
         widgets.stackedWidget.setCurrentWidget(widgets.home_page)
         widgets.btn_home.setStyleSheet(UIFunctions.selectMenu(widgets.btn_home.styleSheet()))
 
-    # BUTTONS FUNCTIONS
+    # MENU BUTTONS FUNCTION
     # ///////////////////////////////////////////////////////////////
     def buttonClick(self):
         # GET BUTTON CLICKED
@@ -96,35 +96,42 @@ class MainWindow(QMainWindow):
     # MOUSE CLICK EVENTS
     # DRAG THE APPLICATION FUNCTION
     # ///////////////////////////////////////////////////////////////
-
     def mousePressEvent(self, event):
         self.dragPos = event.globalPos()
 
     def number_changed(self):
         global imagePath
         thresh_value = int(str(self.ui.threshHoldSlider.value()))
-
         kernal_value = int(str(self.ui.kernalSlider.value()))
         if kernal_value % 2 == 0:
             kernal_value += 1
 
         img = cv.imread(imagePath[0])
-        x = preprocessing.preprocess(img, thresh_value, kernal_value)
+        x = pp.preprocess(img, thresh_value, kernal_value)
         widgets.label.setPixmap(QPixmap(cv2pxi(x)))
 
-    def browsefiles(self):
+    def selectTheImage(self):
+        originalImagePath = r"images/source_image"
         global imagePath
+        if not os.path.exists(originalImagePath):
+            os.makedirs(originalImagePath)
+
+        widgets.textView.setText("")
         imagePath = QFileDialog.getOpenFileName(self, 'Open file', "", 'Images (*.png, *.xmp *.jpg)')
         if len(imagePath[0]) == 0:
-            print("No Image is selected")
+            widgets.textView.setText("no Image Select")
         else:
-            widgets.imageView.setPixmap(QPixmap(imagePath[0]))
-            widgets.label.setPixmap(QPixmap(imagePath[0]))
+            newPath=originalImagePath+"/main_image.png"
+            img = cv.imread(imagePath[0])
+            cv.imwrite(newPath, img)
+
+            widgets.imageView.setPixmap(QPixmap(newPath))
+            widgets.label.setPixmap(QPixmap(newPath))
 
     def changeAngel(self):
         angel_value = int(str(self.ui.angelSlider.value()))
         img = cv.imread(imagePath[0])
-        img = preprocessing.rotate_image(img, angel_value)
+        img = pp.rotate_image(img, angel_value)
         widgets.label.setPixmap(QPixmap(cv2pxi(img)))
 
 

@@ -1267,6 +1267,27 @@ background-repeat: no-repeat;</string>
                          </property>
                         </widget>
                        </item>
+                       <item alignment="Qt::AlignHCenter|Qt::AlignBottom">
+                        <widget class="QLabel" name="textView">
+                         <property name="sizePolicy">
+                          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
+                           <horstretch>0</horstretch>
+                           <verstretch>0</verstretch>
+                          </sizepolicy>
+                         </property>
+                         <property name="font">
+                          <font>
+                           <family>Segoe UI</family>
+                           <pointsize>10</pointsize>
+                           <italic>false</italic>
+                           <bold>false</bold>
+                          </font>
+                         </property>
+                         <property name="text">
+                          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                         </property>
+                        </widget>
+                       </item>
                        <item>
                         <widget class="QPushButton" name="btn_select">
                          <property name="text">
@@ -1366,6 +1387,12 @@ padding: 4px;
                            <verstretch>0</verstretch>
                           </sizepolicy>
                          </property>
+                         <property name="maximumSize">
+                          <size>
+                           <width>300</width>
+                           <height>16777215</height>
+                          </size>
+                         </property>
                          <layout class="QVBoxLayout" name="verticalLayout_5">
                           <property name="spacing">
                            <number>0</number>
@@ -1394,7 +1421,7 @@ padding: 4px;
                              <item alignment="Qt::AlignTop">
                               <widget class="QLabel" name="label_2">
                                <property name="text">
-                                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;Chane The Rotaion of The Image&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;Fix The Rotaion of The Image&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                                </property>
                               </widget>
                              </item>
