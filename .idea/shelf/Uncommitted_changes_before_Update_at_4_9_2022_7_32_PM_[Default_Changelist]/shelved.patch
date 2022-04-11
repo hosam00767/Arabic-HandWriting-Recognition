@@ -1,0 +1,101 @@
+Index: Arabic HandWriting Recognition/modules/app_settings.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>class Settings():\r\n    # APP SETTINGS\r\n    # ///////////////////////////////////////////////////////////////\r\n    ENABLE_CUSTOM_TITLE_BAR = True\r\n    MENU_WIDTH = 200\r\n    LEFT_BOX_WIDTH = 240\r\n    RIGHT_BOX_WIDTH = 240\r\n    TIME_ANIMATION = 500\r\n\r\n    # BTNS LEFT AND RIGHT BOX COLORS\r\n    BTN_LEFT_BOX_COLOR = \"background-color: rgb(44, 49, 58);\"\r\n    BTN_RIGHT_BOX_COLOR = \"background-color: #ff79c6;\"\r\n\r\n    # MENU SELECTED STYLESHEET\r\n    MENU_SELECTED_STYLESHEET = \"\"\"\r\n    border-left: 22px solid qlineargradient(spread:pad, x1:0.034, y1:0, x2:0.216, y2:0, stop:0.499 rgba(255, 121, 198, 255), stop:0.5 rgba(85, 170, 255, 0));\r\n    background-color: rgb(40, 44, 52);\r\n    \"\"\"\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Arabic HandWriting Recognition/modules/app_settings.py b/Arabic HandWriting Recognition/modules/app_settings.py
+--- a/Arabic HandWriting Recognition/modules/app_settings.py	(revision 9a78b13823d33915750b4ef2367430a598f3d31e)
++++ b/Arabic HandWriting Recognition/modules/app_settings.py	(date 1649525464765)
+@@ -2,7 +2,7 @@
+     # APP SETTINGS
+     # ///////////////////////////////////////////////////////////////
+     ENABLE_CUSTOM_TITLE_BAR = True
+-    MENU_WIDTH = 200
++    MENU_WIDTH = 240
+     LEFT_BOX_WIDTH = 240
+     RIGHT_BOX_WIDTH = 240
+     TIME_ANIMATION = 500
+Index: Arabic HandWriting Recognition/modules/__init__.py
+===================================================================
+diff --git a/Arabic HandWriting Recognition/modules/__init__.py b/Arabic HandWriting Recognition/modules/__init__.py
+deleted file mode 100644
+--- a/Arabic HandWriting Recognition/modules/__init__.py	(revision 9a78b13823d33915750b4ef2367430a598f3d31e)
++++ /dev/null	(revision 9a78b13823d33915750b4ef2367430a598f3d31e)
+@@ -1,30 +0,0 @@
+-# ///////////////////////////////////////////////////////////////
+-#
+-# BY: WANDERSON M.PIMENTA
+-# PROJECT MADE WITH: Qt Designer and PySide6
+-# V: 1.0.0
+-#
+-# This project can be used freely for all uses, as long as they maintain the
+-# respective credits only in the Python scripts, any information in the visual
+-# interface (GUI) can be modified without any implication.
+-#
+-# There are limitations on Qt licenses if you want to use your products
+-# commercially, I recommend reading them on the official website:
+-# https://doc.qt.io/qtforpython/licenses.html
+-#
+-# ///////////////////////////////////////////////////////////////
+-from PySide6.QtCore import *
+-from PySide6.QtGui import *
+-from PySide6.QtWidgets import *
+-
+-# GUI FILE
+-from . ui_main import Ui_MainWindow
+-
+-# APP SETTINGS
+-from . app_settings import Settings
+-
+-# IMPORT FUNCTIONS
+-from . ui_functions import *
+-
+-# APP FUNCTIONS
+-from . app_functions import *
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"985a25ac-2575-4ff7-a952-e343daf067cf\" name=\"Default Changelist\" comment=\"&quot;edit 2.0 to the preprocessing window&quot;\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Arabic HandWriting Recognition/main.ui\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Arabic HandWriting Recognition/main.ui\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Arabic HandWriting Recognition/modules/ui_main.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Arabic HandWriting Recognition/modules/ui_main.py\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Python Script\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"27TGkAC1bmmPUJYKfnUDpuHKOZk\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"ASKED_SHARE_PROJECT_CONFIGURATION_FILES\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"SHARE_PROJECT_CONFIGURATION_FILES\" value=\"true\" />\r\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$\" />\r\n    <property name=\"settings.editor.selected.configurable\" value=\"org.jetbrains.plugins.github.ui.GithubSettingsConfigurable\" />\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Python.main (1)\">\r\n    <configuration name=\"main (1)\" type=\"PythonConfigurationType\" factoryName=\"Python\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"Arabic HandWriting Recognition\" />\r\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\r\n      <option name=\"PARENT_ENVS\" value=\"true\" />\r\n      <envs>\r\n        <env name=\"PYTHONUNBUFFERED\" value=\"1\" />\r\n      </envs>\r\n      <option name=\"SDK_HOME\" value=\"\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$/Arabic HandWriting Recognition\" />\r\n      <option name=\"IS_MODULE_SDK\" value=\"true\" />\r\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\r\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\r\n      <option name=\"SCRIPT_NAME\" value=\"$PROJECT_DIR$/Arabic HandWriting Recognition/main.py\" />\r\n      <option name=\"PARAMETERS\" value=\"\" />\r\n      <option name=\"SHOW_COMMAND_LINE\" value=\"false\" />\r\n      <option name=\"EMULATE_TERMINAL\" value=\"false\" />\r\n      <option name=\"MODULE_MODE\" value=\"false\" />\r\n      <option name=\"REDIRECT_INPUT\" value=\"false\" />\r\n      <option name=\"INPUT_FILE\" value=\"\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"main\" type=\"PythonConfigurationType\" factoryName=\"Python\" nameIsGenerated=\"true\">\r\n      <module name=\"Modern_GUI_PyDracula_PySide6_or_PyQt6-master\" />\r\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\r\n      <option name=\"PARENT_ENVS\" value=\"true\" />\r\n      <envs>\r\n        <env name=\"PYTHONUNBUFFERED\" value=\"1\" />\r\n      </envs>\r\n      <option name=\"SDK_HOME\" value=\"\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$/Modern_GUI_PyDracula_PySide6_or_PyQt6-master\" />\r\n      <option name=\"IS_MODULE_SDK\" value=\"true\" />\r\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\r\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\r\n      <option name=\"SCRIPT_NAME\" value=\"$PROJECT_DIR$/Modern_GUI_PyDracula_PySide6_or_PyQt6-master/main.py\" />\r\n      <option name=\"PARAMETERS\" value=\"\" />\r\n      <option name=\"SHOW_COMMAND_LINE\" value=\"false\" />\r\n      <option name=\"EMULATE_TERMINAL\" value=\"false\" />\r\n      <option name=\"MODULE_MODE\" value=\"false\" />\r\n      <option name=\"REDIRECT_INPUT\" value=\"false\" />\r\n      <option name=\"INPUT_FILE\" value=\"\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Python.main (1)\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"985a25ac-2575-4ff7-a952-e343daf067cf\" name=\"Default Changelist\" comment=\"\" />\r\n      <created>1649336802564</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1649336802564</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"&quot;TEST&quot;\">\r\n      <created>1649408813744</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1649408813744</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"&quot;adding line segmentation methods&quot;\">\r\n      <created>1649409041712</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1649409041712</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"&quot;adding word segmentation methods&quot;\">\r\n      <created>1649409720414</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1649409720414</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"&quot;adding word segmentation methods&quot;\">\r\n      <created>1649409817942</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1649409817942</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"&quot;adding characters segmentation methods&quot;\">\r\n      <created>1649409923896</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1649409923896</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"&quot;adding preprocessing.py methods methods&quot;\">\r\n      <created>1649410770758</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1649410770758</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"&quot;adding preprocessing.py methods methods&quot;\">\r\n      <created>1649410930651</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1649410930651</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"&quot;&quot;\">\r\n      <created>1649410944557</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1649410944557</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"&quot;edit to the preprocessing window&quot;\">\r\n      <created>1649511667850</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1649511667850</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"&quot;edit 2.0 to the preprocessing window&quot;\">\r\n      <created>1649524592856</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1649524592856</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"11\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"&quot;TEST&quot;\" />\r\n    <MESSAGE value=\"&quot;adding line segmentation methods&quot;\" />\r\n    <MESSAGE value=\"&quot;adding word segmentation methods&quot;\" />\r\n    <MESSAGE value=\"&quot;adding characters segmentation methods&quot;\" />\r\n    <MESSAGE value=\"&quot;adding preprocessing.py methods methods&quot;\" />\r\n    <MESSAGE value=\"&quot;&quot;\" />\r\n    <MESSAGE value=\"&quot;edit to the preprocessing window&quot;\" />\r\n    <MESSAGE value=\"&quot;edit 2.0 to the preprocessing window&quot;\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"&quot;edit 2.0 to the preprocessing window&quot;\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 9a78b13823d33915750b4ef2367430a598f3d31e)
++++ b/.idea/workspace.xml	(date 1649525540108)
+@@ -2,9 +2,8 @@
+ <project version="4">
+   <component name="ChangeListManager">
+     <list default="true" id="985a25ac-2575-4ff7-a952-e343daf067cf" name="Default Changelist" comment="&quot;edit 2.0 to the preprocessing window&quot;">
+-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/main.ui" beforeDir="false" afterPath="$PROJECT_DIR$/Arabic HandWriting Recognition/main.ui" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/modules/ui_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Arabic HandWriting Recognition/modules/ui_main.py" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/modules/__init__.py" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/modules/app_settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Arabic HandWriting Recognition/modules/app_settings.py" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -163,7 +162,21 @@
+       <option name="project" value="LOCAL" />
+       <updated>1649524592856</updated>
+     </task>
+-    <option name="localTasksCounter" value="11" />
++    <task id="LOCAL-00011" summary="&quot;edit 2.0 to the preprocessing window&quot;">
++      <created>1649525216854</created>
++      <option name="number" value="00011" />
++      <option name="presentableId" value="LOCAL-00011" />
++      <option name="project" value="LOCAL" />
++      <updated>1649525216854</updated>
++    </task>
++    <task id="LOCAL-00012" summary="&quot;edit 2.0 to the preprocessing window&quot;">
++      <created>1649525257079</created>
++      <option name="number" value="00012" />
++      <option name="presentableId" value="LOCAL-00012" />
++      <option name="project" value="LOCAL" />
++      <updated>1649525257079</updated>
++    </task>
++    <option name="localTasksCounter" value="13" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
