@@ -10,7 +10,8 @@ import shutil
 from modules import *
 from widgets import *
 from imageManipultation import preprocessing as pp
-from imageManipultation import *
+from imageManipultation import segmentaion_to_paws
+
 os.environ["QT_FONT_DPI"] = "96"  # FIX Problem for High DPI and Scale above 100%
 
 # SET AS GLOBAL VARIABLE
