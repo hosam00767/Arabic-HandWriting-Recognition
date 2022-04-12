@@ -3,7 +3,7 @@ import cv2 as cv
 import numpy as np
 
 
-def preprocess(img, thresh_value=127, kernal_value=3):
+def preprocess(img, thresh_value=97, kernal_value=3):
     gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
     gaussian = cv.GaussianBlur(gray, (kernal_value, kernal_value), 0)
     ret, thresh = cv.threshold(gaussian, thresh_value, 255, cv.THRESH_BINARY_INV)

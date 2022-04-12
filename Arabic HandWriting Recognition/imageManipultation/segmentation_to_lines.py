@@ -31,8 +31,5 @@ def segment_to_line(img):
         if timg.shape[0] > 6:
             text_lines.append(timg)
 
-    black = np.zeros_like(text_lines[1][:text_lines[1].shape[0], :30])
-    seperate_lines = vconcat_resize_min(text_lines)
-    cv.imshow("d", seperate_lines)
-    cv.waitKey(0)
-    return text_lines
+    for i in range(len(text_lines)):
+        cv.imwrite("images/lines/" + str(i) + ".png", text_lines[i])
