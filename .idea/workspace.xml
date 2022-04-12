@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="985a25ac-2575-4ff7-a952-e343daf067cf" name="Default Changelist" comment="&quot;...&quot;">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_10_2022_9_34_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_10_2022_9_34_PM__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_9_2022_7_32_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_9_2022_7_32_PM__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Arabic HandWriting Recognition/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/main.ui" beforeDir="false" afterPath="$PROJECT_DIR$/Arabic HandWriting Recognition/main.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/modules/ui_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Arabic HandWriting Recognition/modules/ui_main.py" afterDir="false" />
-    </list>
+    <list default="true" id="985a25ac-2575-4ff7-a952-e343daf067cf" name="Default Changelist" comment="&quot;segmentaion (lines page) &quot;" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -339,7 +331,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649700819083</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="&quot;segmentaion (lines page) &quot;">
+      <created>1649792552133</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1649792552133</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -371,6 +370,7 @@
     <MESSAGE value="&quot;...&quot;" />
     <MESSAGE value="&quot;processing page edits&quot;" />
     <MESSAGE value="&quot;segmentaion to paws&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;segmentaion to paws&quot;" />
+    <MESSAGE value="&quot;segmentaion (lines page) &quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;segmentaion (lines page) &quot;" />
   </component>
 </project>
