@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="985a25ac-2575-4ff7-a952-e343daf067cf" name="Default Changelist" comment="&quot;segmentaion to paws&quot;">
+    <list default="true" id="985a25ac-2575-4ff7-a952-e343daf067cf" name="Default Changelist" comment="&quot;...&quot;">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_10_2022_9_34_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_10_2022_9_34_PM__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_9_2022_7_32_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_9_2022_7_32_PM__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/imageManipultation/preprocessing.py" beforeDir="false" afterPath="$PROJECT_DIR$/Arabic HandWriting Recognition/imageManipultation/preprocessing.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/imageManipultation/segmentaion_to_paws.py" beforeDir="false" afterPath="$PROJECT_DIR$/Arabic HandWriting Recognition/imageManipultation/segmentaion_to_paws.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/imageManipultation/segmentation_to_lines.py" beforeDir="false" afterPath="$PROJECT_DIR$/Arabic HandWriting Recognition/imageManipultation/segmentation_to_lines.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Arabic HandWriting Recognition/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/main.ui" beforeDir="false" afterPath="$PROJECT_DIR$/Arabic HandWriting Recognition/main.ui" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/modules/ui_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Arabic HandWriting Recognition/modules/ui_main.py" afterDir="false" />
@@ -352,7 +352,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="&quot;TEST&quot;" />

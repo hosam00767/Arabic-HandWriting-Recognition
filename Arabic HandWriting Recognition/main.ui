@@ -7,9 +7,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>979</width>
-    <height>799</height>
+    <width>940</width>
+    <height>630</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Ignored" vsizetype="Ignored">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
   <property name="minimumSize">
    <size>
@@ -19,6 +25,9 @@
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
   </property>
   <widget class="QWidget" name="styleSheet">
    <property name="font">
@@ -1248,7 +1257,7 @@ Button */
                       <string notr="true">background: transparent;</string>
                      </property>
                      <property name="currentIndex">
-                      <number>2</number>
+                      <number>1</number>
                      </property>
                      <widget class="QWidget" name="home_page">
                       <property name="styleSheet">
@@ -1323,6 +1332,36 @@ background-repeat: no-repeat;</string>
                        <property name="bottomMargin">
                         <number>10</number>
                        </property>
+                       <item>
+                        <widget class="QScrollArea" name="scrollArea">
+                         <property name="minimumSize">
+                          <size>
+                           <width>0</width>
+                           <height>100</height>
+                          </size>
+                         </property>
+                         <property name="frameShape">
+                          <enum>QFrame::NoFrame</enum>
+                         </property>
+                         <property name="verticalScrollBarPolicy">
+                          <enum>Qt::ScrollBarAlwaysOn</enum>
+                         </property>
+                         <property name="widgetResizable">
+                          <bool>true</bool>
+                         </property>
+                         <widget class="QWidget" name="scrollAreaWidgetContents">
+                          <property name="geometry">
+                           <rect>
+                            <x>0</x>
+                            <y>0</y>
+                            <width>830</width>
+                            <height>513</height>
+                           </rect>
+                          </property>
+                          <layout class="QVBoxLayout" name="verticalLayout_13"/>
+                         </widget>
+                        </widget>
+                       </item>
                       </layout>
                      </widget>
                      <widget class="QWidget" name="preprocessing_page">

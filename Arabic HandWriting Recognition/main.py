@@ -30,6 +30,8 @@ class MainWindow(QMainWindow):
         self.ui.setupUi(self)
         global widgets
         widgets = self.ui
+        for x in range(1,10):#display lines
+          self.createNewWidgets()
 
         # USE CUSTOM TITLE BAR | USE AS "False" FOR MAC OR LINUX
         # ///////////////////////////////////////////////////////////////
@@ -77,6 +79,41 @@ class MainWindow(QMainWindow):
 
     # MENU BUTTONS FUNCTION
     # ///////////////////////////////////////////////////////////////
+    def createNewWidgets(self):#display lines#
+      self.frame_9 = QFrame(self.ui.scrollAreaWidgetContents)
+      self.frame_9.setObjectName(u"frame_9")
+      #sizePolicy1.setHeightForWidth(self.frame_9.sizePolicy().hasHeightForWidth())
+     # self.frame_9.setSizePolicy(sizePolicy1)
+      self.frame_9.setMinimumSize(QSize(0, 100))
+      self.frame_9.setFrameShape(QFrame.StyledPanel)
+      self.frame_9.setFrameShadow(QFrame.Raised)
+      self.horizontalLayout_12 = QHBoxLayout(self.frame_9)
+      self.horizontalLayout_12.setObjectName(u"horizontalLayout_12")
+      self.pushButton = QPushButton(self.frame_9)
+      self.pushButton.setObjectName(u"pushButton")
+      sizePolicy6 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Expanding)
+      sizePolicy6.setHorizontalStretch(0)
+      sizePolicy6.setVerticalStretch(0)
+      sizePolicy6.setHeightForWidth(self.pushButton.sizePolicy().hasHeightForWidth())
+      self.pushButton.setSizePolicy(sizePolicy6)
+      self.pushButton.setMinimumSize(QSize(35, 35))
+      icon3 = QIcon()
+      icon3.addFile(u"images/icons/cil-cut.png", QSize(), QIcon.Normal, QIcon.Off)
+      self.pushButton.setIcon(icon3)
+      self.horizontalLayout_12.addWidget(self.pushButton)
+      self.label_6 = QLabel(self.frame_9)
+      self.label_6.setObjectName(u"label_6")
+      sizePolicy7 = QSizePolicy(QSizePolicy.Ignored, QSizePolicy.Fixed)
+      sizePolicy7.setHorizontalStretch(0)
+      sizePolicy7.setVerticalStretch(0)
+      sizePolicy7.setHeightForWidth(self.label_6.sizePolicy().hasHeightForWidth())
+      self.label_6.setSizePolicy(sizePolicy7)
+      self.label_6.setMinimumSize(QSize(0, 100))
+      self.label_6.setPixmap(QPixmap(u"images/Capture.PNG"))
+      self.label_6.setScaledContents(True)
+      self.horizontalLayout_12.addWidget(self.label_6)
+      self.ui.verticalLayout_13.addWidget(self.frame_9)
+######################################################################################
     def buttonClick(self):
         # GET BUTTON CLICKED
         btn = self.sender()
