@@ -247,7 +247,6 @@ def getFilesDirectories(dir_path):
     return pathes
 
 if __name__ == "__main__":
-    stl.segment_to_line(r"D:\99f55f6f-fc08-4337-a7a0-e8ba3958cf05.jpg")
     app = QApplication(sys.argv)
     app.setWindowIcon(QIcon("icon.ico"))
     window = MainWindow()
