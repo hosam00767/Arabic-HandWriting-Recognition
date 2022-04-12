@@ -1,4 +1,7 @@
 import cv2 as cv
+from .preprocessing import *
+
+
 # segments an image to line  based of the horizontal projection of the line pixels
 def segment_to_line(img):
     _, vproj = horizontal_proj(img)
