@@ -1,5 +1,5 @@
 import math
-from . preprocessing import *
+from .preprocessing import *
 
 
 def distance(p1, p2):
@@ -39,25 +39,15 @@ def merge_ctrs(ctrs_to_merge):
     return ctr
 
 
-def exract(img, component):
-    image = cv.imread(r"E:\PROJECT IMPORTANT\w.jpg.png")
-    for i in range(len(component)):
-        mask = zero = np.ones_like(img) * 255
-        hull = cv.convexHull(component[i])
-        cv.drawContours(mask, [hull], -1, (0, 0, 0), -1)
-        zero[mask == (0, 0, 0)] = image[mask == (0, 0, 0)]
-        cv.imwrite(r"images\paws\s" + str(i) + ".png", zero)
-
-
-def segment_img_to_PAWS():
-    img = cv.imread(r"E:\PROJECT IMPORTANT\w.jpg.png")
+def segment_img_to_PAWS(path, lineNo, dotArea):
+    img = cv.imread(path)
     dots = []
     component = []
     p = preprocess(img)
     contours, _ = cv.findContours(image=p, mode=cv.RETR_EXTERNAL, method=cv.CHAIN_APPROX_NONE)
 
     for cnt in contours:
-        if cv.contourArea(cnt) < 50:
+        if cv.contourArea(cnt) < dotArea:
             dots.append(cnt)
         else:
             component.append(cnt)
@@ -84,4 +74,41 @@ def segment_img_to_PAWS():
             else:
                 component[component.index(cnt2)] = merge_ctrs([component[component.index(cnt2)], dot])
 
-    exract(img, component)
+    extract(img, component, lineNo)
+
+
+def extract(img, component, lineNo):
+    for i in range(len(component)):
+        mask = zero = np.ones_like(img) * 255
+        hull = cv.convexHull(component[i])
+        cv.drawContours(mask, [hull], -1, (0, 0, 0), -1)
+        cv.drawContours(mask, [hull], -1, (0, 0, 0), 5)
+        zero[mask == (0, 0, 0)] = img[mask == (0, 0, 0)]
+        zero = trim(zero)
+        cv.imwrite(r'images/paws/' + str(i) + "." + str(lineNo) + ".png", zero)
+
+
+def trim(paw):
+    _, vproj = vertical_proj(paw)
+    left = []
+    right = []
+    flag = True
+    for i in range(paw.shape[1]):
+        cnt = 0
+        if flag:
+            cnt = vproj[i]
+            if cnt > 0:
+                left = i
+                flag = False
+        else:
+            cnt = vproj[i]
+            if cnt < 2:
+                right = i
+                flag = True
+
+    if right is None:
+        right = vproj.shape[1]
+
+    timg = paw[0:, left - 4:right + 4]
+
+    return timg

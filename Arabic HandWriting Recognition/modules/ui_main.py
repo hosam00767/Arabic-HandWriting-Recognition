@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainikNrlU.ui'
+## Form generated from reading UI file 'mainydeKZq.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.2.4
 ##
@@ -18,7 +18,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLabel,
     QMainWindow, QPushButton, QScrollArea, QSizePolicy,
     QSlider, QStackedWidget, QVBoxLayout, QWidget)
-from .resources_rc import *
+from  . resources_rc import *
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -875,7 +875,9 @@ class Ui_MainWindow(object):
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
         self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 830, 513))
         self.verticalLayout_13 = QVBoxLayout(self.scrollAreaWidgetContents)
+        self.verticalLayout_13.setSpacing(0)
         self.verticalLayout_13.setObjectName(u"verticalLayout_13")
+        self.verticalLayout_13.setContentsMargins(0, 0, 0, 0)
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
 
         self.verticalLayout.addWidget(self.scrollArea)
@@ -1000,18 +1002,18 @@ class Ui_MainWindow(object):
         self.horizontalLayout_9 = QHBoxLayout(self.frame_6)
         self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
         self.horizontalLayout_9.setContentsMargins(-1, -1, 0, -1)
-        self.kernalSlider = QSlider(self.frame_6)
-        self.kernalSlider.setObjectName(u"kernalSlider")
-        self.kernalSlider.setMinimum(1)
-        self.kernalSlider.setMaximum(11)
-        self.kernalSlider.setSingleStep(3)
-        self.kernalSlider.setPageStep(0)
-        self.kernalSlider.setValue(3)
-        self.kernalSlider.setOrientation(Qt.Horizontal)
-        self.kernalSlider.setTickPosition(QSlider.TicksAbove)
-        self.kernalSlider.setTickInterval(2)
+        self.kernelSlider = QSlider(self.frame_6)
+        self.kernelSlider.setObjectName(u"kernelSlider")
+        self.kernelSlider.setMinimum(1)
+        self.kernelSlider.setMaximum(11)
+        self.kernelSlider.setSingleStep(3)
+        self.kernelSlider.setPageStep(0)
+        self.kernelSlider.setValue(3)
+        self.kernelSlider.setOrientation(Qt.Horizontal)
+        self.kernelSlider.setTickPosition(QSlider.TicksAbove)
+        self.kernelSlider.setTickInterval(2)
 
-        self.horizontalLayout_9.addWidget(self.kernalSlider)
+        self.horizontalLayout_9.addWidget(self.kernelSlider)
 
         self.blur_value = QLabel(self.frame_6)
         self.blur_value.setObjectName(u"blur_value")
@@ -1058,19 +1060,19 @@ class Ui_MainWindow(object):
         self.frame_7.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_10 = QHBoxLayout(self.frame_7)
         self.horizontalLayout_10.setObjectName(u"horizontalLayout_10")
-        self.threshHoldSlider = QSlider(self.frame_7)
-        self.threshHoldSlider.setObjectName(u"threshHoldSlider")
-        sizePolicy6.setHeightForWidth(self.threshHoldSlider.sizePolicy().hasHeightForWidth())
-        self.threshHoldSlider.setSizePolicy(sizePolicy6)
-        self.threshHoldSlider.setStyleSheet(u"")
-        self.threshHoldSlider.setMaximum(255)
-        self.threshHoldSlider.setPageStep(2)
-        self.threshHoldSlider.setValue(127)
-        self.threshHoldSlider.setOrientation(Qt.Horizontal)
-        self.threshHoldSlider.setInvertedAppearance(False)
-        self.threshHoldSlider.setInvertedControls(False)
+        self.thresholdSlider = QSlider(self.frame_7)
+        self.thresholdSlider.setObjectName(u"thresholdSlider")
+        sizePolicy6.setHeightForWidth(self.thresholdSlider.sizePolicy().hasHeightForWidth())
+        self.thresholdSlider.setSizePolicy(sizePolicy6)
+        self.thresholdSlider.setStyleSheet(u"")
+        self.thresholdSlider.setMaximum(255)
+        self.thresholdSlider.setPageStep(2)
+        self.thresholdSlider.setValue(127)
+        self.thresholdSlider.setOrientation(Qt.Horizontal)
+        self.thresholdSlider.setInvertedAppearance(False)
+        self.thresholdSlider.setInvertedControls(False)
 
-        self.horizontalLayout_10.addWidget(self.threshHoldSlider)
+        self.horizontalLayout_10.addWidget(self.thresholdSlider)
 
         self.thresh_value = QLabel(self.frame_7)
         self.thresh_value.setObjectName(u"thresh_value")
@@ -1154,6 +1156,9 @@ class Ui_MainWindow(object):
         self.horizontalLayout_6.addWidget(self.widget_2)
 
         self.stackedWidget.addWidget(self.preprocessing_page)
+        self.page = QWidget()
+        self.page.setObjectName(u"page")
+        self.stackedWidget.addWidget(self.page)
 
         self.verticalLayout_15.addWidget(self.stackedWidget)
 

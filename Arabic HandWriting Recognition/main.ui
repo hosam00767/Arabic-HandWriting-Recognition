@@ -1358,7 +1358,23 @@ background-repeat: no-repeat;</string>
                             <height>513</height>
                            </rect>
                           </property>
-                          <layout class="QVBoxLayout" name="verticalLayout_13"/>
+                          <layout class="QVBoxLayout" name="verticalLayout_13">
+                           <property name="spacing">
+                            <number>0</number>
+                           </property>
+                           <property name="leftMargin">
+                            <number>0</number>
+                           </property>
+                           <property name="topMargin">
+                            <number>0</number>
+                           </property>
+                           <property name="rightMargin">
+                            <number>0</number>
+                           </property>
+                           <property name="bottomMargin">
+                            <number>0</number>
+                           </property>
+                          </layout>
                          </widget>
                         </widget>
                        </item>
@@ -1573,7 +1589,7 @@ QPushButton:pressed {
                                  <number>0</number>
                                 </property>
                                 <item>
-                                 <widget class="QSlider" name="kernalSlider">
+                                 <widget class="QSlider" name="kernelSlider">
                                   <property name="minimum">
                                    <number>1</number>
                                   </property>
@@ -1676,7 +1692,7 @@ QPushButton:pressed {
                                </property>
                                <layout class="QHBoxLayout" name="horizontalLayout_10">
                                 <item>
-                                 <widget class="QSlider" name="threshHoldSlider">
+                                 <widget class="QSlider" name="thresholdSlider">
                                   <property name="sizePolicy">
                                    <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
                                     <horstretch>0</horstretch>
@@ -1844,6 +1860,7 @@ padding: 4px;
                        </item>
                       </layout>
                      </widget>
+                     <widget class="QWidget" name="page"/>
                     </widget>
                    </item>
                   </layout>

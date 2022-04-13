@@ -3,8 +3,7 @@ import os
 import cv2 as cv
 import platform
 import numpy as np
-import shutil
-
+import glob
 # IMPORT / GUI AND MODULES AND WIDGETS
 # ///////////////////////////////////////////////////////////////
 from modules import *
@@ -20,6 +19,25 @@ os.environ["QT_FONT_DPI"] = "96"  # FIX Problem for High DPI and Scale above 100
 widgets = None
 originalImagePath = None
 
+# IMAGE ATTRIBUTE VALUES
+# ///////////////////////////////////////////////////////////////
+THRESHOLD_VALUE = 127
+DOT_AREA_VALUE = 50
+BLUR_KERNEL_VALUE = 3
+
+
+def allInOne():
+    global originalImagePath
+    originalImagePath = r"E:\PROJECT IMPORTANT\test images\8207b0a1-9f2a-4772-918a-dabfad383d7a.jpg"
+    global DOT_AREA_VALUE
+    image = cv.imread(originalImagePath)
+    preprocessedOriginal = pp.preprocess(image, THRESHOLD_VALUE, BLUR_KERNEL_VALUE)
+    stl.segment_to_line(image)
+    paths = getFilesDirectories("images/lines")
+    for path in paths:
+        pathOnly, _ = os.path.splitext(path)
+        lineNo = os.path.basename(pathOnly)
+        stp.segment_img_to_PAWS(path, lineNo, DOT_AREA_VALUE)
 
 
 class MainWindow(QMainWindow):
@@ -32,7 +50,6 @@ class MainWindow(QMainWindow):
         self.ui.setupUi(self)
         global widgets
         widgets = self.ui
-
 
         # USE CUSTOM TITLE BAR | USE AS "False" FOR MAC OR LINUX
         # ///////////////////////////////////////////////////////////////
@@ -47,28 +64,22 @@ class MainWindow(QMainWindow):
         UIFunctions.uiDefinitions(self)
 
         # LEFT MENU BUTTONS
-        widgets.btn_home.clicked.connect(self.buttonClick)
-        widgets.btn_preprocessing.clicked.connect(self.buttonClick)
-        widgets.btn_segmentation.clicked.connect(self.buttonClick)
+        widgets.btn_home.clicked.connect(self.leftMenuButtonPressed)
+        widgets.btn_preprocessing.clicked.connect(self.leftMenuButtonPressed)
+        widgets.btn_segmentation.clicked.connect(self.leftMenuButtonPressed)
 
         widgets.btn_select.clicked.connect(self.selectTheImage)
 
         widgets.btn_revertRotaion.clicked.connect(self.changeAngel)
         widgets.btn_applyRotation.clicked.connect(self.changeAngel)
-        widgets.threshHoldSlider.valueChanged.connect(self.number_changed)
-        widgets.kernalSlider.valueChanged.connect(self.number_changed)
+        widgets.thresholdSlider.valueChanged.connect(self.number_changed)
+        widgets.kernelSlider.valueChanged.connect(self.number_changed)
         widgets.angelSlider.valueChanged.connect(self.changeAngel)
 
         widgets.dotsSlider.valueChanged.connect(self.changeDotArea)
 
         # SETTING THE VALUE OF THE SLIDERS
-        thresh_value = int(str(self.ui.threshHoldSlider.value()))
-        kernal_value = int(str(self.ui.kernalSlider.value()))
-        dotsArea_value = int(str(self.ui.dotsSlider.value()))
 
-        widgets.thresh_value.setText(str(thresh_value))
-        widgets.blur_value.setText(str(kernal_value))
-        widgets.dot_value.setText(str(dotsArea_value))
         # SHOW APP
         # ///////////////////////////////////////////////////////////////
         self.show()
@@ -81,33 +92,32 @@ class MainWindow(QMainWindow):
     # MENU BUTTONS FUNCTION
     # ///////////////////////////////////////////////////////////////
 
+    def createLinesListItem(self, image_path):
+        # CREATING THE FRAME AND ITS ATTRIBUTES
+        self.listItemFrame = QFrame(self.ui.scrollAreaWidgetContents)
+        self.listItemFrame.setObjectName(u"frame_9")
+        self.listItemFrame.setMinimumSize(QSize(0, 100))
+        self.listItemFrame.setFrameShape(QFrame.StyledPanel)
+        self.listItemFrame.setFrameShadow(QFrame.Raised)
 
+        # CREATING THE LAYOUT INSIDE THE FRAME
+        self.frameLayout = QHBoxLayout(self.listItemFrame)
+        self.frameLayout.setObjectName(u"horizontalLayout_12")
 
-
-
-    def createNewWidgets(self,image_path):  # display lines#
-        self.frame_9 = QFrame(self.ui.scrollAreaWidgetContents)
-        self.frame_9.setObjectName(u"frame_9")
-        # sizePolicy1.setHeightForWidth(self.frame_9.sizePolicy().hasHeightForWidth())
-        # self.frame_9.setSizePolicy(sizePolicy1)
-        self.frame_9.setMinimumSize(QSize(0, 100))
-        self.frame_9.setFrameShape(QFrame.StyledPanel)
-        self.frame_9.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_12 = QHBoxLayout(self.frame_9)
-        self.horizontalLayout_12.setObjectName(u"horizontalLayout_12")
-        self.pushButton = QPushButton(self.frame_9)
-        self.pushButton.setObjectName(u"pushButton")
+        # CREATING THE SEGMENTATION TO WORDS BUTTON IN THE LIST ITEM
+        self.btn_sgmnt2Words = QPushButton(self.listItemFrame)
+        self.btn_sgmnt2Words.setObjectName(u"pushButton")
         sizePolicy6 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Expanding)
         sizePolicy6.setHorizontalStretch(0)
         sizePolicy6.setVerticalStretch(0)
-        sizePolicy6.setHeightForWidth(self.pushButton.sizePolicy().hasHeightForWidth())
-        self.pushButton.setSizePolicy(sizePolicy6)
-        self.pushButton.setMinimumSize(QSize(35, 35))
+        sizePolicy6.setHeightForWidth(self.btn_sgmnt2Words.sizePolicy().hasHeightForWidth())
+        self.btn_sgmnt2Words.setSizePolicy(sizePolicy6)
+        self.btn_sgmnt2Words.setMinimumSize(QSize(35, 35))
         icon3 = QIcon()
         icon3.addFile(u"images/icons/cil-cut.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButton.setIcon(icon3)
-        self.horizontalLayout_12.addWidget(self.pushButton)
-        self.label_6 = QLabel(self.frame_9)
+        self.btn_sgmnt2Words.setIcon(icon3)
+        self.frameLayout.addWidget(self.btn_sgmnt2Words)
+        self.label_6 = QLabel(self.listItemFrame)
         self.label_6.setObjectName(u"label_6")
         sizePolicy7 = QSizePolicy(QSizePolicy.Ignored, QSizePolicy.Fixed)
         sizePolicy7.setHorizontalStretch(0)
@@ -117,32 +127,30 @@ class MainWindow(QMainWindow):
         self.label_6.setMinimumSize(QSize(0, 100))
         self.label_6.setPixmap(QPixmap(image_path))
         self.label_6.setScaledContents(True)
-        self.horizontalLayout_12.addWidget(self.label_6)
-        self.ui.verticalLayout_13.addWidget(self.frame_9)
+        self.frameLayout.addWidget(self.label_6)
+        self.ui.verticalLayout_13.addWidget(self.listItemFrame)
 
-    ######################################################################################
-    def buttonClick(self):
+    # CHANGES THE PAGE TO THE SELECTED FROM MENU BUTTON
+    # ///////////////////////////////////////////////////////////////
+    def leftMenuButtonPressed(self):
         # GET BUTTON CLICKED
         btn = self.sender()
         btnName = btn.objectName()
 
-        # SHOW HOME PAGE
-        if btnName == "btn_home":
+        if btnName == "btn_home":  # SHOW HOME PAGE
             widgets.stackedWidget.setCurrentWidget(widgets.home_page)
             UIFunctions.resetStyle(self, btnName)
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
 
-        # SHOW PREPROCESSING PAGE
-        if btnName == "btn_preprocessing":
+        elif btnName == "btn_preprocessing":  # SHOW PREPROCESSING PAGE
             widgets.stackedWidget.setCurrentWidget(widgets.preprocessing_page)
             UIFunctions.resetStyle(self, btnName)
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
 
-        # SHOW THE SEGMENTATION PAGE
-        if btnName == "btn_segmentation":
-            lines_paths=getFilesDirectories("images/lines")
+        elif btnName == "btn_segmentation":  # SHOW THE SEGMENTATION PAGE
+            lines_paths = getFilesDirectories("images/lines")
             for line in lines_paths:
-                self.createNewWidgets(image_path=line)
+                self.createLinesListItem(image_path=line)
             widgets.stackedWidget.setCurrentWidget(widgets.segmentation_page)
             UIFunctions.resetStyle(self, btnName)
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
@@ -153,7 +161,6 @@ class MainWindow(QMainWindow):
         # Update Size Grips
         UIFunctions.resize_grips(self)
 
-    # MOUSE CLICK EVENTS
     # DRAG THE APPLICATION FUNCTION
     # ///////////////////////////////////////////////////////////////
     def mousePressEvent(self, event):
@@ -161,27 +168,36 @@ class MainWindow(QMainWindow):
 
     def number_changed(self):
 
+        global BLUR_KERNEL_VALUE, DOT_AREA_VALUE, THRESHOLD_VALUE
         global originalImagePath
-        thresh_value = int(str(self.ui.threshHoldSlider.value()))
-        kernal_value = int(str(self.ui.kernalSlider.value()))
-        dotsArea_value = int(str(self.ui.dotsSlider.value()))
-        if kernal_value % 2 == 0:
-            kernal_value += 1
-            self.ui.kernalSlider.setValue(kernal_value)
 
-        widgets.thresh_value.setText(str(thresh_value))
-        widgets.blur_value.setText(str(kernal_value))
+        slider = self.sender()
+        sliderName = slider.objectName()
+
+        if sliderName == "kernelSlider":
+            kernel_value = int(str(self.ui.thresholdSlider.value()))
+            if kernel_value % 2 == 0:
+                kernel_value += 1
+                BLUR_KERNEL_VALUE = kernel_value
+                self.ui.kernalSlider.setValue(kernel_value)
+
+        elif sliderName == "thresholdSlider":
+            THRESHOLD_VALUE = int(str(self.ui.thresholdSlider.value()))
+
+        widgets.thresh_value.setText(str(THRESHOLD_VALUE))
+        widgets.blur_value.setText(str(BLUR_KERNEL_VALUE))
 
         img = cv.imread(originalImagePath)
-        x = pp.preprocess(img, thresh_value, kernal_value)
-        widgets.label.setPixmap(QPixmap(cv2pxi(x)))
+        preProcessedImg = pp.preprocess(img, THRESHOLD_VALUE, BLUR_KERNEL_VALUE)
+        widgets.label.setPixmap(QPixmap(cv2pxi(preProcessedImg)))
 
+    # SELECT IMAGE BUTTON FUNCTION FROM THE MAIN PAGE
+    # ///////////////////////////////////////////////////////////////
     def selectTheImage(self):
         global originalImagePath
         originalImagePath = r"images/source_image"
 
-        # MAKES THE DIRECTORY TO STORE OUR IMAGE IN THE PROJECT
-        if not os.path.exists(originalImagePath):
+        if not os.path.exists(originalImagePath):  # MAKES THE DIRECTORY TO STORE OUR IMAGE IN THE PROJECT
             os.makedirs(originalImagePath)
 
         widgets.textView.setText("")
@@ -196,6 +212,7 @@ class MainWindow(QMainWindow):
             widgets.label.setPixmap(QPixmap(originalImagePath))
 
     # CHANGES THE ANGLE OF THE INPUT IMAGE
+    # ///////////////////////////////////////////////////////////////
     def changeAngel(self):
         angel_value = int(str(self.ui.angelSlider.value()))
         btn = self.sender()
@@ -216,12 +233,12 @@ class MainWindow(QMainWindow):
             self.ui.angelSlider.setValue(0)
 
     def changeDotArea(self):
-        thresh_value = int(str(self.ui.threshHoldSlider.value()))
-        kernal_value = int(str(self.ui.kernalSlider.value()))
-        dotsArea_value = int(str(self.ui.dotsSlider.value()))
-        widgets.dot_value.setText(str(dotsArea_value))
+        global BLUR_KERNEL_VALUE, DOT_AREA_VALUE, THRESHOLD_VALUE
+
+        DOT_AREA_VALUE = int(str(self.ui.dotsSlider.value()))
+        widgets.dot_value.setText(str(DOT_AREA_VALUE))
         img = cv.imread(originalImagePath)
-        img = pp.showDots(img, thresh_value, kernal_value, dotsArea_value)
+        img = pp.showDots(img, THRESHOLD_VALUE, BLUR_KERNEL_VALUE, DOT_AREA_VALUE)
         widgets.label.setPixmap(QPixmap(cv2pxi(img)))
 
 
@@ -238,6 +255,8 @@ def cv2pxi(img):
     return img
 
 
+# RETURN THE FILE PATH FROM A CERTAIN DIRECTORY
+# ///////////////////////////////////////////////////////////////
 def getFilesDirectories(dir_path):
     pathes = []
     for path in os.listdir(dir_path):
@@ -246,7 +265,19 @@ def getFilesDirectories(dir_path):
             pathes.append(full_path)
     return pathes
 
+
+def clearDirectories():
+    files = glob.glob('images/lines/*')
+    files.extend(glob.glob('images/source_image/*'))
+    files.extend(glob.glob('images/paws/*'))
+
+    for f in files:
+        os.remove(f)
+
+
 if __name__ == "__main__":
+    clearDirectories()
+    allInOne()
     app = QApplication(sys.argv)
     app.setWindowIcon(QIcon("icon.ico"))
     window = MainWindow()
