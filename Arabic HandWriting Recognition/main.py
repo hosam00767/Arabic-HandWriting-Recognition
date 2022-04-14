@@ -6,7 +6,7 @@ import numpy as np
 import glob
 # IMPORT / GUI AND MODULES AND WIDGETS
 # ///////////////////////////////////////////////////////////////
-from PySide6 import QtGui
+from PySide6 import QtGui, QtCore
 
 from modules import *
 from widgets import *
@@ -58,7 +58,6 @@ class MainWindow(QMainWindow):
         widgets.btn_preprocessing.clicked.connect(self.leftMenuButtonPressed)
         widgets.btn_segmentation.clicked.connect(self.leftMenuButtonPressed)
 
-        widgets.btn_select.clicked.connect(self.selectTheImage)
 
         widgets.btn_revertRotaion.clicked.connect(self.changeAngel)
         widgets.btn_applyRotation.clicked.connect(self.changeAngel)
@@ -66,6 +65,8 @@ class MainWindow(QMainWindow):
         widgets.kernelSlider.valueChanged.connect(self.number_changed)
         widgets.angelSlider.valueChanged.connect(self.changeAngel)
         widgets.dotsSlider.valueChanged.connect(self.changeDotArea)
+        self.ui.imageView.mouseDoubleClickEvent=self.selectTheImage
+
 
         # SHOW APP
         # ///////////////////////////////////////////////////////////////
@@ -78,7 +79,8 @@ class MainWindow(QMainWindow):
 
     # MENU BUTTONS FUNCTION
     # ///////////////////////////////////////////////////////////////
-
+    def what(self,event):
+        print("hossam")
     def allInOne(self):
         global originalImagePath
         global DOT_AREA_VALUE
@@ -204,7 +206,7 @@ class MainWindow(QMainWindow):
 
     # SELECT IMAGE BUTTON FUNCTION FROM THE MAIN PAGE
     # ///////////////////////////////////////////////////////////////
-    def selectTheImage(self):
+    def selectTheImage(self,event):
         global originalImagePath
         originalImagePath = r"images/source_image"
 
@@ -215,7 +217,7 @@ class MainWindow(QMainWindow):
         if imagePath[0] == "":
             QMessageBox.warning(self, 'NO IMAGE IS SELECTED', 'Please select an Image')
         else:
-
+            self.ui.imageView.setText("")
             originalImagePath = originalImagePath + "/main_image.png"
             img = cv.imread(imagePath[0])
             cv.imwrite(originalImagePath, img)

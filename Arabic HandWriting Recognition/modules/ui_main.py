@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainfaUIhC.ui'
+## Form generated from reading UI file 'mainheMyVZ.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.2.4
 ##
@@ -18,7 +18,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLabel,
     QMainWindow, QPushButton, QScrollArea, QSizePolicy,
     QSlider, QStackedWidget, QVBoxLayout, QWidget)
-from .resources_rc import *
+from  . resources_rc import *
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -837,7 +837,12 @@ class Ui_MainWindow(object):
         sizePolicy4.setVerticalStretch(0)
         sizePolicy4.setHeightForWidth(self.imageView.sizePolicy().hasHeightForWidth())
         self.imageView.setSizePolicy(sizePolicy4)
+        self.imageView.setStyleSheet(u"background-color:#2c313a;\n"
+"border-radius:30px;\n"
+"border-style : \"dashed\";\n"
+"borderorder :3px solid black;")
         self.imageView.setScaledContents(True)
+        self.imageView.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout_14.addWidget(self.imageView)
 
@@ -853,15 +858,6 @@ class Ui_MainWindow(object):
 "border-radius:30px;")
 
         self.verticalLayout_14.addWidget(self.label_6)
-
-        self.btn_select = QPushButton(self.home_page)
-        self.btn_select.setObjectName(u"btn_select")
-        sizePolicy1.setHeightForWidth(self.btn_select.sizePolicy().hasHeightForWidth())
-        self.btn_select.setSizePolicy(sizePolicy1)
-        self.btn_select.setMinimumSize(QSize(0, 30))
-        self.btn_select.setStyleSheet(u"background-color:#bd93f9;")
-
-        self.verticalLayout_14.addWidget(self.btn_select, 0, Qt.AlignHCenter)
 
         self.stackedWidget.addWidget(self.home_page)
         self.segmentation_page = QWidget()
@@ -914,13 +910,11 @@ class Ui_MainWindow(object):
 "padding: 4px;\n"
 "")
         self.label.setScaledContents(True)
+        self.label.setAlignment(Qt.AlignCenter)
 
         self.horizontalLayout_7.addWidget(self.label)
 
-
-        self.horizontalLayout_6.addWidget(self.widget)
-
-        self.widget_2 = QWidget(self.preprocessing_page)
+        self.widget_2 = QWidget(self.widget)
         self.widget_2.setObjectName(u"widget_2")
         sizePolicy5.setHeightForWidth(self.widget_2.sizePolicy().hasHeightForWidth())
         self.widget_2.setSizePolicy(sizePolicy5)
@@ -1027,8 +1021,13 @@ class Ui_MainWindow(object):
         self.blur_value.setSizePolicy(sizePolicy6)
         self.blur_value.setMinimumSize(QSize(20, 20))
         self.blur_value.setMaximumSize(QSize(20, 20))
-        self.blur_value.setStyleSheet(u"background-color:rgb(33, 37, 43);\n"
-"  text-align: center;")
+        self.blur_value.setStyleSheet(u"\n"
+"background-color:rgb(33, 37, 43);\n"
+"  text-align: center;\n"
+" border-radius: 10px;\n"
+"  min-height: 20px;\n"
+"  min-width: 20px;")
+        self.blur_value.setAlignment(Qt.AlignCenter)
 
         self.horizontalLayout_9.addWidget(self.blur_value, 0, Qt.AlignHCenter|Qt.AlignVCenter)
 
@@ -1084,7 +1083,10 @@ class Ui_MainWindow(object):
         self.thresh_value.setMinimumSize(QSize(20, 20))
         self.thresh_value.setMaximumSize(QSize(20, 20))
         self.thresh_value.setStyleSheet(u"background-color:rgb(33, 37, 43);\n"
-"  text-align: center;")
+"  text-align: center;\n"
+" border-radius: 10px;\n"
+"  min-height: 20px;\n"
+"  min-width: 20px;")
 
         self.horizontalLayout_10.addWidget(self.thresh_value, 0, Qt.AlignHCenter|Qt.AlignVCenter)
 
@@ -1124,17 +1126,14 @@ class Ui_MainWindow(object):
         self.dot_value.setObjectName(u"dot_value")
         sizePolicy6.setHeightForWidth(self.dot_value.sizePolicy().hasHeightForWidth())
         self.dot_value.setSizePolicy(sizePolicy6)
-        self.dot_value.setMinimumSize(QSize(20, 13))
+        self.dot_value.setMinimumSize(QSize(20, 20))
         self.dot_value.setMaximumSize(QSize(20, 20))
         self.dot_value.setStyleSheet(u"background-color:rgb(33, 37, 43);\n"
-"border-radius: 15px;\n"
-"overflow: hidden;\n"
-"border-width: 2px;\n"
-"border-radius: 15px;\n"
-"perspective: 1px;\n"
 "  text-align: center;\n"
-"\n"
-"")
+" border-radius: 10px;\n"
+"  min-height: 20px;\n"
+"  min-width: 20px;")
+        self.dot_value.setAlignment(Qt.AlignCenter)
 
         self.horizontalLayout_11.addWidget(self.dot_value, 0, Qt.AlignHCenter|Qt.AlignVCenter)
 
@@ -1157,7 +1156,10 @@ class Ui_MainWindow(object):
         self.verticalLayout_5.addWidget(self.btn_apply_processing, 0, Qt.AlignBottom)
 
 
-        self.horizontalLayout_6.addWidget(self.widget_2)
+        self.horizontalLayout_7.addWidget(self.widget_2)
+
+
+        self.horizontalLayout_6.addWidget(self.widget)
 
         self.stackedWidget.addWidget(self.preprocessing_page)
         self.page = QWidget()
@@ -1225,7 +1227,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(2)
+        self.stackedWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1251,9 +1253,8 @@ class Ui_MainWindow(object):
         self.closeAppBtn.setToolTip(QCoreApplication.translate("MainWindow", u"Close", None))
 #endif // QT_CONFIG(tooltip)
         self.closeAppBtn.setText("")
-        self.imageView.setText("")
+        self.imageView.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><img src=\":/icons/images/icons/cil-image-plus.png\"/><span style=\" font-weight:700;\">Double Click here to select the image</span></p></body></html>", None))
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-weight:700;\">OUTPUT WILL BE PRINTED HERE</span></p></body></html>", None))
-        self.btn_select.setText(QCoreApplication.translate("MainWindow", u"Select an Image", None))
         self.label.setText("")
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt; font-weight:700;\">Fix The Rotaion of The Image</span></p></body></html>", None))
         self.btn_applyRotation.setText("")
