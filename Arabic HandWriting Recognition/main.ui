@@ -7,8 +7,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>940</width>
-    <height>630</height>
+    <width>974</width>
+    <height>852</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -1257,7 +1257,7 @@ Button */
                       <string notr="true">background: transparent;</string>
                      </property>
                      <property name="currentIndex">
-                      <number>1</number>
+                      <number>2</number>
                      </property>
                      <widget class="QWidget" name="home_page">
                       <property name="styleSheet">
@@ -1265,7 +1265,7 @@ Button */
 background-position: center;
 background-repeat: no-repeat;</string>
                       </property>
-                      <layout class="QVBoxLayout" name="verticalLayout_21">
+                      <layout class="QVBoxLayout" name="verticalLayout_14">
                        <item>
                         <widget class="QLabel" name="imageView">
                          <property name="sizePolicy">
@@ -1283,28 +1283,45 @@ background-repeat: no-repeat;</string>
                         </widget>
                        </item>
                        <item>
-                        <widget class="QLabel" name="textView">
+                        <widget class="QLabel" name="label_6">
                          <property name="sizePolicy">
-                          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
+                          <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
                            <horstretch>0</horstretch>
                            <verstretch>0</verstretch>
                           </sizepolicy>
                          </property>
-                         <property name="font">
-                          <font>
-                           <family>Segoe UI</family>
-                           <pointsize>10</pointsize>
-                           <italic>false</italic>
-                           <bold>false</bold>
-                          </font>
+                         <property name="minimumSize">
+                          <size>
+                           <width>0</width>
+                           <height>300</height>
+                          </size>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">background-color:#21252b;
+border-radius:30px;</string>
                          </property>
                          <property name="text">
-                          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;OUTPUT WILL BE PRINTED HERE&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                          </property>
                         </widget>
                        </item>
-                       <item>
+                       <item alignment="Qt::AlignHCenter">
                         <widget class="QPushButton" name="btn_select">
+                         <property name="sizePolicy">
+                          <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                           <horstretch>0</horstretch>
+                           <verstretch>0</verstretch>
+                          </sizepolicy>
+                         </property>
+                         <property name="minimumSize">
+                          <size>
+                           <width>0</width>
+                           <height>30</height>
+                          </size>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">background-color:#bd93f9;</string>
+                         </property>
                          <property name="text">
                           <string>Select an Image</string>
                          </property>
@@ -1354,8 +1371,8 @@ background-repeat: no-repeat;</string>
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>830</width>
-                            <height>513</height>
+                            <width>864</width>
+                            <height>735</height>
                            </rect>
                           </property>
                           <layout class="QVBoxLayout" name="verticalLayout_13">
@@ -1842,11 +1859,19 @@ perspective: 1px;
                           </item>
                           <item alignment="Qt::AlignBottom">
                            <widget class="QPushButton" name="btn_apply_processing">
+                            <property name="font">
+                             <font>
+                              <family>Segoe UI</family>
+                              <pointsize>10</pointsize>
+                              <italic>false</italic>
+                              <bold>false</bold>
+                             </font>
+                            </property>
                             <property name="styleSheet">
                              <string notr="true">
 border-width: 2px;
 border-radius: 15px;
-background-color:#ff79c6;
+background-color:#bd93f9;
 padding: 4px;
 </string>
                             </property>

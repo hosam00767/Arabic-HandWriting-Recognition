@@ -6,6 +6,8 @@ import numpy as np
 import glob
 # IMPORT / GUI AND MODULES AND WIDGETS
 # ///////////////////////////////////////////////////////////////
+from PySide6 import QtGui
+
 from modules import *
 from widgets import *
 from imageManipultation import preprocessing as pp
@@ -26,18 +28,6 @@ DOT_AREA_VALUE = 50
 BLUR_KERNEL_VALUE = 3
 
 
-def allInOne():
-    global originalImagePath
-    originalImagePath = r"E:\PROJECT IMPORTANT\test images\8207b0a1-9f2a-4772-918a-dabfad383d7a.jpg"
-    global DOT_AREA_VALUE
-    image = cv.imread(originalImagePath)
-    preprocessedOriginal = pp.preprocess(image, THRESHOLD_VALUE, BLUR_KERNEL_VALUE)
-    stl.segment_to_line(image)
-    paths = getFilesDirectories("images/lines")
-    for path in paths:
-        pathOnly, _ = os.path.splitext(path)
-        lineNo = os.path.basename(pathOnly)
-        stp.segment_img_to_PAWS(path, lineNo, DOT_AREA_VALUE)
 
 
 class MainWindow(QMainWindow):
@@ -75,10 +65,7 @@ class MainWindow(QMainWindow):
         widgets.thresholdSlider.valueChanged.connect(self.number_changed)
         widgets.kernelSlider.valueChanged.connect(self.number_changed)
         widgets.angelSlider.valueChanged.connect(self.changeAngel)
-
         widgets.dotsSlider.valueChanged.connect(self.changeDotArea)
-
-        # SETTING THE VALUE OF THE SLIDERS
 
         # SHOW APP
         # ///////////////////////////////////////////////////////////////
@@ -92,7 +79,22 @@ class MainWindow(QMainWindow):
     # MENU BUTTONS FUNCTION
     # ///////////////////////////////////////////////////////////////
 
-    def createLinesListItem(self, image_path):
+    def allInOne(self):
+        global originalImagePath
+        global DOT_AREA_VALUE
+        image = cv.imread(originalImagePath)
+        preprocessedOriginal = pp.preprocess(image, THRESHOLD_VALUE, BLUR_KERNEL_VALUE)
+        stl.segment_to_line(image)
+        paths = glob.glob('images/lines/*')
+        for path in paths:
+            self.createLinesListItem(path)
+            lineNo = getFileName(path)
+            stp.segment_img_to_PAWS(path, lineNo, DOT_AREA_VALUE)
+
+
+    def createLinesListItem(self, linePath):
+
+        lineNum = getFileName(linePath)
         # CREATING THE FRAME AND ITS ATTRIBUTES
         self.listItemFrame = QFrame(self.ui.scrollAreaWidgetContents)
         self.listItemFrame.setObjectName(u"frame_9")
@@ -104,9 +106,22 @@ class MainWindow(QMainWindow):
         self.frameLayout = QHBoxLayout(self.listItemFrame)
         self.frameLayout.setObjectName(u"horizontalLayout_12")
 
+        self.label_6 = QLabel(self.listItemFrame)
+        self.label_6.setObjectName(u"label_6")
+        sizePolicy7 = QSizePolicy(QSizePolicy.Ignored, QSizePolicy.Fixed)
+        sizePolicy7.setHorizontalStretch(0)
+        sizePolicy7.setVerticalStretch(0)
+        sizePolicy7.setHeightForWidth(self.label_6.sizePolicy().hasHeightForWidth())
+        self.label_6.setSizePolicy(sizePolicy7)
+        self.label_6.setMinimumSize(QSize(0, 100))
+        self.label_6.setPixmap(QPixmap(linePath))
+        self.label_6.setScaledContents(True)
+        self.frameLayout.addWidget(self.label_6)
+
         # CREATING THE SEGMENTATION TO WORDS BUTTON IN THE LIST ITEM
         self.btn_sgmnt2Words = QPushButton(self.listItemFrame)
-        self.btn_sgmnt2Words.setObjectName(u"pushButton")
+        self.btn_sgmnt2Words.setObjectName(u"seg_btn_" + str(lineNum))
+        self.btn_sgmnt2Words.clicked.connect(self.word_sgmnt_clicked)
         sizePolicy6 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Expanding)
         sizePolicy6.setHorizontalStretch(0)
         sizePolicy6.setVerticalStretch(0)
@@ -117,22 +132,21 @@ class MainWindow(QMainWindow):
         icon3.addFile(u"images/icons/cil-cut.png", QSize(), QIcon.Normal, QIcon.Off)
         self.btn_sgmnt2Words.setIcon(icon3)
         self.frameLayout.addWidget(self.btn_sgmnt2Words)
-        self.label_6 = QLabel(self.listItemFrame)
-        self.label_6.setObjectName(u"label_6")
-        sizePolicy7 = QSizePolicy(QSizePolicy.Ignored, QSizePolicy.Fixed)
-        sizePolicy7.setHorizontalStretch(0)
-        sizePolicy7.setVerticalStretch(0)
-        sizePolicy7.setHeightForWidth(self.label_6.sizePolicy().hasHeightForWidth())
-        self.label_6.setSizePolicy(sizePolicy7)
-        self.label_6.setMinimumSize(QSize(0, 100))
-        self.label_6.setPixmap(QPixmap(image_path))
-        self.label_6.setScaledContents(True)
-        self.frameLayout.addWidget(self.label_6)
+
         self.ui.verticalLayout_13.addWidget(self.listItemFrame)
+
+    def word_sgmnt_clicked(self):
+
+        btn = self.sender()
+        btnName = btn.objectName()
+
+        lineNo = int(''.join(filter(str.isdigit, btnName)))
+        print("you Pressed line " + str(lineNo))
 
     # CHANGES THE PAGE TO THE SELECTED FROM MENU BUTTON
     # ///////////////////////////////////////////////////////////////
     def leftMenuButtonPressed(self):
+
         # GET BUTTON CLICKED
         btn = self.sender()
         btnName = btn.objectName()
@@ -148,9 +162,6 @@ class MainWindow(QMainWindow):
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
 
         elif btnName == "btn_segmentation":  # SHOW THE SEGMENTATION PAGE
-            lines_paths = getFilesDirectories("images/lines")
-            for line in lines_paths:
-                self.createLinesListItem(image_path=line)
             widgets.stackedWidget.setCurrentWidget(widgets.segmentation_page)
             UIFunctions.resetStyle(self, btnName)
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
@@ -200,14 +211,16 @@ class MainWindow(QMainWindow):
         if not os.path.exists(originalImagePath):  # MAKES THE DIRECTORY TO STORE OUR IMAGE IN THE PROJECT
             os.makedirs(originalImagePath)
 
-        widgets.textView.setText("")
         imagePath = QFileDialog.getOpenFileName(self, 'Open file', "", 'Images ( *.png, *.xmp *.jpg)')
-        if len(imagePath[0]) == 0:
-            widgets.textView.setText("no Image Select")
+        if imagePath[0] == "":
+            QMessageBox.warning(self, 'NO IMAGE IS SELECTED', 'Please select an Image')
         else:
+
             originalImagePath = originalImagePath + "/main_image.png"
             img = cv.imread(imagePath[0])
             cv.imwrite(originalImagePath, img)
+
+            self.allInOne()
             widgets.imageView.setPixmap(QPixmap(originalImagePath))
             widgets.label.setPixmap(QPixmap(originalImagePath))
 
@@ -266,19 +279,29 @@ def getFilesDirectories(dir_path):
     return pathes
 
 
+# DELETE ALL THE IMAGE IN IMAGES , PAWS , LINES DIRECTORIES
+# ///////////////////////////////////////////////////////////////
 def clearDirectories():
     files = glob.glob('images/lines/*')
     files.extend(glob.glob('images/source_image/*'))
     files.extend(glob.glob('images/paws/*'))
-
     for f in files:
         os.remove(f)
 
 
+# GET FILE NAME FROM A PATH
+# ///////////////////////////////////////////////////////////////
+def getFileName(path):
+    pathOnly, _ = os.path.splitext(path)
+    fileName = os.path.basename(pathOnly)
+    return fileName
+
+
 if __name__ == "__main__":
     clearDirectories()
-    allInOne()
     app = QApplication(sys.argv)
     app.setWindowIcon(QIcon("icon.ico"))
     window = MainWindow()
     sys.exit(app.exec_())
+
+# WARNING BOX SAVED FOR LATE IMPLEMENTAION
