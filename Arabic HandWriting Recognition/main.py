@@ -79,8 +79,6 @@ class MainWindow(QMainWindow):
 
     # MENU BUTTONS FUNCTION
     # ///////////////////////////////////////////////////////////////
-    def what(self,event):
-        print("hossam")
     def allInOne(self):
         global originalImagePath
         global DOT_AREA_VALUE
