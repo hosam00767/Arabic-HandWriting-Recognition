@@ -130,6 +130,8 @@ class MainWindow(QMainWindow):
         sizePolicy6.setHeightForWidth(self.btn_sgmnt2Words.sizePolicy().hasHeightForWidth())
         self.btn_sgmnt2Words.setSizePolicy(sizePolicy6)
         self.btn_sgmnt2Words.setMinimumSize(QSize(35, 35))
+        self.btn_sgmnt2Words.setMaximumSize(QSize(35, 35))
+
         icon3 = QIcon()
         icon3.addFile(u"images/icons/cil-cut.png", QSize(), QIcon.Normal, QIcon.Off)
         self.btn_sgmnt2Words.setIcon(icon3)
@@ -143,7 +145,7 @@ class MainWindow(QMainWindow):
         btnName = btn.objectName()
 
         lineNo = int(''.join(filter(str.isdigit, btnName)))
-        print("you Pressed line " + str(lineNo))
+
 
     # CHANGES THE PAGE TO THE SELECTED FROM MENU BUTTON
     # ///////////////////////////////////////////////////////////////
@@ -246,6 +248,7 @@ class MainWindow(QMainWindow):
             img = pp.rotate_image(img, 0)
             widgets.label.setPixmap(QPixmap(cv2pxi(img)))
             self.ui.angelSlider.setValue(0)
+
 
     def changeDotArea(self):
         global BLUR_KERNEL_VALUE, DOT_AREA_VALUE, THRESHOLD_VALUE
