@@ -1257,7 +1257,7 @@ Button */
                       <string notr="true">background: transparent;</string>
                      </property>
                      <property name="currentIndex">
-                      <number>0</number>
+                      <number>4</number>
                      </property>
                      <widget class="QWidget" name="home_page">
                       <property name="styleSheet">
@@ -1364,8 +1364,8 @@ border-radius:30px;</string>
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>92</width>
-                            <height>100</height>
+                            <width>864</width>
+                            <height>735</height>
                            </rect>
                           </property>
                           <layout class="QVBoxLayout" name="verticalLayout_13">
@@ -1890,7 +1890,47 @@ padding: 4px;
                        </item>
                       </layout>
                      </widget>
-                     <widget class="QWidget" name="page"/>
+                     <widget class="QWidget" name="page_2"/>
+                     <widget class="QWidget" name="show_paws">
+                      <layout class="QVBoxLayout" name="verticalLayout_17">
+                       <item alignment="Qt::AlignLeft">
+                        <widget class="QPushButton" name="btn_back2segmentaion">
+                         <property name="text">
+                          <string/>
+                         </property>
+                         <property name="icon">
+                          <iconset resource="resources.qrc">
+                           <normaloff>:/icons/images/icons/cil-chevron-left.png</normaloff>:/icons/images/icons/cil-chevron-left.png</iconset>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QListWidget" name="listWidget">
+                         <property name="styleSheet">
+                          <string notr="true">background-color:#2c313a;
+border-radius:30px;
+color:gray;
+</string>
+                         </property>
+                         <property name="iconSize">
+                          <size>
+                           <width>100</width>
+                           <height>100</height>
+                          </size>
+                         </property>
+                         <property name="movement">
+                          <enum>QListView::Static</enum>
+                         </property>
+                         <property name="spacing">
+                          <number>30</number>
+                         </property>
+                         <property name="viewMode">
+                          <enum>QListView::IconMode</enum>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </widget>
                     </widget>
                    </item>
                   </layout>

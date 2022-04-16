@@ -4,6 +4,8 @@ import cv2 as cv
 import platform
 import numpy as np
 import glob
+import fnmatch
+
 # IMPORT / GUI AND MODULES AND WIDGETS
 # ///////////////////////////////////////////////////////////////
 from PySide6 import QtGui, QtCore
@@ -26,8 +28,6 @@ originalImagePath = None
 THRESHOLD_VALUE = 127
 DOT_AREA_VALUE = 50
 BLUR_KERNEL_VALUE = 3
-
-
 
 
 class MainWindow(QMainWindow):
@@ -57,16 +57,14 @@ class MainWindow(QMainWindow):
         widgets.btn_home.clicked.connect(self.leftMenuButtonPressed)
         widgets.btn_preprocessing.clicked.connect(self.leftMenuButtonPressed)
         widgets.btn_segmentation.clicked.connect(self.leftMenuButtonPressed)
-
-
+        widgets.btn_back2segmentaion.clicked.connect(self.leftMenuButtonPressed)
         widgets.btn_revertRotaion.clicked.connect(self.changeAngel)
         widgets.btn_applyRotation.clicked.connect(self.changeAngel)
         widgets.thresholdSlider.valueChanged.connect(self.number_changed)
         widgets.kernelSlider.valueChanged.connect(self.number_changed)
         widgets.angelSlider.valueChanged.connect(self.changeAngel)
         widgets.dotsSlider.valueChanged.connect(self.changeDotArea)
-        self.ui.imageView.mouseDoubleClickEvent=self.selectTheImage
-
+        self.ui.imageView.mouseDoubleClickEvent = self.selectTheImage
 
         # SHOW APP
         # ///////////////////////////////////////////////////////////////
@@ -87,63 +85,74 @@ class MainWindow(QMainWindow):
         stl.segment_to_line(image)
         paths = glob.glob('images/lines/*')
         for path in paths:
-            self.createLinesListItem(path)
+            self.display_line(path)
             lineNo = getFileName(path)
             stp.segment_img_to_PAWS(path, lineNo, DOT_AREA_VALUE)
 
-
-    def createLinesListItem(self, linePath):
+    def display_line(self, linePath):
 
         lineNum = getFileName(linePath)
         # CREATING THE FRAME AND ITS ATTRIBUTES
-        self.listItemFrame = QFrame(self.ui.scrollAreaWidgetContents)
-        self.listItemFrame.setObjectName(u"frame_9")
-        self.listItemFrame.setMinimumSize(QSize(0, 100))
-        self.listItemFrame.setFrameShape(QFrame.StyledPanel)
-        self.listItemFrame.setFrameShadow(QFrame.Raised)
+        lineFrame = QFrame(self.ui.scrollAreaWidgetContents)
+        lineFrame.setObjectName(u"frame_9")
+        lineFrame.setMinimumSize(QSize(0, 100))
+        lineFrame.setFrameShape(QFrame.StyledPanel)
+        lineFrame.setFrameShadow(QFrame.Raised)
 
-        # CREATING THE LAYOUT INSIDE THE FRAME
-        self.frameLayout = QHBoxLayout(self.listItemFrame)
-        self.frameLayout.setObjectName(u"horizontalLayout_12")
+        frameLayout = QHBoxLayout(lineFrame)
+        frameLayout.setObjectName(u"horizontalLayout_12")
 
-        self.label_6 = QLabel(self.listItemFrame)
-        self.label_6.setObjectName(u"label_6")
-        sizePolicy7 = QSizePolicy(QSizePolicy.Ignored, QSizePolicy.Fixed)
-        sizePolicy7.setHorizontalStretch(0)
-        sizePolicy7.setVerticalStretch(0)
-        sizePolicy7.setHeightForWidth(self.label_6.sizePolicy().hasHeightForWidth())
-        self.label_6.setSizePolicy(sizePolicy7)
-        self.label_6.setMinimumSize(QSize(0, 100))
-        self.label_6.setPixmap(QPixmap(linePath))
-        self.label_6.setScaledContents(True)
-        self.frameLayout.addWidget(self.label_6)
+        lineImg = QLabel(lineFrame)
+        lineImg.setObjectName(lineNum)
 
-        # CREATING THE SEGMENTATION TO WORDS BUTTON IN THE LIST ITEM
-        self.btn_sgmnt2Words = QPushButton(self.listItemFrame)
-        self.btn_sgmnt2Words.setObjectName(u"seg_btn_" + str(lineNum))
-        self.btn_sgmnt2Words.clicked.connect(self.word_sgmnt_clicked)
-        sizePolicy6 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Expanding)
-        sizePolicy6.setHorizontalStretch(0)
-        sizePolicy6.setVerticalStretch(0)
-        sizePolicy6.setHeightForWidth(self.btn_sgmnt2Words.sizePolicy().hasHeightForWidth())
-        self.btn_sgmnt2Words.setSizePolicy(sizePolicy6)
-        self.btn_sgmnt2Words.setMinimumSize(QSize(35, 35))
-        self.btn_sgmnt2Words.setMaximumSize(QSize(35, 35))
-
+        img_sizeP = QSizePolicy(QSizePolicy.Ignored, QSizePolicy.Fixed)
+        img_sizeP.setHorizontalStretch(0)
+        img_sizeP.setVerticalStretch(0)
+        img_sizeP.setHeightForWidth(lineImg.sizePolicy().hasHeightForWidth())
+        lineImg.setSizePolicy(img_sizeP)
+        lineImg.setMinimumSize(QSize(0, 100))
+        lineImg.setPixmap(QPixmap(linePath))
+        lineImg.setScaledContents(True)
+        frameLayout.addWidget(lineImg)
+        btn_sgmnt2Words = QPushButton(lineFrame)
+        btn_sgmnt2Words.setObjectName(str(lineNum))
+        btn_sgmnt2Words.clicked.connect(self.display_paws)
+        btn_sizeP = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Expanding)
+        btn_sizeP.setHorizontalStretch(0)
+        btn_sizeP.setVerticalStretch(0)
+        btn_sizeP.setHeightForWidth(btn_sgmnt2Words.sizePolicy().hasHeightForWidth())
+        btn_sgmnt2Words.setSizePolicy(btn_sizeP)
+        btn_sgmnt2Words.setMinimumSize(QSize(35, 35))
+        btn_sgmnt2Words.setMaximumSize(QSize(35, 35))
         icon3 = QIcon()
         icon3.addFile(u"images/icons/cil-cut.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.btn_sgmnt2Words.setIcon(icon3)
-        self.frameLayout.addWidget(self.btn_sgmnt2Words)
+        btn_sgmnt2Words.setIcon(icon3)
+        frameLayout.addWidget(btn_sgmnt2Words)
+        self.ui.verticalLayout_13.addWidget(lineFrame)
 
-        self.ui.verticalLayout_13.addWidget(self.listItemFrame)
 
-    def word_sgmnt_clicked(self):
 
+    def display_paws(self):
+        self.ui.listWidget.clear()
         btn = self.sender()
-        btnName = btn.objectName()
+        paws_to_be_displayed = []
+        line = btn.objectName()
+        paths = glob.glob('images/paws/*')
 
-        lineNo = int(''.join(filter(str.isdigit, btnName)))
+        for path in paths:
+            filename = getFileName(path)
 
+            if fnmatch.fnmatch(filename, '*line ' + line):
+                paws_to_be_displayed.append(path)
+        if len(paws_to_be_displayed) > 0:
+            for paw in reversed(paws_to_be_displayed):
+                print(paw)
+                ia = QListWidgetItem()
+                icon3 = QIcon()
+                icon3.addFile(paw, QSize(), QIcon.Normal, QIcon.Off)
+                ia.setIcon(icon3)
+                self.ui.listWidget.addItem(ia)
+                widgets.stackedWidget.setCurrentWidget(widgets.show_paws)
 
     # CHANGES THE PAGE TO THE SELECTED FROM MENU BUTTON
     # ///////////////////////////////////////////////////////////////
@@ -163,7 +172,7 @@ class MainWindow(QMainWindow):
             UIFunctions.resetStyle(self, btnName)
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
 
-        elif btnName == "btn_segmentation":  # SHOW THE SEGMENTATION PAGE
+        elif btnName == "btn_segmentation" or btnName == "btn_back2segmentaion":  # SHOW THE SEGMENTATION PAGE
             widgets.stackedWidget.setCurrentWidget(widgets.segmentation_page)
             UIFunctions.resetStyle(self, btnName)
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
@@ -206,7 +215,7 @@ class MainWindow(QMainWindow):
 
     # SELECT IMAGE BUTTON FUNCTION FROM THE MAIN PAGE
     # ///////////////////////////////////////////////////////////////
-    def selectTheImage(self,event):
+    def selectTheImage(self, event):
         global originalImagePath
         originalImagePath = r"images/source_image"
 
@@ -246,7 +255,6 @@ class MainWindow(QMainWindow):
             img = pp.rotate_image(img, 0)
             widgets.label.setPixmap(QPixmap(cv2pxi(img)))
             self.ui.angelSlider.setValue(0)
-
 
     def changeDotArea(self):
         global BLUR_KERNEL_VALUE, DOT_AREA_VALUE, THRESHOLD_VALUE

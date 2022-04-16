@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainBqMfFf.ui'
+## Form generated from reading UI file 'mainZSQfXg.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.2.4
 ##
@@ -16,10 +16,10 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLabel,
-    QMainWindow, QPushButton, QScrollArea, QSizePolicy,
-    QSlider, QStackedWidget, QVBoxLayout, QWidget)
-from  .resources_rc import *
-
+    QListView, QListWidget, QListWidgetItem, QMainWindow,
+    QPushButton, QScrollArea, QSizePolicy, QSlider,
+    QStackedWidget, QVBoxLayout, QWidget)
+from . resources_rc import *
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -877,7 +877,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 92, 100))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 864, 735))
         self.verticalLayout_13 = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_13.setSpacing(0)
         self.verticalLayout_13.setObjectName(u"verticalLayout_13")
@@ -1167,9 +1167,35 @@ class Ui_MainWindow(object):
         self.horizontalLayout_6.addWidget(self.widget)
 
         self.stackedWidget.addWidget(self.preprocessing_page)
-        self.page = QWidget()
-        self.page.setObjectName(u"page")
-        self.stackedWidget.addWidget(self.page)
+        self.page_2 = QWidget()
+        self.page_2.setObjectName(u"page_2")
+        self.stackedWidget.addWidget(self.page_2)
+        self.show_paws = QWidget()
+        self.show_paws.setObjectName(u"show_paws")
+        self.verticalLayout_17 = QVBoxLayout(self.show_paws)
+        self.verticalLayout_17.setObjectName(u"verticalLayout_17")
+        self.btn_back2segmentaion = QPushButton(self.show_paws)
+        self.btn_back2segmentaion.setObjectName(u"btn_back2segmentaion")
+        icon4 = QIcon()
+        icon4.addFile(u":/icons/images/icons/cil-chevron-left.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.btn_back2segmentaion.setIcon(icon4)
+
+        self.verticalLayout_17.addWidget(self.btn_back2segmentaion, 0, Qt.AlignLeft)
+
+        self.listWidget = QListWidget(self.show_paws)
+        self.listWidget.setObjectName(u"listWidget")
+        self.listWidget.setStyleSheet(u"background-color:#2c313a;\n"
+"border-radius:30px;\n"
+"color:gray;\n"
+"")
+        self.listWidget.setIconSize(QSize(100, 100))
+        self.listWidget.setMovement(QListView.Static)
+        self.listWidget.setSpacing(30)
+        self.listWidget.setViewMode(QListView.IconMode)
+
+        self.verticalLayout_17.addWidget(self.listWidget)
+
+        self.stackedWidget.addWidget(self.show_paws)
 
         self.verticalLayout_15.addWidget(self.stackedWidget)
 
@@ -1232,7 +1258,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(4)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1271,6 +1297,7 @@ class Ui_MainWindow(object):
         self.label_5.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt; font-weight:700;\">Edit The Thresh hold for The Dots</span></p></body></html>", None))
         self.dot_value.setText("")
         self.btn_apply_processing.setText(QCoreApplication.translate("MainWindow", u"Apply", None))
+        self.btn_back2segmentaion.setText("")
         self.creditsLabel.setText(QCoreApplication.translate("MainWindow", u"By: Hossam Mamdouh ,Sondos Khaled ,Hanan Isamael", None))
         self.version.setText(QCoreApplication.translate("MainWindow", u"v1.0.3", None))
     # retranslateUi
