@@ -1,67 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="985a25ac-2575-4ff7-a952-e343daf067cf" name="Default Changelist" comment="displaying_paws done">
+    <list default="true" id="985a25ac-2575-4ff7-a952-e343daf067cf" name="Default Changelist" comment="&quot;&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/lines/0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/lines/1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/lines/2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/lines/3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/lines/4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/lines/5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/lines/6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/paws/paw 0-line 0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/paws/paw 0-line 1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/paws/paw 0-line 2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/paws/paw 0-line 3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/paws/paw 0-line 4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/paws/paw 0-line 5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/paws/paw 0-line 6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/paws/paw 1-line 0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/paws/paw 1-line 1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/paws/paw 1-line 2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/paws/paw 1-line 3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/paws/paw 10-line 1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/paws/paw 11-line 1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/paws/paw 12-line 1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/paws/paw 13-line 1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/paws/paw 14-line 1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/paws/paw 15-line 1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/paws/paw 2-line 0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/paws/paw 2-line 1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/paws/paw 2-line 2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/paws/paw 2-line 3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/paws/paw 3-line 0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/paws/paw 3-line 1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/paws/paw 3-line 2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/paws/paw 3-line 3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/paws/paw 4-line 0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/paws/paw 4-line 1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/paws/paw 4-line 2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/paws/paw 4-line 3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/paws/paw 5-line 0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/paws/paw 5-line 1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/paws/paw 5-line 2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/paws/paw 5-line 3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/paws/paw 6-line 0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/paws/paw 6-line 1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/paws/paw 6-line 2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/paws/paw 7-line 0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/paws/paw 7-line 1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/paws/paw 7-line 2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/paws/paw 8-line 0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/paws/paw 8-line 1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/paws/paw 8-line 2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/paws/paw 9-line 0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/paws/paw 9-line 1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/paws/paw 9-line 2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/images/source_image/main_image.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Arabic HandWriting Recognition/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/modules/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Arabic HandWriting Recognition/modules/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/modules/app_functions.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/modules/ui_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Arabic HandWriting Recognition/modules/ui_main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/modules/app_settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Arabic HandWriting Recognition/modules/app_settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/modules/ui_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/Arabic HandWriting Recognition/modules/ui_functions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/themes/py_dracula_dark.qss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/themes/py_dracula_light.qss" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -455,7 +400,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650143759116</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="&quot;&quot;">
+      <created>1650160126133</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1650160126133</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -476,7 +428,6 @@
     <MESSAGE value="&quot;adding word segmentation methods&quot;" />
     <MESSAGE value="&quot;adding characters segmentation methods&quot;" />
     <MESSAGE value="&quot;adding preprocessing.py methods methods&quot;" />
-    <MESSAGE value="&quot;&quot;" />
     <MESSAGE value="&quot;edit to the preprocessing window&quot;" />
     <MESSAGE value="&quot;edit 2.0 to the preprocessing window&quot;" />
     <MESSAGE value="&quot;tesst 2.0&quot;" />
@@ -493,6 +444,7 @@
     <MESSAGE value="alot of things" />
     <MESSAGE value="main page edits" />
     <MESSAGE value="displaying_paws done" />
-    <option name="LAST_COMMIT_MESSAGE" value="displaying_paws done" />
+    <MESSAGE value="&quot;&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;&quot;" />
   </component>
 </project>
