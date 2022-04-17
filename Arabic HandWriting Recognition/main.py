@@ -41,10 +41,6 @@ class MainWindow(QMainWindow):
         global widgets
         widgets = self.ui
 
-        # USE CUSTOM TITLE BAR | USE AS "False" FOR MAC OR LINUX
-        # ///////////////////////////////////////////////////////////////
-        Settings.ENABLE_CUSTOM_TITLE_BAR = True
-
         # TOGGLE MENU
         # ///////////////////////////////////////////////////////////////
         widgets.toggleButton.clicked.connect(lambda: UIFunctions.toggleMenu(self, True))
@@ -57,13 +53,16 @@ class MainWindow(QMainWindow):
         widgets.btn_home.clicked.connect(self.leftMenuButtonPressed)
         widgets.btn_preprocessing.clicked.connect(self.leftMenuButtonPressed)
         widgets.btn_segmentation.clicked.connect(self.leftMenuButtonPressed)
-        widgets.btn_back2segmentaion.clicked.connect(self.leftMenuButtonPressed)
+
         widgets.btn_revertRotaion.clicked.connect(self.changeAngel)
         widgets.btn_applyRotation.clicked.connect(self.changeAngel)
+
         widgets.thresholdSlider.valueChanged.connect(self.number_changed)
         widgets.kernelSlider.valueChanged.connect(self.number_changed)
         widgets.angelSlider.valueChanged.connect(self.changeAngel)
         widgets.dotsSlider.valueChanged.connect(self.changeDotArea)
+
+        widgets.btn_back2segmentaion.clicked.connect(self.leftMenuButtonPressed)
         self.ui.imageView.mouseDoubleClickEvent = self.selectTheImage
 
         # SHOW APP
@@ -73,7 +72,6 @@ class MainWindow(QMainWindow):
         # SET HOME PAGE AND SELECT MENU
         # ///////////////////////////////////////////////////////////////
         widgets.stackedWidget.setCurrentWidget(widgets.home_page)
-        widgets.btn_home.setStyleSheet(UIFunctions.selectMenu(widgets.btn_home.styleSheet()))
 
     # MENU BUTTONS FUNCTION
     # ///////////////////////////////////////////////////////////////
@@ -98,13 +96,10 @@ class MainWindow(QMainWindow):
         lineFrame.setMinimumSize(QSize(0, 100))
         lineFrame.setFrameShape(QFrame.StyledPanel)
         lineFrame.setFrameShadow(QFrame.Raised)
-
         frameLayout = QHBoxLayout(lineFrame)
         frameLayout.setObjectName(u"horizontalLayout_12")
-
         lineImg = QLabel(lineFrame)
         lineImg.setObjectName(lineNum)
-
         img_sizeP = QSizePolicy(QSizePolicy.Ignored, QSizePolicy.Fixed)
         img_sizeP.setHorizontalStretch(0)
         img_sizeP.setVerticalStretch(0)
@@ -130,29 +125,31 @@ class MainWindow(QMainWindow):
         frameLayout.addWidget(btn_sgmnt2Words)
         self.ui.verticalLayout_13.addWidget(lineFrame)
 
-
-
+    # DISPLAY PAW OF A CERTAIN LINE NUMBER IN LIST WIDGET
+    # ///////////////////////////////////////////////////////////////
     def display_paws(self):
-        self.ui.listWidget.clear()
-        btn = self.sender()
-        paws_to_be_displayed = []
-        line = btn.objectName()
-        paths = glob.glob('images/paws/*')
+        paws_to_display = []
+
+        self.ui.listWidget.clear()  # clears the widget list from previous paws
+
+        line = self.sender().objectName()  # get the lineNo from the name of the pressed button
+
+        paths = glob.glob('images/paws/*')  # gets the path of every paw that is segmented from the image
 
         for path in paths:
             filename = getFileName(path)
 
-            if fnmatch.fnmatch(filename, '*line ' + line):
-                paws_to_be_displayed.append(path)
-        if len(paws_to_be_displayed) > 0:
-            for paw in reversed(paws_to_be_displayed):
-                print(paw)
+            if fnmatch.fnmatch(filename, '*line ' + line):  # for each paw path append only paws from the same line
+                paws_to_display.append(path)
+        if len(paws_to_display) > 0:
+            for paw in reversed(paws_to_display):  # display each paw in list widget as an icon
                 ia = QListWidgetItem()
                 icon3 = QIcon()
                 icon3.addFile(paw, QSize(), QIcon.Normal, QIcon.Off)
                 ia.setIcon(icon3)
+                ia.setText(str(paws_to_display.index(paw)))
                 self.ui.listWidget.addItem(ia)
-                widgets.stackedWidget.setCurrentWidget(widgets.show_paws)
+            widgets.stackedWidget.setCurrentWidget(widgets.show_paws)
 
     # CHANGES THE PAGE TO THE SELECTED FROM MENU BUTTON
     # ///////////////////////////////////////////////////////////////
@@ -222,9 +219,11 @@ class MainWindow(QMainWindow):
         if not os.path.exists(originalImagePath):  # MAKES THE DIRECTORY TO STORE OUR IMAGE IN THE PROJECT
             os.makedirs(originalImagePath)
 
-        imagePath = QFileDialog.getOpenFileName(self, 'Open file', "", 'Images ( *.png, *.xmp *.jpg)')
+        imagePath = QFileDialog.getOpenFileName(self, 'Open file', "", 'Images ( *.png, *.xmp *.jpg);;All files (*.*)')
         if imagePath[0] == "":
-            QMessageBox.warning(self, 'NO IMAGE IS SELECTED', 'Please select an Image')
+            imageMessage = QMessageBox()
+            imageMessage.setStyleSheet()
+            imageMessage.warning(self, 'NO IMAGE IS SELECTED', 'Please select an Image')
         else:
             self.ui.imageView.setText("")
             originalImagePath = originalImagePath + "/main_image.png"
@@ -279,17 +278,6 @@ def cv2pxi(img):
     return img
 
 
-# RETURN THE FILE PATH FROM A CERTAIN DIRECTORY
-# ///////////////////////////////////////////////////////////////
-def getFilesDirectories(dir_path):
-    pathes = []
-    for path in os.listdir(dir_path):
-        full_path = os.path.join(dir_path, path)
-        if os.path.isfile(full_path):
-            pathes.append(full_path)
-    return pathes
-
-
 # DELETE ALL THE IMAGE IN IMAGES , PAWS , LINES DIRECTORIES
 # ///////////////////////////////////////////////////////////////
 def clearDirectories():
@@ -300,7 +288,7 @@ def clearDirectories():
         os.remove(f)
 
 
-# GET FILE NAME FROM A PATH
+# returns only the name of the file from its path
 # ///////////////////////////////////////////////////////////////
 def getFileName(path):
     pathOnly, _ = os.path.splitext(path)
