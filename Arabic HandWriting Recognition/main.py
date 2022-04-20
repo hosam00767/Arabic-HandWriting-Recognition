@@ -6,15 +6,12 @@ import numpy as np
 import glob
 import fnmatch
 
-# IMPORT / GUI AND MODULES AND WIDGETS
-# ///////////////////////////////////////////////////////////////
-from PySide6 import QtGui, QtCore
-
 from modules import *
 from widgets import *
 from imageManipultation import preprocessing as pp
 from imageManipultation import segmentaion_to_paws as stp
 from imageManipultation import segmentation_to_lines as stl
+from imageManipultation import segmentation_to_chars as stc
 
 os.environ["QT_FONT_DPI"] = "96"  # FIX Problem for High DPI and Scale above 100%
 
@@ -53,15 +50,12 @@ class MainWindow(QMainWindow):
         widgets.btn_home.clicked.connect(self.leftMenuButtonPressed)
         widgets.btn_preprocessing.clicked.connect(self.leftMenuButtonPressed)
         widgets.btn_segmentation.clicked.connect(self.leftMenuButtonPressed)
-
         widgets.btn_revertRotaion.clicked.connect(self.changeAngel)
         widgets.btn_applyRotation.clicked.connect(self.changeAngel)
-
         widgets.thresholdSlider.valueChanged.connect(self.number_changed)
         widgets.kernelSlider.valueChanged.connect(self.number_changed)
         widgets.angelSlider.valueChanged.connect(self.changeAngel)
         widgets.dotsSlider.valueChanged.connect(self.changeDotArea)
-
         widgets.btn_back2segmentaion.clicked.connect(self.leftMenuButtonPressed)
         self.ui.imageView.mouseDoubleClickEvent = self.selectTheImage
 
@@ -135,10 +129,8 @@ class MainWindow(QMainWindow):
         line = self.sender().objectName()  # get the lineNo from the name of the pressed button
 
         paths = glob.glob('images/paws/*')  # gets the path of every paw that is segmented from the image
-
         for path in paths:
             filename = getFileName(path)
-
             if fnmatch.fnmatch(filename, '*line ' + line):  # for each paw path append only paws from the same line
                 paws_to_display.append(path)
         if len(paws_to_display) > 0:
@@ -149,7 +141,7 @@ class MainWindow(QMainWindow):
                 ia.setIcon(icon3)
                 ia.setText(str(paws_to_display.index(paw)))
                 self.ui.listWidget.addItem(ia)
-            widgets.stackedWidget.setCurrentWidget(widgets.show_paws)
+                widgets.stackedWidget.setCurrentWidget(widgets.show_paws)
 
     # CHANGES THE PAGE TO THE SELECTED FROM MENU BUTTON
     # ///////////////////////////////////////////////////////////////
@@ -161,18 +153,12 @@ class MainWindow(QMainWindow):
 
         if btnName == "btn_home":  # SHOW HOME PAGE
             widgets.stackedWidget.setCurrentWidget(widgets.home_page)
-            UIFunctions.resetStyle(self, btnName)
-            btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
 
         elif btnName == "btn_preprocessing":  # SHOW PREPROCESSING PAGE
             widgets.stackedWidget.setCurrentWidget(widgets.preprocessing_page)
-            UIFunctions.resetStyle(self, btnName)
-            btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
 
         elif btnName == "btn_segmentation" or btnName == "btn_back2segmentaion":  # SHOW THE SEGMENTATION PAGE
             widgets.stackedWidget.setCurrentWidget(widgets.segmentation_page)
-            UIFunctions.resetStyle(self, btnName)
-            btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
 
     # RESIZE EVENTS
     # ///////////////////////////////////////////////////////////////
@@ -297,10 +283,10 @@ def getFileName(path):
 
 
 if __name__ == "__main__":
+    img=cv.imread(r"E:\PROJECT IMPORTANT\Screenshot_26.png")
+    stc.segment_to_chars(img)
     clearDirectories()
     app = QApplication(sys.argv)
     app.setWindowIcon(QIcon("icon.ico"))
     window = MainWindow()
     sys.exit(app.exec_())
-
-# WARNING BOX SAVED FOR LATE IMPLEMENTAION

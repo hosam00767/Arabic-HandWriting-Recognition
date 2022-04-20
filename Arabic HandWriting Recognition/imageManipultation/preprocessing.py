@@ -47,8 +47,7 @@ def vertical_proj(img):
     vproj = np.sum(thresh_line, 0)
     vproj_img = np.zeros((thresh_line.shape[0], thresh_line.shape[1]))
     for col in range(thresh_line.shape[1]):
-        cv.line(vproj_img, (col, thresh_line.shape[0]), (col, thresh_line.shape[0] - int(vproj[col])), (255, 255, 255),
-                1)
+        cv.line(vproj_img, (col, thresh_line.shape[0]), (col, thresh_line.shape[0] - int(vproj[col])), (255, 255, 255), 1)
     return vproj_img, vproj
 
 

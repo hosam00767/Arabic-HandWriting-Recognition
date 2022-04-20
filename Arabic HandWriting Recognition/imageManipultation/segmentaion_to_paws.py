@@ -77,17 +77,6 @@ def segment_img_to_PAWS(path, lineNo, dotArea):
     extract(img, component, lineNo)
 
 
-def extract(img, component, lineNo):
-    for i in range(len(component)):
-        mask = zero = np.ones_like(img) * 255
-        hull = cv.convexHull(component[i])
-        cv.drawContours(mask, [hull], -1, (0, 0, 0), -1)
-        cv.drawContours(mask, [hull], -1, (0, 0, 0), 5)
-        zero[mask == (0, 0, 0)] = img[mask == (0, 0, 0)]
-        zero = trim(zero)
-        cv.imwrite(r'images/paws/' + "paw " +str(i) + "-line " + str(lineNo) + ".png", zero)
-
-
 def trim(paw):
     _, vproj = vertical_proj(paw)
     left = []
@@ -112,3 +101,14 @@ def trim(paw):
     timg = paw[0:, left - 4:right + 4]
 
     return timg
+
+
+def extract(img, component, lineNo):
+    for i in range(len(component)):
+        mask = zero = np.ones_like(img) * 255
+        hull = cv.convexHull(component[i])
+        cv.drawContours(mask, [hull], -1, (0, 0, 0), -1)
+        cv.drawContours(mask, [hull], -1, (0, 0, 0), 5)
+        zero[mask == (0, 0, 0)] = img[mask == (0, 0, 0)]
+        zero = trim(zero)
+        cv.imwrite(r'images/paws/' + "paw " + str(i) + "-line " + str(lineNo) + ".png", zero)

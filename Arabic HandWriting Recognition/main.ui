@@ -1905,35 +1905,7 @@ padding: 4px;
                         </widget>
                        </item>
                        <item>
-                        <widget class="QListWidget" name="listWidget">
-                         <property name="styleSheet">
-                          <string notr="true">background-color:#2c313a;
-border-radius:30px;
-color:gray;
-</string>
-                         </property>
-                         <property name="iconSize">
-                          <size>
-                           <width>100</width>
-                           <height>100</height>
-                          </size>
-                         </property>
-                         <property name="movement">
-                          <enum>QListView::Static</enum>
-                         </property>
-                         <property name="flow">
-                          <enum>QListView::TopToBottom</enum>
-                         </property>
-                         <property name="spacing">
-                          <number>30</number>
-                         </property>
-                         <property name="viewMode">
-                          <enum>QListView::IconMode</enum>
-                         </property>
-                         <property name="sortingEnabled">
-                          <bool>false</bool>
-                         </property>
-                        </widget>
+                        <widget class="QListWidget" name="listWidget"/>
                        </item>
                       </layout>
                      </widget>
