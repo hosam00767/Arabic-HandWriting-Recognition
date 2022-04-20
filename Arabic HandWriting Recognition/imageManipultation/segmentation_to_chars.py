@@ -1,6 +1,7 @@
 # segments the words into character based on the baseline of that word
 from .preprocessing import *
 
+
 def segment_to_chars(img):
     hproj, _ = horizontal_proj(img)
     srows = np.sum(hproj, 1)

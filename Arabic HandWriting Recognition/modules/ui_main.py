@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainzlQmfp.ui'
+## Form generated from reading UI file 'mainIaGGrU.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.2.4
 ##
@@ -871,7 +871,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 864, 735))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 72, 100))
         self.verticalLayout_13 = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_13.setSpacing(0)
         self.verticalLayout_13.setObjectName(u"verticalLayout_13")
@@ -1168,16 +1168,11 @@ class Ui_MainWindow(object):
 
         self.listWidget = QListWidget(self.show_paws)
         self.listWidget.setObjectName(u"listWidget")
-        self.listWidget.setStyleSheet(u"background-color:#2c313a;\n"
-                                      "border-radius:30px;\n"
-                                      "color:gray;\n"
-                                      "")
-        self.listWidget.setIconSize(QSize(100, 100))
-        self.listWidget.setMovement(QListView.Static)
-        self.listWidget.setFlow(QListView.TopToBottom)
+        self.listWidget.setIconSize(QSize(200, 200))
         self.listWidget.setSpacing(30)
         self.listWidget.setViewMode(QListView.IconMode)
-        self.listWidget.setSortingEnabled(False)
+        self.listWidget.setUniformItemSizes(True)
+        self.listWidget.setSortingEnabled(True)
 
         self.verticalLayout_17.addWidget(self.listWidget)
 

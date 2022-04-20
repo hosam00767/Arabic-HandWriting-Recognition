@@ -1364,8 +1364,8 @@ border-radius:30px;</string>
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>864</width>
-                            <height>735</height>
+                            <width>92</width>
+                            <height>100</height>
                            </rect>
                           </property>
                           <layout class="QVBoxLayout" name="verticalLayout_13">
@@ -1905,7 +1905,17 @@ padding: 4px;
                         </widget>
                        </item>
                        <item>
-                        <widget class="QListWidget" name="listWidget"/>
+                        <widget class="QListWidget" name="listWidget">
+                         <property name="flow">
+                          <enum>QListView::LeftToRight</enum>
+                         </property>
+                         <property name="spacing">
+                          <number>30</number>
+                         </property>
+                         <property name="sortingEnabled">
+                          <bool>false</bool>
+                         </property>
+                        </widget>
                        </item>
                       </layout>
                      </widget>
