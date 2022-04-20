@@ -13,7 +13,8 @@ def preprocess(img, thresh_value=97, kernal_value=3):
 def rotate_image(image, angle):
     image_center = tuple(np.array(image.shape[1::-1]) / 2)
     rot_mat = cv.getRotationMatrix2D(image_center, angle, 1.0)
-    result = cv.warpAffine(image, rot_mat, image.shape[1::-1], flags=cv.INTER_LINEAR)
+    result = cv.warpAffine(image, rot_mat, image.shape[1::-1], flags=cv.INTER_LINEAR,borderValue=(255,255,255))
+
 
     return result
 
