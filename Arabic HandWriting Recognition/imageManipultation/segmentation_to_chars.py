@@ -1,17 +1,68 @@
 # segments the words into character based on the baseline of that word
 from .preprocessing import *
+from scipy.ndimage import interpolation as inter
 
 
-def segment_to_chars(img):
-    hproj, _ = horizontal_proj(img)
+# ROTATES THE PAW IMAGE AND CALCULATE ITS SCORE
+#
+# RETURN ONLY THE HIGHEST SCORE
+def correct_skew(image, delta=1, limit=30):
+    def determine_score(arr, angle):
+        data = inter.rotate(arr, angle, reshape=False, order=0)
+        histogram = np.sum(data, axis=1)
+        score = np.sum((histogram[1:] - histogram[:-1]) ** 2)
+        return histogram, score
+
+    thresh = preprocess(image)
+
+    scores = []
+    angles = np.arange(-limit, limit + delta, delta)
+    for angle in angles:
+        histogram, score = determine_score(thresh, angle)
+        scores.append(score)
+
+    best_angle = angles[scores.index(max(scores))]
+
+    (h, w) = image.shape[:2]
+    center = (w // 2, h // 2)
+    M = cv.getRotationMatrix2D(center, best_angle, 1.0)
+    rotated = cv.warpAffine(image, M, (w, h), flags=cv.INTER_CUBIC, borderValue=(255, 255, 255))
+
+    return best_angle, rotated
+
+
+def remove_baseline(img):
+    skewed=correct_skew(img)
+    hproj, _ = horizontal_proj(skewed)
     srows = np.sum(hproj, 1)
+
     baseline = np.max(srows)
     baseline_index = np.where(srows == baseline)
     x = int(baseline_index[0][0])
+    for i in range(x - 2, x + 4):
+        cv.line(img, (0, i), (img.shape[1], i), (255, 255, 255), 1)
+    return img
 
-    imupbl = img[0:x - 1, :]
 
-    vimupbl, vproj = vertical_proj(imupbl)
+def remove_dots(img):
+    without_dots = img.copy()
+    preprocessed = preprocess(img)
+    contours, _ = cv.findContours(image=preprocessed, mode=cv.RETR_EXTERNAL, method=cv.CHAIN_APPROX_NONE)
+    for cnt in contours:
+        if cv.contourArea(cnt) < 35:
+            cv.drawContours(without_dots, cnt, -1, (255, 255, 255), 2)
+    return without_dots
+
+
+def segment_to_chars(img):
+    noDots = remove_dots(img)
+    noBaseLine = remove_baseline(noDots)
+    angel, rotated = correct_skew(img)
+    print(angel)
+    cv.imshow("R", rotated)
+    cv.waitKey(0)
+
+    _, vproj = vertical_proj(noBaseLine)
 
     flag = True
     left = []

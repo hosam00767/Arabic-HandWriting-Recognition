@@ -283,8 +283,6 @@ def getFileName(path):
 
 
 if __name__ == "__main__":
-    img=cv.imread(r"E:\PROJECT IMPORTANT\Screenshot_26.png")
-    stc.segment_to_chars(img)
     clearDirectories()
     app = QApplication(sys.argv)
     app.setWindowIcon(QIcon("icon.ico"))

@@ -13,14 +13,12 @@ def preprocess(img, thresh_value=97, kernal_value=3):
 def rotate_image(image, angle):
     image_center = tuple(np.array(image.shape[1::-1]) / 2)
     rot_mat = cv.getRotationMatrix2D(image_center, angle, 1.0)
-    result = cv.warpAffine(image, rot_mat, image.shape[1::-1], flags=cv.INTER_LINEAR,borderValue=(255,255,255))
-
-
+    result = cv.warpAffine(image, rot_mat, image.shape[1::-1], flags=cv.INTER_LINEAR, borderValue=(255, 255, 255))
     return result
 
 
 def showDots(img, thresh_value, kernal_value, dotArea_value):
-    x=img.copy()
+    x = img.copy()
     thresh = preprocess(img, thresh_value, kernal_value)
     contours, _ = cv.findContours(image=thresh, mode=cv.RETR_EXTERNAL, method=cv.CHAIN_APPROX_NONE)
     for cnt in contours:
@@ -48,16 +46,6 @@ def vertical_proj(img):
     vproj = np.sum(thresh_line, 0)
     vproj_img = np.zeros((thresh_line.shape[0], thresh_line.shape[1]))
     for col in range(thresh_line.shape[1]):
-        cv.line(vproj_img, (col, thresh_line.shape[0]), (col, thresh_line.shape[0] - int(vproj[col])), (255, 255, 255), 1)
+        cv.line(vproj_img, (col, thresh_line.shape[0]), (col, thresh_line.shape[0] - int(vproj[col])), (255, 255, 255),
+                1)
     return vproj_img, vproj
-
-
-# stack images with same width vertically
-def vconcat_resize_min(im_list, interpolation=cv.INTER_CUBIC):
-    w_min = min(im.shape[1] for im in im_list)
-    im_list_resize = [cv.resize(im, (w_min, int(im.shape[0] * w_min / im.shape[1])), interpolation=interpolation)
-                      for im in im_list]
-    return cv.vconcat(im_list_resize)
-
-# returns a preprocessed image that 3 channels image that each dot of that image is painted in white for not being
-# detected in the preprocessing
