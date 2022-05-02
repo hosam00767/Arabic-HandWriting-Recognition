@@ -111,4 +111,4 @@ def extract(img, component, lineNo):
         cv.drawContours(mask, [hull], -1, (0, 0, 0), 5)
         zero[mask == (0, 0, 0)] = img[mask == (0, 0, 0)]
         zero = trim(zero)
-        cv.imwrite(r'images/paws/' + "paw " + str(i) + "-line " + str(lineNo) + ".png", zero)
+        cv.imwrite(r'images/paws/' + "paw " + str(i) + "_line " + str(lineNo) + ".png", zero)

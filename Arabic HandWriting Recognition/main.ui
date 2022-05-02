@@ -1257,7 +1257,7 @@ Button */
                       <string notr="true">background: transparent;</string>
                      </property>
                      <property name="currentIndex">
-                      <number>4</number>
+                      <number>2</number>
                      </property>
                      <widget class="QWidget" name="home_page">
                       <property name="styleSheet">
@@ -1604,7 +1604,7 @@ QPushButton:pressed {
                                       <number>1</number>
                                      </property>
                                      <property name="maximum">
-                                      <number>11</number>
+                                      <number>17</number>
                                      </property>
                                      <property name="singleStep">
                                       <number>3</number>
@@ -1906,14 +1906,35 @@ padding: 4px;
                        </item>
                        <item>
                         <widget class="QListWidget" name="listWidget">
-                         <property name="flow">
-                          <enum>QListView::LeftToRight</enum>
+                         <property name="styleSheet">
+                          <string notr="true">background-color:#2c313a;
+border-radius:30px;
+color:gray;
+</string>
+                         </property>
+                         <property name="iconSize">
+                          <size>
+                           <width>200</width>
+                           <height>200</height>
+                          </size>
+                         </property>
+                         <property name="movement">
+                          <enum>QListView::Static</enum>
                          </property>
                          <property name="spacing">
                           <number>30</number>
                          </property>
+                         <property name="viewMode">
+                          <enum>QListView::IconMode</enum>
+                         </property>
+                         <property name="uniformItemSizes">
+                          <bool>true</bool>
+                         </property>
+                         <property name="itemAlignment">
+                          <set>Qt::AlignLeading</set>
+                         </property>
                          <property name="sortingEnabled">
-                          <bool>false</bool>
+                          <bool>true</bool>
                          </property>
                         </widget>
                        </item>

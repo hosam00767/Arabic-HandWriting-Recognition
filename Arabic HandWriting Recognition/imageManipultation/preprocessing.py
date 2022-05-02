@@ -17,20 +17,21 @@ def rotate_image(image, angle):
     return result
 
 
-def showDots(img, thresh_value, kernal_value, dotArea_value):
-    x = img.copy()
-    thresh = preprocess(img, thresh_value, kernal_value)
+def edit_preprocessing_values(img, BLUR_KERNEL_VALUE, THRESHOLD_VALUE, DOT_AREA_VALUE):
+    thresh = preprocess(img, THRESHOLD_VALUE, BLUR_KERNEL_VALUE)
     contours, _ = cv.findContours(image=thresh, mode=cv.RETR_EXTERNAL, method=cv.CHAIN_APPROX_NONE)
     for cnt in contours:
 
-        if cv.contourArea(cnt) < dotArea_value:
-            print(dotArea_value)
-            cv.drawContours(x, cnt, -1, (255, 0, 255), 3)
-    return x
+        if cv.contourArea(cnt) < DOT_AREA_VALUE:
+
+            cv.drawContours(thresh, cnt, -1, (0, 0, 0), 3)
+    return thresh
 
 
 def horizontal_proj(img):
+
     img = preprocess(img)
+
     thresh_line = img / 255
     hproj = np.sum(thresh_line, 1)
     hproj_img = np.zeros((thresh_line.shape[0], thresh_line.shape[1]))

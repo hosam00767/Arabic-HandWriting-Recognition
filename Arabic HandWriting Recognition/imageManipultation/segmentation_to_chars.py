@@ -25,15 +25,16 @@ def correct_skew(image, delta=1, limit=30):
 
     (h, w) = image.shape[:2]
     center = (w // 2, h // 2)
+
     M = cv.getRotationMatrix2D(center, best_angle, 1.0)
     rotated = cv.warpAffine(image, M, (w, h), flags=cv.INTER_CUBIC, borderValue=(255, 255, 255))
 
-    return best_angle, rotated
+    return rotated
 
 
 def remove_baseline(img):
-    skewed=correct_skew(img)
-    hproj, _ = horizontal_proj(skewed)
+    p=preprocess(img)
+    hproj, _ = horizontal_proj(img)
     srows = np.sum(hproj, 1)
 
     baseline = np.max(srows)
@@ -44,23 +45,22 @@ def remove_baseline(img):
     return img
 
 
+# Remove the dots from a colored image
 def remove_dots(img):
-    without_dots = img.copy()
-    preprocessed = preprocess(img)
-    contours, _ = cv.findContours(image=preprocessed, mode=cv.RETR_EXTERNAL, method=cv.CHAIN_APPROX_NONE)
+
+    preprocessedImg=preprocess(img)
+    contours, _ = cv.findContours(image=preprocessedImg, mode=cv.RETR_EXTERNAL, method=cv.CHAIN_APPROX_NONE)
     for cnt in contours:
         if cv.contourArea(cnt) < 35:
-            cv.drawContours(without_dots, cnt, -1, (255, 255, 255), 2)
-    return without_dots
+            cv.drawContours(img, cnt, -1, (255, 255, 255), 2)
+    return img
 
 
-def segment_to_chars(img):
-    noDots = remove_dots(img)
-    noBaseLine = remove_baseline(noDots)
-    angel, rotated = correct_skew(img)
-    print(angel)
-    cv.imshow("R", rotated)
-    cv.waitKey(0)
+def segment_to_chars(path, pawName):
+    img = cv.imread(path)
+    noDotsImg = remove_dots(img.copy())
+    rotated = correct_skew(noDotsImg)
+    noBaseLine = remove_baseline(rotated)
 
     _, vproj = vertical_proj(noBaseLine)
 
@@ -69,7 +69,6 @@ def segment_to_chars(img):
     right = []
 
     for i in range(img.shape[1]):
-
         cnt = 0
         if flag:
             cnt = vproj[i]
@@ -96,4 +95,4 @@ def segment_to_chars(img):
         else:
             segmented_char = img[0:, points[i - 1]:points[i]]
 
-        cv.imwrite(r'images/chars/' + "char " + str(i) + "-line " + ".png", segmented_char)
+        cv.imwrite(r'images/chars/' + "char " + str(i) + '_' + pawName + ".png", segmented_char)

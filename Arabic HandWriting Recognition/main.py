@@ -1,5 +1,7 @@
 import sys
 import os
+from typing import re
+
 import cv2 as cv
 import platform
 import numpy as np
@@ -52,10 +54,13 @@ class MainWindow(QMainWindow):
         widgets.btn_segmentation.clicked.connect(self.leftMenuButtonPressed)
         widgets.btn_revertRotaion.clicked.connect(self.changeAngel)
         widgets.btn_applyRotation.clicked.connect(self.changeAngel)
+        widgets.btn_apply_processing.clicked.connect(self.saveTheSegmentationResults)
         widgets.thresholdSlider.valueChanged.connect(self.number_changed)
         widgets.kernelSlider.valueChanged.connect(self.number_changed)
+        widgets.dotsSlider.valueChanged.connect(self.number_changed)
+
         widgets.angelSlider.valueChanged.connect(self.changeAngel)
-        widgets.dotsSlider.valueChanged.connect(self.changeDotArea)
+
         widgets.btn_back2segmentaion.clicked.connect(self.leftMenuButtonPressed)
         self.ui.imageView.mouseDoubleClickEvent = self.selectTheImage
 
@@ -69,17 +74,21 @@ class MainWindow(QMainWindow):
 
     # MENU BUTTONS FUNCTION
     # ///////////////////////////////////////////////////////////////
-    def allInOne(self):
+    def saveTheSegmentationResults(self):
         global originalImagePath
         global DOT_AREA_VALUE
+
         image = cv.imread(originalImagePath)
-        preprocessedOriginal = pp.preprocess(image, THRESHOLD_VALUE, BLUR_KERNEL_VALUE)
         stl.segment_to_line(image)
-        paths = glob.glob('images/lines/*')
-        for path in paths:
+        linesPaths = glob.glob('images/lines/*')
+        for path in linesPaths:
             self.display_line(path)
             lineNo = getFileName(path)
             stp.segment_img_to_PAWS(path, lineNo, DOT_AREA_VALUE)
+        pawsPaths = glob.glob('images/paws/*')
+        for path in pawsPaths:
+            pawName = getFileName(path)
+            stc.segment_to_chars(path, pawName)
 
     def display_line(self, linePath):
 
@@ -180,25 +189,29 @@ class MainWindow(QMainWindow):
         sliderName = slider.objectName()
 
         if sliderName == "kernelSlider":
-            kernel_value = int(str(self.ui.thresholdSlider.value()))
+            kernel_value = int(str(self.ui.kernelSlider.value()))
             if kernel_value % 2 == 0:
                 kernel_value += 1
-                BLUR_KERNEL_VALUE = kernel_value
-                self.ui.kernalSlider.setValue(kernel_value)
+            BLUR_KERNEL_VALUE = kernel_value
 
         elif sliderName == "thresholdSlider":
             THRESHOLD_VALUE = int(str(self.ui.thresholdSlider.value()))
 
+        elif sliderName == "dotsSlider":
+            DOT_AREA_VALUE = int(str(self.ui.dotsSlider.value()))
+
         widgets.thresh_value.setText(str(THRESHOLD_VALUE))
         widgets.blur_value.setText(str(BLUR_KERNEL_VALUE))
+        widgets.dot_value.setText(str(DOT_AREA_VALUE))
 
         img = cv.imread(originalImagePath)
-        preProcessedImg = pp.preprocess(img, THRESHOLD_VALUE, BLUR_KERNEL_VALUE)
+        preProcessedImg = pp.edit_preprocessing_values(img, BLUR_KERNEL_VALUE, THRESHOLD_VALUE, DOT_AREA_VALUE)
         widgets.label.setPixmap(QPixmap(cv2pxi(preProcessedImg)))
 
     # SELECT IMAGE BUTTON FUNCTION FROM THE MAIN PAGE
     # ///////////////////////////////////////////////////////////////
     def selectTheImage(self, event):
+
         global originalImagePath
         originalImagePath = r"images/source_image"
 
@@ -208,7 +221,7 @@ class MainWindow(QMainWindow):
         imagePath = QFileDialog.getOpenFileName(self, 'Open file', "", 'Images ( *.png, *.xmp *.jpg);;All files (*.*)')
         if imagePath[0] == "":
             imageMessage = QMessageBox()
-            imageMessage.setStyleSheet()
+
             imageMessage.warning(self, 'NO IMAGE IS SELECTED', 'Please select an Image')
         else:
             self.ui.imageView.setText("")
@@ -216,7 +229,7 @@ class MainWindow(QMainWindow):
             img = cv.imread(imagePath[0])
             cv.imwrite(originalImagePath, img)
 
-            self.allInOne()
+            self.saveTheSegmentationResults()
             widgets.imageView.setPixmap(QPixmap(originalImagePath))
             widgets.label.setPixmap(QPixmap(originalImagePath))
 
@@ -241,15 +254,6 @@ class MainWindow(QMainWindow):
             widgets.label.setPixmap(QPixmap(cv2pxi(img)))
             self.ui.angelSlider.setValue(0)
 
-    def changeDotArea(self):
-        global BLUR_KERNEL_VALUE, DOT_AREA_VALUE, THRESHOLD_VALUE
-
-        DOT_AREA_VALUE = int(str(self.ui.dotsSlider.value()))
-        widgets.dot_value.setText(str(DOT_AREA_VALUE))
-        img = cv.imread(originalImagePath)
-        img = pp.showDots(img, THRESHOLD_VALUE, BLUR_KERNEL_VALUE, DOT_AREA_VALUE)
-        widgets.label.setPixmap(QPixmap(cv2pxi(img)))
-
 
 # RECONSTRUCT THE IMAGE FROM NUMPY ARRAY TO PXI IMAGE
 # ///////////////////////////////////////////////////////////////
@@ -268,8 +272,9 @@ def cv2pxi(img):
 # ///////////////////////////////////////////////////////////////
 def clearDirectories():
     files = glob.glob('images/lines/*')
-    files.extend(glob.glob('images/source_image/*'))
     files.extend(glob.glob('images/paws/*'))
+    files.extend(glob.glob('images/chars/*'))
+
     for f in files:
         os.remove(f)
 
