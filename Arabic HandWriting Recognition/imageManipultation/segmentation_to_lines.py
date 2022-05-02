@@ -28,7 +28,7 @@ def segment_to_line(img):
     for i in range(len(upper)):
         timg = img[upper[i] - 2:lower[i] + 2, 0:]
 
-        if timg.shape[0] > 6:
+        if timg.shape[0] > 5:
             text_lines.append(timg)
 
     for i in range(len(text_lines)):

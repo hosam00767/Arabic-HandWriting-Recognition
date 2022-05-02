@@ -1,5 +1,50 @@
 import math
 from .preprocessing import *
+from .ImageValues import Values as v
+
+
+# Takes a line path and its position in the image
+# slice each set of contours in the image and saves it as png
+def segment_img_to_PAWS(path, lineNo):
+    img = cv.imread(path)
+    dots = []
+    component = []
+    p = preprocess(img)
+    contours, _ = cv.findContours(image=p, mode=cv.RETR_EXTERNAL, method=cv.CHAIN_APPROX_NONE)
+    print(len(contours))
+    for cnt in contours:
+        if cv.contourArea(cnt) < v.DOT_AREA_VALUE:
+            dots.append(cnt)
+        else:
+            component.append(cnt)
+    component = sort_contours(component)
+    component = list(component)
+
+    for dot in dots:
+        conflict = []
+        for cnt in component:
+
+            if check_for_inter(dot, cnt):
+                conflict.append(cnt)
+
+        if len(conflict) == 1:
+            component[component.index(conflict[0])] = merge_ctrs([component[component.index(conflict[0])], dot])
+
+        elif len(conflict) == 2:
+            cnt1 = conflict[0]
+            cnt2 = conflict[1]
+            x1 = shortest_distance(cnt1, dot)
+            x2 = shortest_distance(cnt2, dot)
+            if x1 <= x2:
+                component[component.index(cnt1)] = merge_ctrs([component[component.index(cnt1)], dot])
+            else:
+                component[component.index(cnt2)] = merge_ctrs([component[component.index(cnt2)], dot])
+
+        # If the Dot don't overlap with any PAW
+        elif len(conflict) == 0:
+            print("not Yet Implement")
+
+    extract(img, component, lineNo)
 
 
 def distance(p1, p2):
@@ -15,10 +60,17 @@ def check_for_inter(dot, not_dot):
         return False
 
 
+# Return the start position of a word from the x axis
+def getPawStartIndex(cnt):
+    x, _, w, _ = cv.boundingRect(cnt)
+    return x + w
+
+
+# Using a Lambda function(Sorted) to sort the Contours based of the the x axis
 def sort_contours(cnts):
     boundingBoxes = [cv.boundingRect(c) for c in cnts]
-    cnts, _ = zip(*sorted(zip(cnts, boundingBoxes), key=lambda b: b[1][0], reverse=True))
-    return cnts
+    sortedCnts = sorted(cnts, key=lambda cnt: getPawStartIndex(cnt), reverse=True)
+    return sortedCnts
 
 
 def shortest_distance(cnt1, dot):
@@ -39,15 +91,15 @@ def merge_ctrs(ctrs_to_merge):
     return ctr
 
 
-def segment_img_to_PAWS(path, lineNo, dotArea):
+def segment_img_to_PAWS(path, lineNo):
     img = cv.imread(path)
     dots = []
     component = []
     p = preprocess(img)
     contours, _ = cv.findContours(image=p, mode=cv.RETR_EXTERNAL, method=cv.CHAIN_APPROX_NONE)
-
+    print(len(contours))
     for cnt in contours:
-        if cv.contourArea(cnt) < dotArea:
+        if cv.contourArea(cnt) < v.DOT_AREA_VALUE:
             dots.append(cnt)
         else:
             component.append(cnt)
@@ -108,7 +160,13 @@ def extract(img, component, lineNo):
         mask = zero = np.ones_like(img) * 255
         hull = cv.convexHull(component[i])
         cv.drawContours(mask, [hull], -1, (0, 0, 0), -1)
-        cv.drawContours(mask, [hull], -1, (0, 0, 0), 5)
+        cv.drawContours(mask, [hull], -1, (0, 0, 0), 0)
         zero[mask == (0, 0, 0)] = img[mask == (0, 0, 0)]
+        cv.imshow("r",zero)
+        cv.waitKey(0)
         zero = trim(zero)
-        cv.imwrite(r'images/paws/' + "paw " + str(i) + "_line " + str(lineNo) + ".png", zero)
+        cv.imshow("r",zero)
+        cv.waitKey(0)
+
+        if zero.shape[0] > 20:
+            cv.imwrite(r'images/paws/' + "paw " + str(i) + "_line " + str(lineNo) + ".png", zero)

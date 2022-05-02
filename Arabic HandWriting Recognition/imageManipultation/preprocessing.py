@@ -1,12 +1,13 @@
 # remover the noise by blurring the image and then do a threshold with a certain value to only show the writings
 import cv2 as cv
 import numpy as np
+from .ImageValues import Values as v
 
 
-def preprocess(img, thresh_value=97, kernal_value=3):
+def preprocess(img):
     gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
-    gaussian = cv.GaussianBlur(gray, (kernal_value, kernal_value), 0)
-    ret, thresh = cv.threshold(gaussian, thresh_value, 255, cv.THRESH_BINARY_INV)
+    gaussian = cv.GaussianBlur(gray, (v.BLUR_KERNEL_VALUE, v.BLUR_KERNEL_VALUE), 0)
+    ret, thresh = cv.threshold(gaussian, v.THRESHOLD_VALUE, 255, cv.THRESH_BINARY_INV)
     return thresh
 
 
@@ -17,19 +18,17 @@ def rotate_image(image, angle):
     return result
 
 
-def edit_preprocessing_values(img, BLUR_KERNEL_VALUE, THRESHOLD_VALUE, DOT_AREA_VALUE):
-    thresh = preprocess(img, THRESHOLD_VALUE, BLUR_KERNEL_VALUE)
+def edit_preprocessing_values(img):
+    thresh = preprocess(img)
     contours, _ = cv.findContours(image=thresh, mode=cv.RETR_EXTERNAL, method=cv.CHAIN_APPROX_NONE)
     for cnt in contours:
 
-        if cv.contourArea(cnt) < DOT_AREA_VALUE:
-
+        if cv.contourArea(cnt) < v.DOT_AREA_VALUE:
             cv.drawContours(thresh, cnt, -1, (0, 0, 0), 3)
     return thresh
 
 
 def horizontal_proj(img):
-
     img = preprocess(img)
 
     thresh_line = img / 255

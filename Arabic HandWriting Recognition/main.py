@@ -14,6 +14,7 @@ from imageManipultation import preprocessing as pp
 from imageManipultation import segmentaion_to_paws as stp
 from imageManipultation import segmentation_to_lines as stl
 from imageManipultation import segmentation_to_chars as stc
+from imageManipultation.ImageValues import Values as v
 
 os.environ["QT_FONT_DPI"] = "96"  # FIX Problem for High DPI and Scale above 100%
 
@@ -22,14 +23,13 @@ os.environ["QT_FONT_DPI"] = "96"  # FIX Problem for High DPI and Scale above 100
 widgets = None
 originalImagePath = None
 
+
 # IMAGE ATTRIBUTE VALUES
 # ///////////////////////////////////////////////////////////////
-THRESHOLD_VALUE = 127
-DOT_AREA_VALUE = 50
-BLUR_KERNEL_VALUE = 3
 
 
 class MainWindow(QMainWindow):
+
     def __init__(self):
         QMainWindow.__init__(self)
 
@@ -76,7 +76,6 @@ class MainWindow(QMainWindow):
     # ///////////////////////////////////////////////////////////////
     def saveTheSegmentationResults(self):
         global originalImagePath
-        global DOT_AREA_VALUE
 
         image = cv.imread(originalImagePath)
         stl.segment_to_line(image)
@@ -84,7 +83,8 @@ class MainWindow(QMainWindow):
         for path in linesPaths:
             self.display_line(path)
             lineNo = getFileName(path)
-            stp.segment_img_to_PAWS(path, lineNo, DOT_AREA_VALUE)
+            stp.segment_img_to_PAWS(path, lineNo)
+
         pawsPaths = glob.glob('images/paws/*')
         for path in pawsPaths:
             pawName = getFileName(path)
@@ -182,7 +182,6 @@ class MainWindow(QMainWindow):
 
     def number_changed(self):
 
-        global BLUR_KERNEL_VALUE, DOT_AREA_VALUE, THRESHOLD_VALUE
         global originalImagePath
 
         slider = self.sender()
@@ -192,20 +191,20 @@ class MainWindow(QMainWindow):
             kernel_value = int(str(self.ui.kernelSlider.value()))
             if kernel_value % 2 == 0:
                 kernel_value += 1
-            BLUR_KERNEL_VALUE = kernel_value
+            v.BLUR_KERNEL_VALUE = kernel_value
 
         elif sliderName == "thresholdSlider":
-            THRESHOLD_VALUE = int(str(self.ui.thresholdSlider.value()))
+            v.THRESHOLD_VALUE = int(str(self.ui.thresholdSlider.value()))
 
         elif sliderName == "dotsSlider":
-            DOT_AREA_VALUE = int(str(self.ui.dotsSlider.value()))
+            v.DOT_AREA_VALUE = int(str(self.ui.dotsSlider.value()))
 
-        widgets.thresh_value.setText(str(THRESHOLD_VALUE))
-        widgets.blur_value.setText(str(BLUR_KERNEL_VALUE))
-        widgets.dot_value.setText(str(DOT_AREA_VALUE))
+        widgets.thresh_value.setText(str(v.THRESHOLD_VALUE))
+        widgets.blur_value.setText(str(v.BLUR_KERNEL_VALUE))
+        widgets.dot_value.setText(str(v.DOT_AREA_VALUE))
 
         img = cv.imread(originalImagePath)
-        preProcessedImg = pp.edit_preprocessing_values(img, BLUR_KERNEL_VALUE, THRESHOLD_VALUE, DOT_AREA_VALUE)
+        preProcessedImg = pp.edit_preprocessing_values(img)
         widgets.label.setPixmap(QPixmap(cv2pxi(preProcessedImg)))
 
     # SELECT IMAGE BUTTON FUNCTION FROM THE MAIN PAGE

@@ -1,5 +1,5 @@
-
 class Values:
+
     THRESHOLD_VALUE = 127
     DOT_AREA_VALUE = 50
     BLUR_KERNEL_VALUE = 3
