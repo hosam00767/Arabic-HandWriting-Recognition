@@ -160,13 +160,10 @@ def extract(img, component, lineNo):
         mask = zero = np.ones_like(img) * 255
         hull = cv.convexHull(component[i])
         cv.drawContours(mask, [hull], -1, (0, 0, 0), -1)
-        cv.drawContours(mask, [hull], -1, (0, 0, 0), 0)
+        cv.drawContours(mask, [hull], -1, (0, 0, 0), 5)
         zero[mask == (0, 0, 0)] = img[mask == (0, 0, 0)]
-        cv.imshow("r",zero)
-        cv.waitKey(0)
         zero = trim(zero)
-        cv.imshow("r",zero)
-        cv.waitKey(0)
+
 
         if zero.shape[0] > 20:
             cv.imwrite(r'images/paws/' + "paw " + str(i) + "_line " + str(lineNo) + ".png", zero)

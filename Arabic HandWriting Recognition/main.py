@@ -16,7 +16,7 @@ from imageManipultation import segmentation_to_lines as stl
 from imageManipultation import segmentation_to_chars as stc
 from imageManipultation.ImageValues import Values as v
 
-os.environ["QT_FONT_DPI"] = "96"  # FIX Problem for High DPI and Scale above 100%
+
 
 # SET AS GLOBAL VARIABLE
 # ///////////////////////////////////////////////////////////////
