@@ -131,26 +131,26 @@ def segment_img_to_PAWS(path, lineNo):
 
 def trim(paw):
     _, vproj = vertical_proj(paw)
-    left = []
-    right = []
+    left = -1
+    right = -1
     flag = True
     for i in range(paw.shape[1]):
-        cnt = 0
+        pixelsAtWidthI = 0
         if flag:
-            cnt = vproj[i]
-            if cnt > 0:
+            pixelsAtWidthI = vproj[i]
+            if pixelsAtWidthI > 0:
                 left = i
                 flag = False
         else:
-            cnt = vproj[i]
-            if cnt < 2:
+            pixelsAtWidthI = vproj[i]
+            if pixelsAtWidthI < 2:
                 right = i
                 flag = True
+    # in case the contour did not end after the image width reached
+    if right == -1:
+        right = paw.shape[1]
 
-    if right is None:
-        right = vproj.shape[1]
-
-    timg = paw[0:, left - 4:right + 4]
+    timg = paw[:, left:right]
 
     return timg
 
@@ -162,8 +162,8 @@ def extract(img, component, lineNo):
         cv.drawContours(mask, [hull], -1, (0, 0, 0), -1)
         cv.drawContours(mask, [hull], -1, (0, 0, 0), 5)
         zero[mask == (0, 0, 0)] = img[mask == (0, 0, 0)]
+
         zero = trim(zero)
 
-
-        if zero.shape[0] > 20:
+        if zero.shape[0]*zero.shape[1] > 15:
             cv.imwrite(r'images/paws/' + "paw " + str(i) + "_line " + str(lineNo) + ".png", zero)

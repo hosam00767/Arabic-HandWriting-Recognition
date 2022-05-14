@@ -33,7 +33,7 @@ def correct_skew(image, delta=1, limit=30):
 
 
 def remove_baseline(img):
-    p=preprocess(img)
+    p = preprocess(img)
     hproj, _ = horizontal_proj(img)
     srows = np.sum(hproj, 1)
 
@@ -47,12 +47,11 @@ def remove_baseline(img):
 
 # Remove the dots from a colored image
 def remove_dots(img):
-
-    preprocessedImg=preprocess(img)
+    preprocessedImg = preprocess(img)
     contours, _ = cv.findContours(image=preprocessedImg, mode=cv.RETR_EXTERNAL, method=cv.CHAIN_APPROX_NONE)
     for cnt in contours:
         if cv.contourArea(cnt) < 35:
-            cv.drawContours(img, cnt, -1, (255, 255, 255), 2)
+            cv.drawContours(img, cnt, -1, (255, 255, 255), -1)
     return img
 
 
@@ -61,7 +60,7 @@ def segment_to_chars(path, pawName):
     noDotsImg = remove_dots(img.copy())
     rotated = correct_skew(noDotsImg)
     noBaseLine = remove_baseline(rotated)
-
+    print(path)
     _, vproj = vertical_proj(noBaseLine)
 
     flag = True
@@ -83,16 +82,14 @@ def segment_to_chars(path, pawName):
 
     if len(left) != len(right):
         right.append(img.shape[1])
-    points = []
+    points = [0]
     list(points)
     for i in range(len(left)):
         points.append(int((right[i] + left[i]) / 2))
+    points.append(img.shape[1])
 
-    for i in range(len(points)):
-        if i == 0:
-            segmented_char = img[0:, 0:points[i]]
+    for i in range(len(points) - 1):
+        segmented_char = img[:, points[i]:points[i + 1]]
 
-        else:
-            segmented_char = img[0:, points[i - 1]:points[i]]
-
-        cv.imwrite(r'images/chars/' + "char " + str(i) + '_' + pawName + ".png", segmented_char)
+        if segmented_char.shape[1] * segmented_char.shape[0] > 15:
+            cv.imwrite(r'images/chars/' + "char " + str(i) + '_' + pawName + ".png", segmented_char)
