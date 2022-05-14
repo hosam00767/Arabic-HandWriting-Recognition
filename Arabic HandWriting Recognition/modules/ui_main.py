@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainlLoEBd.ui'
+## Form generated from reading UI file 'mainphmXCM.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.2.4
 ##
@@ -19,13 +19,13 @@ from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLabel,
     QListView, QListWidget, QListWidgetItem, QMainWindow,
     QPushButton, QScrollArea, QSizePolicy, QSlider,
     QStackedWidget, QVBoxLayout, QWidget)
-from  .resources_rc import *
+from  . resources_rc import *
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(974, 852)
+        MainWindow.resize(998, 860)
         sizePolicy = QSizePolicy(QSizePolicy.Ignored, QSizePolicy.Ignored)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -670,18 +670,6 @@ class Ui_MainWindow(object):
         self.verticalLayout_9.setSpacing(0)
         self.verticalLayout_9.setObjectName(u"verticalLayout_9")
         self.verticalLayout_9.setContentsMargins(0, 0, 0, 0)
-        self.btn_settings = QPushButton(self.bottomMenu)
-        self.btn_settings.setObjectName(u"btn_settings")
-        sizePolicy1.setHeightForWidth(self.btn_settings.sizePolicy().hasHeightForWidth())
-        self.btn_settings.setSizePolicy(sizePolicy1)
-        self.btn_settings.setMinimumSize(QSize(0, 45))
-        self.btn_settings.setFont(font)
-        self.btn_settings.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_settings.setLayoutDirection(Qt.LeftToRight)
-        self.btn_settings.setStyleSheet(u"background-image: url(:/icons/images/icons/icon_settings.png);")
-
-        self.verticalLayout_9.addWidget(self.btn_settings)
-
 
         self.verticalMenuLayout.addWidget(self.bottomMenu, 0, Qt.AlignBottom)
 
@@ -877,7 +865,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 92, 100))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 864, 735))
         self.verticalLayout_13 = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_13.setSpacing(0)
         self.verticalLayout_13.setObjectName(u"verticalLayout_13")
@@ -906,7 +894,7 @@ class Ui_MainWindow(object):
         self.label.setObjectName(u"label")
         sizePolicy6.setHeightForWidth(self.label.sizePolicy().hasHeightForWidth())
         self.label.setSizePolicy(sizePolicy6)
-        self.label.setMinimumSize(QSize(500, 0))
+        self.label.setMinimumSize(QSize(400, 0))
         self.label.setStyleSheet(u"\n"
 "border-style: outset;\n"
 "border-width: 1px;\n"
@@ -1230,12 +1218,6 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_5.addWidget(self.creditsLabel)
 
-        self.version = QLabel(self.bottomBar)
-        self.version.setObjectName(u"version")
-        self.version.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
-
-        self.horizontalLayout_5.addWidget(self.version)
-
         self.frame_size_grip = QFrame(self.bottomBar)
         self.frame_size_grip.setObjectName(u"frame_size_grip")
         self.frame_size_grip.setMinimumSize(QSize(20, 0))
@@ -1273,7 +1255,6 @@ class Ui_MainWindow(object):
         self.btn_home.setText(QCoreApplication.translate("MainWindow", u"Home", None))
         self.btn_preprocessing.setText(QCoreApplication.translate("MainWindow", u"PreProcessing", None))
         self.btn_segmentation.setText(QCoreApplication.translate("MainWindow", u"Segmentation", None))
-        self.btn_settings.setText(QCoreApplication.translate("MainWindow", u"Settings", None))
         self.titleRightInfo.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-weight:700;\">Arabic HandWriting Recogniton</span></p></body></html>", None))
 #if QT_CONFIG(tooltip)
         self.minimizeAppBtn.setToolTip(QCoreApplication.translate("MainWindow", u"Minimize", None))
@@ -1302,6 +1283,5 @@ class Ui_MainWindow(object):
         self.btn_apply_processing.setText(QCoreApplication.translate("MainWindow", u"Apply", None))
         self.btn_back2segmentaion.setText("")
         self.creditsLabel.setText(QCoreApplication.translate("MainWindow", u"By: Hossam Mamdouh ,Sondos Khaled ,Hanan Isamael", None))
-        self.version.setText(QCoreApplication.translate("MainWindow", u"v1.0.3", None))
     # retranslateUi
 

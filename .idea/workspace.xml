@@ -7,7 +7,9 @@
     <list default="true" id="985a25ac-2575-4ff7-a952-e343daf067cf" name="Default Changelist" comment="&quot;&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/imageManipultation/segmentaion_to_paws.py" beforeDir="false" afterPath="$PROJECT_DIR$/Arabic HandWriting Recognition/imageManipultation/segmentaion_to_paws.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/imageManipultation/segmentation_to_chars.py" beforeDir="false" afterPath="$PROJECT_DIR$/Arabic HandWriting Recognition/imageManipultation/segmentation_to_chars.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Arabic HandWriting Recognition/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/main.ui" beforeDir="false" afterPath="$PROJECT_DIR$/Arabic HandWriting Recognition/main.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/modules/ui_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Arabic HandWriting Recognition/modules/ui_main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,13 +135,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1649336802564</updated>
-    </task>
-    <task id="LOCAL-00002" summary="&quot;adding line segmentation methods&quot;">
-      <created>1649409041712</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1649409041712</updated>
     </task>
     <task id="LOCAL-00003" summary="&quot;adding word segmentation methods&quot;">
       <created>1649409720414</created>
@@ -477,7 +472,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651487618091</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="&quot;&quot;">
+      <created>1652526049794</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1652526049794</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

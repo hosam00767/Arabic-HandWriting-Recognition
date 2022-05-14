@@ -7,8 +7,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>974</width>
-    <height>852</height>
+    <width>998</width>
+    <height>860</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -858,42 +858,6 @@ Button */
                 <property name="bottomMargin">
                  <number>0</number>
                 </property>
-                <item>
-                 <widget class="QPushButton" name="btn_settings">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="minimumSize">
-                   <size>
-                    <width>0</width>
-                    <height>45</height>
-                   </size>
-                  </property>
-                  <property name="font">
-                   <font>
-                    <family>Segoe UI</family>
-                    <pointsize>10</pointsize>
-                    <italic>false</italic>
-                    <bold>false</bold>
-                   </font>
-                  </property>
-                  <property name="cursor">
-                   <cursorShape>PointingHandCursor</cursorShape>
-                  </property>
-                  <property name="layoutDirection">
-                   <enum>Qt::LeftToRight</enum>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">background-image: url(:/icons/images/icons/icon_settings.png);</string>
-                  </property>
-                  <property name="text">
-                   <string>Settings</string>
-                  </property>
-                 </widget>
-                </item>
                </layout>
               </widget>
              </item>
@@ -1364,8 +1328,8 @@ border-radius:30px;</string>
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>92</width>
-                            <height>100</height>
+                            <width>864</width>
+                            <height>735</height>
                            </rect>
                           </property>
                           <layout class="QVBoxLayout" name="verticalLayout_13">
@@ -1426,7 +1390,7 @@ border-radius:30px;</string>
                             </property>
                             <property name="minimumSize">
                              <size>
-                              <width>500</width>
+                              <width>400</width>
                               <height>0</height>
                              </size>
                             </property>
@@ -2005,16 +1969,6 @@ color:gray;
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QLabel" name="version">
-                  <property name="text">
-                   <string>v1.0.3</string>
-                  </property>
-                  <property name="alignment">
-                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                   </property>
                  </widget>
                 </item>

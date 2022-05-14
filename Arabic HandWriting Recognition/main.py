@@ -16,8 +16,6 @@ from imageManipultation import segmentation_to_lines as stl
 from imageManipultation import segmentation_to_chars as stc
 from imageManipultation.ImageValues import Values as v
 
-
-
 # SET AS GLOBAL VARIABLE
 # ///////////////////////////////////////////////////////////////
 widgets = None
@@ -75,25 +73,32 @@ class MainWindow(QMainWindow):
     # MENU BUTTONS FUNCTION
     # ///////////////////////////////////////////////////////////////
     def saveTheSegmentationResults(self):
-        global originalImagePath
+            global originalImagePath
+            clearDirectories()
+            image = cv.imread(originalImagePath)
+            stl.segment_to_line(image)
+            linesPaths = glob.glob('images/lines/*')
+            self.removeLinesList()
+            for path in linesPaths:
+                self.display_line(path)
+                lineNo = getFileName(path)
+                stp.segment_img_to_PAWS(path, lineNo)
 
-        image = cv.imread(originalImagePath)
-        stl.segment_to_line(image)
-        linesPaths = glob.glob('images/lines/*')
-        for path in linesPaths:
-            self.display_line(path)
-            lineNo = getFileName(path)
-            stp.segment_img_to_PAWS(path, lineNo)
+            pawsPaths = glob.glob('images/paws/*')
+            for path in pawsPaths:
+                pawName = getFileName(path)
+                stc.segment_to_chars(path, pawName)
 
-        pawsPaths = glob.glob('images/paws/*')
-        for path in pawsPaths:
-            pawName = getFileName(path)
-            stc.segment_to_chars(path, pawName)
+# Removes The segmented lines from the segmentation page
+    def removeLinesList(self):
+        children = self.ui.scrollAreaWidgetContents.children()
+        for child in children:
+            if child.isWidgetType():
+                child.setParent(None)
 
     def display_line(self, linePath):
 
         lineNum = getFileName(linePath)
-        # CREATING THE FRAME AND ITS ATTRIBUTES
         lineFrame = QFrame(self.ui.scrollAreaWidgetContents)
         lineFrame.setObjectName(u"frame_9")
         lineFrame.setMinimumSize(QSize(0, 100))
@@ -205,7 +210,7 @@ class MainWindow(QMainWindow):
 
         img = cv.imread(originalImagePath)
         preProcessedImg = pp.edit_preprocessing_values(img)
-        widgets.label.setPixmap(QPixmap(cv2pxi(preProcessedImg)))
+        widgets.label.setPixmap(QPixmap(convert_CV2_to_PXI(preProcessedImg)))
 
     # SELECT IMAGE BUTTON FUNCTION FROM THE MAIN PAGE
     # ///////////////////////////////////////////////////////////////
@@ -227,7 +232,7 @@ class MainWindow(QMainWindow):
             originalImagePath = originalImagePath + "/main_image.png"
             img = cv.imread(imagePath[0])
             cv.imwrite(originalImagePath, img)
-
+            self.removeLinesList()
             self.saveTheSegmentationResults()
             widgets.imageView.setPixmap(QPixmap(originalImagePath))
             widgets.label.setPixmap(QPixmap(originalImagePath))
@@ -242,7 +247,7 @@ class MainWindow(QMainWindow):
 
         if btnName == "angelSlider":
             img = pp.rotate_image(img, angel_value)
-            widgets.label.setPixmap(QPixmap(cv2pxi(img)))
+            widgets.label.setPixmap(QPixmap(convert_CV2_to_PXI(img)))
 
         elif btnName == "btn_applyRotation":
             img = pp.rotate_image(img, angel_value)
@@ -250,13 +255,13 @@ class MainWindow(QMainWindow):
 
         elif btnName == "btn_revertRotaion":
             img = pp.rotate_image(img, 0)
-            widgets.label.setPixmap(QPixmap(cv2pxi(img)))
+            widgets.label.setPixmap(QPixmap(convert_CV2_to_PXI(img)))
             self.ui.angelSlider.setValue(0)
 
 
 # RECONSTRUCT THE IMAGE FROM NUMPY ARRAY TO PXI IMAGE
 # ///////////////////////////////////////////////////////////////
-def cv2pxi(img):
+def convert_CV2_to_PXI(img):
     if len(img.shape) < 3:
         frame = cv.cvtColor(img, cv.COLOR_GRAY2RGB)
     else:
