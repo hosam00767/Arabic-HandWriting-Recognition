@@ -21,7 +21,6 @@ from imageManipultation.ImageValues import Values as v
 widgets = None
 originalImagePath = None
 
-
 # IMAGE ATTRIBUTE VALUES
 # ///////////////////////////////////////////////////////////////
 

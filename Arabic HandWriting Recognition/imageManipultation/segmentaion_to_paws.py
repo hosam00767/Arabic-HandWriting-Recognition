@@ -11,7 +11,6 @@ def segment_img_to_PAWS(path, lineNo):
     component = []
     p = preprocess(img)
     contours, _ = cv.findContours(image=p, mode=cv.RETR_EXTERNAL, method=cv.CHAIN_APPROX_NONE)
-    print(len(contours))
     for cnt in contours:
         if cv.contourArea(cnt) < v.DOT_AREA_VALUE:
             dots.append(cnt)
