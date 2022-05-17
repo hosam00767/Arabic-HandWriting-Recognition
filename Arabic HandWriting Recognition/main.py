@@ -291,6 +291,7 @@ def getFileName(path):
 
 
 if __name__ == "__main__":
+
     clearDirectories()
     app = QApplication(sys.argv)
     app.setWindowIcon(QIcon("icon.ico"))
