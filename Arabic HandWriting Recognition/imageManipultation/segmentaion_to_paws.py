@@ -3,50 +3,7 @@ from .preprocessing import *
 from .ImageValues import Values as v
 
 
-# Takes a line path and its position in the image
-# slice each set of contours in the image and saves it as png
-def segment_img_to_PAWS(path, lineNo):
-    img = cv.imread(path)
-    dots = []
-    component = []
-    p = preprocess(img)
-    contours, _ = cv.findContours(image=p, mode=cv.RETR_EXTERNAL, method=cv.CHAIN_APPROX_NONE)
-    for cnt in contours:
-        if cv.contourArea(cnt) < v.DOT_AREA_VALUE:
-            dots.append(cnt)
-        else:
-            component.append(cnt)
-    component = sort_contours(component)
-    component = list(component)
-
-    for dot in dots:
-        conflict = []
-        for cnt in component:
-
-            if check_for_inter(dot, cnt):
-                conflict.append(cnt)
-
-        if len(conflict) == 1:
-            component[component.index(conflict[0])] = merge_ctrs([component[component.index(conflict[0])], dot])
-
-        elif len(conflict) == 2:
-            cnt1 = conflict[0]
-            cnt2 = conflict[1]
-            x1 = shortest_distance(cnt1, dot)
-            x2 = shortest_distance(cnt2, dot)
-            if x1 <= x2:
-                component[component.index(cnt1)] = merge_ctrs([component[component.index(cnt1)], dot])
-            else:
-                component[component.index(cnt2)] = merge_ctrs([component[component.index(cnt2)], dot])
-
-        # If the Dot don't overlap with any PAW
-        elif len(conflict) == 0:
-            print("not Yet Implement")
-
-    extract(img, component, lineNo)
-
-
-def distance(p1, p2):
+def getDistance(p1, p2):
     return math.sqrt(((p1[0] - p2[0][0]) ** 2) + ((p1[1] - p2[0][1]) ** 2))
 
 
@@ -66,10 +23,10 @@ def getPawStartIndex(cnt):
 
 
 # Using a Lambda function(Sorted) to sort the Contours based of the the x axis
-def sort_contours(cnts):
-    boundingBoxes = [cv.boundingRect(c) for c in cnts]
-    sortedCnts = sorted(cnts, key=lambda cnt: getPawStartIndex(cnt), reverse=True)
-    return sortedCnts
+def sort_contours(contoursList):
+    boundingBoxes = [cv.boundingRect(c) for c in contoursList]
+    sortedContoursList = sorted(contoursList, key=lambda cnt: getPawStartIndex(cnt), reverse=True)
+    return sortedContoursList
 
 
 def shortest_distance(cnt1, dot):
@@ -77,12 +34,12 @@ def shortest_distance(cnt1, dot):
     dist = 9999999
 
     for n in cnt1:
-        if distance((x, y), n) <= dist:
-            dist = distance((x, y), n)
+        if getDistance((x, y), n) <= dist:
+            dist = getDistance((x, y), n)
     return dist
 
 
-def merge_ctrs(ctrs_to_merge):
+def mergeContours(ctrs_to_merge):
     list_of_pts = []
     for ctr in ctrs_to_merge:
         list_of_pts += [pt[0] for pt in ctr]
@@ -90,41 +47,96 @@ def merge_ctrs(ctrs_to_merge):
     return ctr
 
 
+def getTheNearestContour(listOfContours, dot):
+    nearestContour = listOfContours[0]
+    nearestDistance = shortest_distance(listOfContours[0], dot)
+
+    for contour in listOfContours:
+        distance = shortest_distance(contour, dot)
+        if nearestDistance > distance:
+            nearestDistance = distance
+            nearestContour = contour
+
+    return listOfContours.index(nearestContour)
+
+
+def getIndexOfObjectInList(contourList, contourObject):
+    for i, listObject in enumerate(contourList):
+        if listObject is contourObject:
+            indexOfThePaw = i
+    return indexOfThePaw
+
+
 def segment_img_to_PAWS(path, lineNo):
     img = cv.imread(path)
-    dots = []
-    component = []
+    listOFContoursOFDots = []
+    listOfContoursOfPaws = []
     p = preprocess(img)
     contours, _ = cv.findContours(image=p, mode=cv.RETR_EXTERNAL, method=cv.CHAIN_APPROX_NONE)
+
+    # For Each Contour of The Image it check for its size for a certain area value
     for cnt in contours:
         if cv.contourArea(cnt) < v.DOT_AREA_VALUE:
-            dots.append(cnt)
+            listOFContoursOFDots.append(cnt)  # If it less Than that Threshold Value it will be considered a dot
         else:
-            component.append(cnt)
-    component = sort_contours(component)
-    component = list(component)
+            listOfContoursOfPaws.append(cnt)  # If it  more Than that Threshold Value it will be considered a Paw
 
-    for dot in dots:
-        conflict = []
-        for cnt in component:
+    # Sorting the contour base of the x value of their end
+    listOfContoursOfPaws = sort_contours(listOfContoursOfPaws)
+    listOfContoursOfPaws = list(listOfContoursOfPaws)
 
+    # For each dot we got we check for its vertical intersection with the PAWs contours
+    # save these intersected contours in a List
+    for dot in listOFContoursOFDots:
+        intersectedContoursList = []
+
+        for cnt in listOfContoursOfPaws:
             if check_for_inter(dot, cnt):
-                conflict.append(cnt)
+                intersectedContoursList.append(cnt)
+        list(intersectedContoursList)
+        # If there is only one PAW is intersecting with the dot
+        # we merge the contours of the dot and the Paw into one contour
 
-        if len(conflict) == 1:
-            component[component.index(conflict[0])] = merge_ctrs([component[component.index(conflict[0])], dot])
+        if len(intersectedContoursList) == 1:
 
-        elif len(conflict) == 2:
-            cnt1 = conflict[0]
-            cnt2 = conflict[1]
-            x1 = shortest_distance(cnt1, dot)
-            x2 = shortest_distance(cnt2, dot)
-            if x1 <= x2:
-                component[component.index(cnt1)] = merge_ctrs([component[component.index(cnt1)], dot])
+            indexOfThePaw=getIndexOfObjectInList(listOfContoursOfPaws,intersectedContoursList[0])
+
+            listOfContoursOfPaws[indexOfThePaw] = mergeContours([listOfContoursOfPaws[indexOfThePaw], dot])
+
+        # If there is 2 PAWs are intersecting with the same dot
+        # we find the closest paw to the dot and merge the paw and dot into one contour
+        elif len(intersectedContoursList) == 2:
+            firstIntersectedContour = intersectedContoursList[0]
+            secondIntersectedContour = intersectedContoursList[1]
+
+            distanceOfFirstContourAndDot = shortest_distance(firstIntersectedContour, dot)
+            distanceOfSecondContourAndDot = shortest_distance(secondIntersectedContour, dot)
+
+            if distanceOfFirstContourAndDot <= distanceOfSecondContourAndDot:
+                indexOfThePaw = getIndexOfObjectInList(listOfContoursOfPaws, firstIntersectedContour)
+                listOfContoursOfPaws[indexOfThePaw] = mergeContours(
+                    [listOfContoursOfPaws[indexOfThePaw], dot])
             else:
-                component[component.index(cnt2)] = merge_ctrs([component[component.index(cnt2)], dot])
+                indexOfThePaw = getIndexOfObjectInList(listOfContoursOfPaws, secondIntersectedContour)
+                listOfContoursOfPaws[indexOfThePaw] = mergeContours(
+                    [listOfContoursOfPaws[indexOfThePaw], dot])
 
-    extract(img, component, lineNo)
+        # If there is no PAWs are intersecting with the dot
+        elif len(intersectedContoursList) == 0:
+
+            # if there is only one paw in the image
+            # merge the dot with the paw
+            if len(listOfContoursOfPaws) == 1:
+                listOfContoursOfPaws[0] = mergeContours([listOfContoursOfPaws[0], dot])
+
+            # if there is more than one paw in the image
+            # merge the dot with the nearest paw to it
+            elif len(listOfContoursOfPaws) > 1:
+                shortestContourIndex = getTheNearestContour(listOfContoursOfPaws, dot)
+                listOfContoursOfPaws[shortestContourIndex] = mergeContours(
+                    [listOfContoursOfPaws[shortestContourIndex], dot])
+
+    extract(img, listOfContoursOfPaws, lineNo)
 
 
 def trim(paw):
@@ -163,5 +175,5 @@ def extract(img, component, lineNo):
 
         zero = trim(zero)
 
-        if zero.shape[0]*zero.shape[1] > 15:
+        if zero.shape[0] * zero.shape[1] > 15:
             cv.imwrite(r'images/paws/' + "paw " + str(i) + "_line " + str(lineNo) + ".png", zero)

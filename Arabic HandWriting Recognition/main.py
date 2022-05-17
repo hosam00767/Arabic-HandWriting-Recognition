@@ -291,9 +291,9 @@ def getFileName(path):
 
 
 if __name__ == "__main__":
-    print("v")
+
     clearDirectories()
     app = QApplication(sys.argv)
     app.setWindowIcon(QIcon("icon.ico"))
     window = MainWindow()
-    sys.exit(app.exec_())
+    sys.exit(app.exec())

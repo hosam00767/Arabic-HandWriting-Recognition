@@ -1328,8 +1328,8 @@ border-radius:30px;</string>
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>864</width>
-                            <height>735</height>
+                            <width>92</width>
+                            <height>100</height>
                            </rect>
                           </property>
                           <layout class="QVBoxLayout" name="verticalLayout_13">
@@ -1772,7 +1772,7 @@ background-color:rgb(33, 37, 43);
                                    <item>
                                     <widget class="QSlider" name="dotsSlider">
                                      <property name="maximum">
-                                      <number>100</number>
+                                      <number>200</number>
                                      </property>
                                      <property name="value">
                                       <number>28</number>

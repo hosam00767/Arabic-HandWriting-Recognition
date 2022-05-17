@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainphmXCM.ui'
+## Form generated from reading UI file 'maininJCei.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.2.4
 ##
@@ -865,7 +865,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 864, 735))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 92, 100))
         self.verticalLayout_13 = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_13.setSpacing(0)
         self.verticalLayout_13.setObjectName(u"verticalLayout_13")
@@ -1109,7 +1109,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_11.setContentsMargins(-1, -1, 0, -1)
         self.dotsSlider = QSlider(self.frame_8)
         self.dotsSlider.setObjectName(u"dotsSlider")
-        self.dotsSlider.setMaximum(100)
+        self.dotsSlider.setMaximum(200)
         self.dotsSlider.setValue(28)
         self.dotsSlider.setOrientation(Qt.Horizontal)
 
