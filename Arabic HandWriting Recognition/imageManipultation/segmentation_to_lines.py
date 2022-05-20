@@ -1,9 +1,35 @@
 import cv2 as cv
 from .preprocessing import *
-
+import os
+import shutil
 
 # segments an image to line  based of the horizontal projection of the line pixels
 def segment_to_line(img):
+    #managing my folders
+    if os.path.exists("images/lines"):
+        shutil.rmtree("images/lines", ignore_errors=True)
+    os.mkdir("images/lines")
+
+    if os.path.exists("images/linez"):
+        shutil.rmtree("images/linez", ignore_errors=True)
+        os.mkdir("images/linez")
+    else:
+        os.mkdir("images/linez")
+
+
+    if os.path.exists("images/paws"):
+        shutil.rmtree("images/paws", ignore_errors=True)
+        os.mkdir("images/paws")
+    else:
+        os.mkdir("images/paws")
+    
+
+    if os.path.exists("images/chars"):
+        shutil.rmtree("images/chars", ignore_errors=True)
+        os.mkdir("images/chars")
+    else:
+        os.mkdir("images/chars")
+    
     _, vproj = horizontal_proj(img)
     upper = []
     lower = []
@@ -33,3 +59,4 @@ def segment_to_line(img):
 
     for i in range(len(text_lines)):
         cv.imwrite("images/lines/" + str(i) + ".png", text_lines[i])
+        os.mkdir("images/linez/line "+str(i))

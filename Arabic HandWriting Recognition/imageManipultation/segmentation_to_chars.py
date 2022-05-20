@@ -91,5 +91,6 @@ def segment_to_chars(path, pawName):
     for i in range(len(points) - 1):
         segmented_char = img[:, points[i]:points[i + 1]]
 
-        if segmented_char.shape[1] * segmented_char.shape[0] > 15:
+        if (segmented_char.shape[1] * segmented_char.shape[0] > 15) and (segmented_char.shape[1]>4):
             cv.imwrite(r'images/chars/' + "char " + str(i) + '_' + pawName + ".png", segmented_char)
+            cv.imwrite(r'images/linez/' + pawName[pawName.index('_')+1:] +'/'+pawName[:pawName.index('_')]+'/'+ str(i) +".png", segmented_char)

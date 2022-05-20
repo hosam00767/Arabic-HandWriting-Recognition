@@ -1,7 +1,7 @@
 import math
 from .preprocessing import *
 from .ImageValues import Values as v
-
+import os
 
 def getDistance(p1, p2):
     return math.sqrt(((p1[0] - p2[0][0]) ** 2) + ((p1[1] - p2[0][1]) ** 2))
@@ -177,3 +177,4 @@ def extract(img, component, lineNo):
 
         if zero.shape[0] * zero.shape[1] > 15:
             cv.imwrite(r'images/paws/' + "paw " + str(i) + "_line " + str(lineNo) + ".png", zero)
+            os.mkdir("images/linez/line "+str(lineNo)+"/paw "+str(i))
