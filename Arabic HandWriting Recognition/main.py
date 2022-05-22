@@ -107,6 +107,7 @@ class MainWindow(QMainWindow):
         result = pd.predict_("images/linez", v.BLUR_KERNEL_VALUE, v.THRESHOLD_VALUE)
         outPut = self.constructTheOutput(result)
         self.showTheOutput(outPut)
+        widgets.stackedWidget.setCurrentWidget(widgets.home_page)
 
     # Removes The segmented lines from the segmentation page
     def removeLinesList(self):
@@ -252,9 +253,9 @@ class MainWindow(QMainWindow):
             img = cv.imread(imagePath[0])
             cv.imwrite(originalImagePath, img)
             self.removeLinesList()
-            self.saveTheSegmentationResults()
             widgets.imageView.setPixmap(QPixmap(originalImagePath))
             widgets.label.setPixmap(QPixmap(originalImagePath))
+            widgets.stackedWidget.setCurrentWidget(widgets.preprocessing_page)
 
     # CHANGES THE ANGLE OF THE INPUT IMAGE
     # ///////////////////////////////////////////////////////////////
