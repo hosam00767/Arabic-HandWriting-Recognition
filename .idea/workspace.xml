@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="985a25ac-2575-4ff7-a952-e343daf067cf" name="Default Changelist" comment="&quot;prediction error&quot;">
+    <list default="true" id="985a25ac-2575-4ff7-a952-e343daf067cf" name="Default Changelist" comment="&quot;fixed transition between preprocessing page and segmentaion&quot;">
+      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Arabic HandWriting Recognition/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/model/7model18.h5" beforeDir="false" afterPath="$PROJECT_DIR$/Arabic HandWriting Recognition/model/7model18.h5" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -136,13 +137,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1649336802564</updated>
-    </task>
-    <task id="LOCAL-00014" summary="&quot;edit 2.0 to the preprocessing window&quot;">
-      <created>1649598576347</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1649598576347</updated>
     </task>
     <task id="LOCAL-00015" summary="&quot;tesst 2.0&quot;">
       <created>1649600499933</created>
@@ -480,7 +474,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653257071825</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="&quot;fixed transition between preprocessing page and segmentaion&quot;">
+      <created>1653257623258</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1653257623258</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -496,7 +497,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="&quot;adding word segmentation methods&quot;" />
     <MESSAGE value="&quot;adding characters segmentation methods&quot;" />
     <MESSAGE value="&quot;adding preprocessing.py methods methods&quot;" />
     <MESSAGE value="&quot;edit to the preprocessing window&quot;" />
@@ -521,7 +521,8 @@
     <MESSAGE value="..." />
     <MESSAGE value="&quot;The application produces Output&quot;" />
     <MESSAGE value="&quot;prediction error&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;prediction error&quot;" />
+    <MESSAGE value="&quot;fixed transition between preprocessing page and segmentaion&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;fixed transition between preprocessing page and segmentaion&quot;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
