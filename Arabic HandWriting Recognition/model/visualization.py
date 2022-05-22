@@ -9,6 +9,7 @@ import glob as gb
 from .classes_info import *
 from .prediction import resize_image , getclass
 
+
 #loading model
 model = load_model("7model18.h5")
 

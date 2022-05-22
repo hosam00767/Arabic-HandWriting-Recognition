@@ -52,6 +52,7 @@ def predict_(dire,KERNEL_VALUE,THRESHOLD_VALUE, model="model/7model18.h5"):
     l = 0
     lines = len(os.listdir(dire))
     doc = []
+
     for i in range(lines):
         doc.append([])
     for line in os.listdir(dire):
