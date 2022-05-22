@@ -19,6 +19,7 @@ from imageManipulation import segmentation_to_chars as stc
 from imageManipulation.ImageValues import Values as v
 from model import prediction as pd
 
+
 # SET AS GLOBAL VARIABLE
 # ///////////////////////////////////////////////////////////////
 widgets = None

@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="985a25ac-2575-4ff7-a952-e343daf067cf" name="Default Changelist" comment="&quot;The application produces Output&quot;">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="985a25ac-2575-4ff7-a952-e343daf067cf" name="Default Changelist" comment="&quot;prediction error&quot;">
       <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/model/7model18.h5" beforeDir="false" afterPath="$PROJECT_DIR$/Arabic HandWriting Recognition/model/7model18.h5" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -137,13 +136,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1649336802564</updated>
-    </task>
-    <task id="LOCAL-00012" summary="&quot;edit 2.0 to the preprocessing window&quot;">
-      <created>1649525257079</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1649525257079</updated>
     </task>
     <task id="LOCAL-00013" summary="&quot;edit 2.0 to the preprocessing window&quot;">
       <created>1649594243713</created>
@@ -481,7 +473,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653256099970</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="&quot;prediction error&quot;">
+      <created>1653256739158</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1653256739158</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -497,7 +496,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="&quot;adding line segmentation methods&quot;" />
     <MESSAGE value="&quot;adding word segmentation methods&quot;" />
     <MESSAGE value="&quot;adding characters segmentation methods&quot;" />
     <MESSAGE value="&quot;adding preprocessing.py methods methods&quot;" />
@@ -522,7 +520,8 @@
     <MESSAGE value="fixed segmentation page not delete old items" />
     <MESSAGE value="..." />
     <MESSAGE value="&quot;The application produces Output&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;The application produces Output&quot;" />
+    <MESSAGE value="&quot;prediction error&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;prediction error&quot;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
