@@ -546,7 +546,7 @@ Button */
 
 </string>
    </property>
-   <layout class="QVBoxLayout" name="appMargins">
+   <layout class="QHBoxLayout" name="horizontalLayout_12">
     <property name="spacing">
      <number>0</number>
     </property>
@@ -1221,7 +1221,7 @@ Button */
                       <string notr="true">background: transparent;</string>
                      </property>
                      <property name="currentIndex">
-                      <number>2</number>
+                      <number>4</number>
                      </property>
                      <widget class="QWidget" name="home_page">
                       <property name="styleSheet">
@@ -1772,7 +1772,7 @@ background-color:rgb(33, 37, 43);
                                    <item>
                                     <widget class="QSlider" name="dotsSlider">
                                      <property name="maximum">
-                                      <number>200</number>
+                                      <number>1000</number>
                                      </property>
                                      <property name="value">
                                       <number>28</number>
@@ -1854,7 +1854,7 @@ padding: 4px;
                        </item>
                       </layout>
                      </widget>
-                     <widget class="QWidget" name="page_2"/>
+                     <widget class="QWidget" name="show_chars"/>
                      <widget class="QWidget" name="show_paws">
                       <layout class="QVBoxLayout" name="verticalLayout_17">
                        <item alignment="Qt::AlignLeft">
@@ -1892,7 +1892,7 @@ color:gray;
                           <enum>QListView::IconMode</enum>
                          </property>
                          <property name="uniformItemSizes">
-                          <bool>true</bool>
+                          <bool>false</bool>
                          </property>
                          <property name="itemAlignment">
                           <set>Qt::AlignLeading</set>

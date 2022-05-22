@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'maininJCei.ui'
+## Form generated from reading UI file 'mainogrxIy.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.2.4
 ##
@@ -19,7 +19,7 @@ from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLabel,
     QListView, QListWidget, QListWidgetItem, QMainWindow,
     QPushButton, QScrollArea, QSizePolicy, QSlider,
     QStackedWidget, QVBoxLayout, QWidget)
-from  . resources_rc import *
+from . resources_rc import *
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -561,10 +561,10 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "")
-        self.appMargins = QVBoxLayout(self.styleSheet)
-        self.appMargins.setSpacing(0)
-        self.appMargins.setObjectName(u"appMargins")
-        self.appMargins.setContentsMargins(10, 10, 10, 10)
+        self.horizontalLayout_12 = QHBoxLayout(self.styleSheet)
+        self.horizontalLayout_12.setSpacing(0)
+        self.horizontalLayout_12.setObjectName(u"horizontalLayout_12")
+        self.horizontalLayout_12.setContentsMargins(10, 10, 10, 10)
         self.bgApp = QFrame(self.styleSheet)
         self.bgApp.setObjectName(u"bgApp")
         self.bgApp.setStyleSheet(u"")
@@ -1109,7 +1109,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_11.setContentsMargins(-1, -1, 0, -1)
         self.dotsSlider = QSlider(self.frame_8)
         self.dotsSlider.setObjectName(u"dotsSlider")
-        self.dotsSlider.setMaximum(200)
+        self.dotsSlider.setMaximum(1000)
         self.dotsSlider.setValue(28)
         self.dotsSlider.setOrientation(Qt.Horizontal)
 
@@ -1155,9 +1155,9 @@ class Ui_MainWindow(object):
         self.horizontalLayout_6.addWidget(self.widget)
 
         self.stackedWidget.addWidget(self.preprocessing_page)
-        self.page_2 = QWidget()
-        self.page_2.setObjectName(u"page_2")
-        self.stackedWidget.addWidget(self.page_2)
+        self.show_chars = QWidget()
+        self.show_chars.setObjectName(u"show_chars")
+        self.stackedWidget.addWidget(self.show_chars)
         self.show_paws = QWidget()
         self.show_paws.setObjectName(u"show_paws")
         self.verticalLayout_17 = QVBoxLayout(self.show_paws)
@@ -1180,7 +1180,7 @@ class Ui_MainWindow(object):
         self.listWidget.setMovement(QListView.Static)
         self.listWidget.setSpacing(30)
         self.listWidget.setViewMode(QListView.IconMode)
-        self.listWidget.setUniformItemSizes(True)
+        self.listWidget.setUniformItemSizes(False)
         self.listWidget.setItemAlignment(Qt.AlignLeading)
         self.listWidget.setSortingEnabled(True)
 
@@ -1237,13 +1237,13 @@ class Ui_MainWindow(object):
         self.appLayout.addWidget(self.contentBox)
 
 
-        self.appMargins.addWidget(self.bgApp)
+        self.horizontalLayout_12.addWidget(self.bgApp)
 
         MainWindow.setCentralWidget(self.styleSheet)
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(2)
+        self.stackedWidget.setCurrentIndex(4)
 
 
         QMetaObject.connectSlotsByName(MainWindow)

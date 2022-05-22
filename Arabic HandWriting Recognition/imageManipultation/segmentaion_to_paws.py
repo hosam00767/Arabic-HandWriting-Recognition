@@ -1,7 +1,10 @@
+import copy
 import math
+import os
+
 from .preprocessing import *
 from .ImageValues import Values as v
-import os
+
 
 def getDistance(p1, p2):
     return math.sqrt(((p1[0] - p2[0][0]) ** 2) + ((p1[1] - p2[0][1]) ** 2))
@@ -57,7 +60,7 @@ def getTheNearestContour(listOfContours, dot):
             nearestDistance = distance
             nearestContour = contour
 
-    return listOfContours.index(nearestContour)
+    return nearestContour
 
 
 def getIndexOfObjectInList(contourList, contourObject):
@@ -99,7 +102,7 @@ def segment_img_to_PAWS(path, lineNo):
 
         if len(intersectedContoursList) == 1:
 
-            indexOfThePaw=getIndexOfObjectInList(listOfContoursOfPaws,intersectedContoursList[0])
+            indexOfThePaw = getIndexOfObjectInList(listOfContoursOfPaws, intersectedContoursList[0])
 
             listOfContoursOfPaws[indexOfThePaw] = mergeContours([listOfContoursOfPaws[indexOfThePaw], dot])
 
@@ -132,36 +135,17 @@ def segment_img_to_PAWS(path, lineNo):
             # if there is more than one paw in the image
             # merge the dot with the nearest paw to it
             elif len(listOfContoursOfPaws) > 1:
-                shortestContourIndex = getTheNearestContour(listOfContoursOfPaws, dot)
-                listOfContoursOfPaws[shortestContourIndex] = mergeContours(
-                    [listOfContoursOfPaws[shortestContourIndex], dot])
+
+                nearestContour = getTheNearestContour(listOfContoursOfPaws, dot)
+                indexOfThePaw = getIndexOfObjectInList(listOfContoursOfPaws, nearestContour)
+                listOfContoursOfPaws[indexOfThePaw] = mergeContours([listOfContoursOfPaws[indexOfThePaw], dot])
 
     extract(img, listOfContoursOfPaws, lineNo)
 
 
-def trim(paw):
-    _, vproj = vertical_proj(paw)
-    left = -1
-    right = -1
-    flag = True
-    for i in range(paw.shape[1]):
-        pixelsAtWidthI = 0
-        if flag:
-            pixelsAtWidthI = vproj[i]
-            if pixelsAtWidthI > 0:
-                left = i
-                flag = False
-        else:
-            pixelsAtWidthI = vproj[i]
-            if pixelsAtWidthI < 2:
-                right = i
-                flag = True
-    # in case the contour did not end after the image width reached
-    if right == -1:
-        right = paw.shape[1]
-
-    timg = paw[:, left:right]
-
+def trim(paw, contour):
+    x, _, w, _ = cv.boundingRect(contour)
+    timg = paw[:, x:x + w]
     return timg
 
 
@@ -170,11 +154,10 @@ def extract(img, component, lineNo):
         mask = zero = np.ones_like(img) * 255
         hull = cv.convexHull(component[i])
         cv.drawContours(mask, [hull], -1, (0, 0, 0), -1)
-        cv.drawContours(mask, [hull], -1, (0, 0, 0), 5)
+        cv.drawContours(mask, [hull], -1, (0, 0, 0), 3)
         zero[mask == (0, 0, 0)] = img[mask == (0, 0, 0)]
 
-        zero = trim(zero)
-
+        zero = trim(zero, component[i])
         if zero.shape[0] * zero.shape[1] > 15:
             cv.imwrite(r'images/paws/' + "paw " + str(i) + "_line " + str(lineNo) + ".png", zero)
             os.mkdir("images/linez/line "+str(lineNo)+"/paw "+str(i))
