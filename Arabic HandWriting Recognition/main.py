@@ -7,7 +7,6 @@ import platform
 import numpy as np
 import glob
 import fnmatch
-
 from modules import *
 from widgets import *
 from imageManipultation import preprocessing as pp
@@ -15,11 +14,13 @@ from imageManipultation import segmentaion_to_paws as stp
 from imageManipultation import segmentation_to_lines as stl
 from imageManipultation import segmentation_to_chars as stc
 from imageManipultation.ImageValues import Values as v
+from model import prediction as pd
 
 # SET AS GLOBAL VARIABLE
 # ///////////////////////////////////////////////////////////////
 widgets = None
 originalImagePath = None
+
 
 # IMAGE ATTRIBUTE VALUES
 # ///////////////////////////////////////////////////////////////
@@ -69,26 +70,33 @@ class MainWindow(QMainWindow):
         # ///////////////////////////////////////////////////////////////
         widgets.stackedWidget.setCurrentWidget(widgets.home_page)
 
+    def constructTheOutPut(result):
+        print("A")
+
+
     # MENU BUTTONS FUNCTION
     # ///////////////////////////////////////////////////////////////
     def saveTheSegmentationResults(self):
-            global originalImagePath
-            clearDirectories()
-            image = cv.imread(originalImagePath)
-            stl.segment_to_line(image)
-            linesPaths = glob.glob('images/lines/*')
-            self.removeLinesList()
-            for path in linesPaths:
-                self.display_line(path)
-                lineNo = getFileName(path)
-                stp.segment_img_to_PAWS(path, lineNo)
+        global originalImagePath
+        clearDirectories()
+        image = cv.imread(originalImagePath)
+        stl.segment_to_line(image)
+        linesPaths = glob.glob('images/lines/*')
+        self.removeLinesList()
+        for path in linesPaths:
+            self.display_line(path)
+            lineNo = getFileName(path)
+            stp.segment_img_to_PAWS(path, lineNo)
 
-            pawsPaths = glob.glob('images/paws/*')
-            for path in pawsPaths:
-                pawName = getFileName(path)
-                stc.segment_to_chars(path, pawName)
+        pawsPaths = glob.glob('images/paws/*')
+        for path in pawsPaths:
+            pawName = getFileName(path)
+            stc.segment_to_chars(path, pawName)
+        result = pd.predict_("images/linez")
+        self.ui.label_6.setText("Vea")
+        print(result)
 
-# Removes The segmented lines from the segmentation page
+    # Removes The segmented lines from the segmentation page
     def removeLinesList(self):
         children = self.ui.scrollAreaWidgetContents.children()
         for child in children:
@@ -291,8 +299,10 @@ def getFileName(path):
 
 
 if __name__ == "__main__":
+    print("hosam")
     clearDirectories()
     app = QApplication(sys.argv)
     app.setWindowIcon(QIcon("icon.ico"))
     window = MainWindow()
+
     sys.exit(app.exec())
