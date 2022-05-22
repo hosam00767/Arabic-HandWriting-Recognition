@@ -79,7 +79,7 @@ def segment_img_to_PAWS(path, lineNo):
 
     # For Each Contour of The Image it check for its size for a certain area value
     for cnt in contours:
-        if cv.contourArea(cnt) < v.DOT_AREA_VALUE:
+        if 3 < cv.contourArea(cnt) < v.DOT_AREA_VALUE:
             listOFContoursOFDots.append(cnt)  # If it less Than that Threshold Value it will be considered a dot
         else:
             listOfContoursOfPaws.append(cnt)  # If it  more Than that Threshold Value it will be considered a Paw
@@ -160,4 +160,4 @@ def extract(img, component, lineNo):
         zero = trim(zero, component[i])
         if zero.shape[0] * zero.shape[1] > 15:
             cv.imwrite(r'images/paws/' + "paw " + str(i) + "_line " + str(lineNo) + ".png", zero)
-            os.mkdir("images/linez/line "+str(lineNo)+"/paw "+str(i))
+            os.mkdir("images/linez/line " + str(lineNo) + "/paw " + str(i))

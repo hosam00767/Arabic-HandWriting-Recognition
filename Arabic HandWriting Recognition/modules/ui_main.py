@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainogrxIy.ui'
+## Form generated from reading UI file 'maincDwIEO.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.2.4
 ##
@@ -846,6 +846,9 @@ class Ui_MainWindow(object):
         self.label_6.setMinimumSize(QSize(0, 300))
         self.label_6.setStyleSheet(u"background-color:#21252b;\n"
 "border-radius:30px;")
+        self.label_6.setTextFormat(Qt.RichText)
+        self.label_6.setAlignment(Qt.AlignCenter)
+        self.label_6.setTextInteractionFlags(Qt.LinksAccessibleByMouse|Qt.TextSelectableByMouse)
 
         self.verticalLayout_14.addWidget(self.label_6)
 
@@ -865,7 +868,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 92, 100))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 888, 743))
         self.verticalLayout_13 = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_13.setSpacing(0)
         self.verticalLayout_13.setObjectName(u"verticalLayout_13")
@@ -1243,7 +1246,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(4)
+        self.stackedWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1278,7 +1281,7 @@ class Ui_MainWindow(object):
         self.blur_value.setText("")
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt; font-weight:700;\">Change The Thresh hold value</span></p></body></html>", None))
         self.thresh_value.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><br/></p></body></html>", None))
-        self.label_5.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt; font-weight:700;\">Edit The Thresh hold for The Dots</span></p></body></html>", None))
+        self.label_5.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt; font-weight:700;\">Edit The Dots Area</span></p></body></html>", None))
         self.dot_value.setText("")
         self.btn_apply_processing.setText(QCoreApplication.translate("MainWindow", u"Apply", None))
         self.btn_back2segmentaion.setText("")

@@ -7,13 +7,16 @@ import platform
 import numpy as np
 import glob
 import fnmatch
+
+from PySide6 import QtCore, QtGui
+
 from modules import *
 from widgets import *
-from imageManipultation import preprocessing as pp
-from imageManipultation import segmentaion_to_paws as stp
-from imageManipultation import segmentation_to_lines as stl
-from imageManipultation import segmentation_to_chars as stc
-from imageManipultation.ImageValues import Values as v
+from imageManipulation import preprocessing as pp
+from imageManipulation import segmentaion_to_paws as stp
+from imageManipulation import segmentation_to_lines as stl
+from imageManipulation import segmentation_to_chars as stc
+from imageManipulation.ImageValues import Values as v
 from model import prediction as pd
 
 # SET AS GLOBAL VARIABLE
@@ -70,9 +73,17 @@ class MainWindow(QMainWindow):
         # ///////////////////////////////////////////////////////////////
         widgets.stackedWidget.setCurrentWidget(widgets.home_page)
 
-    def constructTheOutPut(result):
-        print("A")
+    def constructTheOutput(self, result):
+        line = ""
+        for lineList in result:
+            for paw in lineList:
+                line = line + paw + " "
+            line = "<h2>" + line + "<h2>"
 
+        return line
+
+    def showTheOutput(self, output):
+        self.ui.label_6.setText(output)
 
     # MENU BUTTONS FUNCTION
     # ///////////////////////////////////////////////////////////////
@@ -92,9 +103,9 @@ class MainWindow(QMainWindow):
         for path in pawsPaths:
             pawName = getFileName(path)
             stc.segment_to_chars(path, pawName)
-        result = pd.predict_("images/linez")
-        self.ui.label_6.setText("Vea")
-        print(result)
+        result = pd.predict_("images/linez", v.BLUR_KERNEL_VALUE, v.THRESHOLD_VALUE)
+        outPut = self.constructTheOutput(result)
+        self.showTheOutput(outPut)
 
     # Removes The segmented lines from the segmentation page
     def removeLinesList(self):
@@ -300,6 +311,7 @@ def getFileName(path):
 
 if __name__ == "__main__":
     print("hosam")
+    print(sys.path)
     clearDirectories()
     app = QApplication(sys.argv)
     app.setWindowIcon(QIcon("icon.ico"))
