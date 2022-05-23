@@ -145,7 +145,15 @@ def segment_img_to_PAWS(path, lineNo):
 
 def trim(paw, contour):
     x, _, w, _ = cv.boundingRect(contour)
-    timg = paw[:, x:x + w]
+    start = x
+    end = x + w
+    if end + 4 < paw.shape[0]:
+        end = end + 4
+    if x - 4 < 0:
+        start = x - 4
+
+    timg = paw[:, start:end]
+
     return timg
 
 
@@ -154,7 +162,7 @@ def extract(img, component, lineNo):
         mask = zero = np.ones_like(img) * 255
         hull = cv.convexHull(component[i])
         cv.drawContours(mask, [hull], -1, (0, 0, 0), -1)
-        cv.drawContours(mask, [hull], -1, (0, 0, 0), 3)
+        cv.drawContours(mask, [hull], -1, (0, 0, 0), 1)
         zero[mask == (0, 0, 0)] = img[mask == (0, 0, 0)]
 
         zero = trim(zero, component[i])

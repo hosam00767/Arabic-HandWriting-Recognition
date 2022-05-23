@@ -9,7 +9,8 @@ from scipy.ndimage import interpolation as inter
 # ROTATES THE PAW IMAGE AND CALCULATE ITS SCORE
 #
 # RETURN ONLY THE HIGHEST SCORE
-def correct_skew(image, delta=1, limit=20):
+
+def correct_skew(image, delta=1, limit=15):
     def determine_score(arr, angle):
         data = inter.rotate(arr, angle, reshape=False, order=0)
         histogram = np.sum(data, axis=1)
@@ -35,22 +36,22 @@ def correct_skew(image, delta=1, limit=20):
     return rotated
 
 
-# return vector of the vertical projection that doesn't contain baseline
-def removeBaseLine(img):
-    x, vector = vertical_proj(img)
-    maxBaseLineValue = int(numpy.mean(vector)*0.5)
+def colorTheBaseLine(img):
+    p = preprocess(img)
+    hproj, _ = horizontal_proj(img)
+    srows = np.sum(hproj, 1)
+    baseline = np.max(srows)
+    baseline_index = np.where(srows == baseline)
+    x = int(baseline_index[0][0])
+    for i in range(x -6, x +6):
 
-    vector = removeFromEachIndex(copy.copy(vector), maxBaseLineValue)
+        cv.line(img, (0, i), (img.shape[1], i), (255, 255, 255), 1)
+    return img
 
-    return vector
+    return removedImg
 
 
-def removeFromEachIndex(vector, value):
-    for i in range(vector.shape[0]):
-        vector[i] = vector[i] - value
-        if vector[i] < 0:
-            vector[i] = 0
-    return vector
+
 
 
 # Remove the dots from a colored image
@@ -91,7 +92,7 @@ def segment_to_chars(path, pawName):
     img = cv.imread(path)
     contours, _ = cv.findContours(image=preprocess(img), mode=cv.RETR_EXTERNAL, method=cv.CHAIN_APPROX_NONE)
     for cnt in contours:
-        if cv.contourArea(cnt) < v.DOT_AREA_VALUE:
+        if 3 < cv.contourArea(cnt) < v.DOT_AREA_VALUE:
             dots.append(cnt)
 
     img = correct_skew(img)
@@ -100,13 +101,24 @@ def segment_to_chars(path, pawName):
     flag = True
     left = []
     right = []
-    vproj = removeBaseLine(noDotsImg)
+    noBaseLine=colorTheBaseLine(noDotsImg)
+    cv.imshow("r", noBaseLine)
+    cv.waitKey(0)
+    _,vproj=vertical_proj(noBaseLine)
+
+
+    vproj_img = np.zeros((noDotsImg.shape[0], noDotsImg.shape[1]))
+    for col in range(vproj.shape[0]):
+        cv.line(vproj_img, (col, noDotsImg.shape[0]), (col, noDotsImg.shape[0] - int(vproj[col])), (255, 255, 255),
+                1)
+    cv.imshow("r", vproj_img)
+    cv.waitKey(0)
 
     for i in range(len(vproj)):
         cnt = 0
         if flag:
             cnt = vproj[i]
-            if cnt == 0:
+            if cnt < 1:
                 left.append(i)
                 flag = False
         else:
@@ -119,7 +131,7 @@ def segment_to_chars(path, pawName):
         right.append(img.shape[1])
 
     points = [0]
-    list(points)
+
     intersectedDots = []
     for i in range(len(left)):
         for dot in dots:
@@ -140,12 +152,15 @@ def segment_to_chars(path, pawName):
             if len(left) != 0:
                 points.append(int((right[i] + left[i]) / 2))
 
+
     points.append(img.shape[1])
 
     for i in range(len(points) - 1):
         segmented_char = img[:, points[i]:points[i + 1]]
 
-        if segmented_char.shape[1] * segmented_char.shape[0] > 15 and segmented_char.shape[1] > 5 and \
-                segmented_char.shape[0] > 5:
+        if segmented_char.shape[1] * segmented_char.shape[0] > 25 and segmented_char.shape[1] > 5 and \
+                segmented_char.shape[0] > 7:
             cv.imwrite(r'images/chars/' + "char " + str(i) + '_' + pawName + ".png", segmented_char)
-            cv.imwrite(r'images/linez/' + pawName[pawName.index('_')+1:] +'/'+pawName[:pawName.index('_')]+'/'+ str(i) +".png", segmented_char)
+            cv.imwrite(
+                r'images/linez/' + pawName[pawName.index('_') + 1:] + '/' + pawName[:pawName.index('_')] + '/' + str(
+                    i) + ".png", segmented_char)
