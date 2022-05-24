@@ -43,15 +43,11 @@ def colorTheBaseLine(img):
     baseline = np.max(srows)
     baseline_index = np.where(srows == baseline)
     x = int(baseline_index[0][0])
-    for i in range(x -6, x +6):
-
+    for i in range(x - 4, x + 4):
         cv.line(img, (0, i), (img.shape[1], i), (255, 255, 255), 1)
     return img
 
     return removedImg
-
-
-
 
 
 # Remove the dots from a colored image
@@ -101,18 +97,8 @@ def segment_to_chars(path, pawName):
     flag = True
     left = []
     right = []
-    noBaseLine=colorTheBaseLine(noDotsImg)
-    cv.imshow("r", noBaseLine)
-    cv.waitKey(0)
-    _,vproj=vertical_proj(noBaseLine)
-
-
-    vproj_img = np.zeros((noDotsImg.shape[0], noDotsImg.shape[1]))
-    for col in range(vproj.shape[0]):
-        cv.line(vproj_img, (col, noDotsImg.shape[0]), (col, noDotsImg.shape[0] - int(vproj[col])), (255, 255, 255),
-                1)
-    cv.imshow("r", vproj_img)
-    cv.waitKey(0)
+    noBaseLine = colorTheBaseLine(noDotsImg)
+    _, vproj = vertical_proj(noBaseLine)
 
     for i in range(len(vproj)):
         cnt = 0
@@ -151,7 +137,6 @@ def segment_to_chars(path, pawName):
 
             if len(left) != 0:
                 points.append(int((right[i] + left[i]) / 2))
-
 
     points.append(img.shape[1])
 
