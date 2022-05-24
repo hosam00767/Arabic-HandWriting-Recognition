@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="985a25ac-2575-4ff7-a952-e343daf067cf" name="Default Changelist" comment="&quot;character segmentaion&quot;">
+    <list default="true" id="985a25ac-2575-4ff7-a952-e343daf067cf" name="Default Changelist" comment="&quot;&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/imageManipulation/segmentation_to_chars.py" beforeDir="false" afterPath="$PROJECT_DIR$/Arabic HandWriting Recognition/imageManipulation/segmentation_to_chars.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Arabic HandWriting Recognition/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/imageManipulation/ImageValues.py" beforeDir="false" afterPath="$PROJECT_DIR$/Arabic HandWriting Recognition/imageManipulation/ImageValues.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/model/7model18.h5" beforeDir="false" afterPath="$PROJECT_DIR$/Arabic HandWriting Recognition/model/7model18.h5" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/model/classes_info.py" beforeDir="false" afterPath="$PROJECT_DIR$/Arabic HandWriting Recognition/model/classes_info.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,20 +138,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1649336802564</updated>
-    </task>
-    <task id="LOCAL-00017" summary="&quot;ui changes + removed un nesunnecessary methods from ui_functions.py&quot;">
-      <created>1649614818887</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1649614818887</updated>
-    </task>
-    <task id="LOCAL-00018" summary="&quot;adding sliders to kernal and angel , and adding roatate function&quot;">
-      <created>1649621939241</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1649621939241</updated>
     </task>
     <task id="LOCAL-00019" summary="&quot;adding lines function &quot;">
       <created>1649622130027</created>
@@ -484,7 +468,21 @@
       <option name="project" value="LOCAL" />
       <updated>1653330685564</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="&quot; &quot;">
+      <created>1653394273037</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1653394273037</updated>
+    </task>
+    <task id="LOCAL-00067" summary="&quot;&quot;">
+      <created>1653394309480</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1653394309480</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -518,14 +516,14 @@
     <MESSAGE value="main page edits" />
     <MESSAGE value="displaying_paws done" />
     <MESSAGE value="segment to chars" />
-    <MESSAGE value="&quot;&quot;" />
     <MESSAGE value="fixed segmentation page not delete old items" />
     <MESSAGE value="..." />
     <MESSAGE value="&quot;The application produces Output&quot;" />
     <MESSAGE value="&quot;prediction error&quot;" />
     <MESSAGE value="&quot;fixed transition between preprocessing page and segmentaion&quot;" />
     <MESSAGE value="&quot;character segmentaion&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;character segmentaion&quot;" />
+    <MESSAGE value="&quot;&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;&quot;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
