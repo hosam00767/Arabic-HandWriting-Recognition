@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="985a25ac-2575-4ff7-a952-e343daf067cf" name="Default Changelist" comment="&quot;fixed transition between preprocessing page and segmentaion&quot;">
+    <list default="true" id="985a25ac-2575-4ff7-a952-e343daf067cf" name="Default Changelist" comment="&quot;character segmentaion&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/imageManipulation/ImageValues.py" beforeDir="false" afterPath="$PROJECT_DIR$/Arabic HandWriting Recognition/imageManipulation/ImageValues.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/imageManipulation/segmentaion_to_paws.py" beforeDir="false" afterPath="$PROJECT_DIR$/Arabic HandWriting Recognition/imageManipulation/segmentaion_to_paws.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/imageManipulation/segmentation_to_chars.py" beforeDir="false" afterPath="$PROJECT_DIR$/Arabic HandWriting Recognition/imageManipulation/segmentation_to_chars.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Arabic HandWriting Recognition/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/main.ui" beforeDir="false" afterPath="$PROJECT_DIR$/Arabic HandWriting Recognition/main.ui" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/model/7model18.h5" beforeDir="false" afterPath="$PROJECT_DIR$/Arabic HandWriting Recognition/model/7model18.h5" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Arabic HandWriting Recognition/model/classes_info.py" beforeDir="false" afterPath="$PROJECT_DIR$/Arabic HandWriting Recognition/model/classes_info.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,13 +140,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1649336802564</updated>
-    </task>
-    <task id="LOCAL-00016" summary="&quot;ui changes + removed un nesunnecessary methods from ui_functions.py&quot;">
-      <created>1649613568312</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1649613568312</updated>
     </task>
     <task id="LOCAL-00017" summary="&quot;ui changes + removed un nesunnecessary methods from ui_functions.py&quot;">
       <created>1649614818887</created>
@@ -486,7 +477,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653257681948</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="&quot;character segmentaion&quot;">
+      <created>1653330685564</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1653330685564</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -502,7 +500,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="&quot;adding characters segmentation methods&quot;" />
     <MESSAGE value="&quot;adding preprocessing.py methods methods&quot;" />
     <MESSAGE value="&quot;edit to the preprocessing window&quot;" />
     <MESSAGE value="&quot;edit 2.0 to the preprocessing window&quot;" />
@@ -527,7 +524,8 @@
     <MESSAGE value="&quot;The application produces Output&quot;" />
     <MESSAGE value="&quot;prediction error&quot;" />
     <MESSAGE value="&quot;fixed transition between preprocessing page and segmentaion&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;fixed transition between preprocessing page and segmentaion&quot;" />
+    <MESSAGE value="&quot;character segmentaion&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;character segmentaion&quot;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
