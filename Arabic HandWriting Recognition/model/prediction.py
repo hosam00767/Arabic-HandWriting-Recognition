@@ -48,7 +48,7 @@ def resize_image(img, size=(64, 64)):
 
 # function predict characters, given the lines directory and a model directory,
 # and returning a doc array of arrays representing each line
-def predict_(dire,KERNEL_VALUE,THRESHOLD_VALUE, model="model/7model18.h5"):
+def predict_(dire,KERNEL_VALUE,THRESHOLD_VALUE, model="model/model.h5"):
     my_model = load_model(model)
     l = 0
     lines = len(os.listdir(dire))

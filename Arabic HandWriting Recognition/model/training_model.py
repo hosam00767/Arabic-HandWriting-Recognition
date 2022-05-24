@@ -6,24 +6,35 @@ from tensorflow.keras.optimizers import Adam
 from .dataset_preprocessing import *
 
 
-# Input layer
+# INPUT LAYER
 input_img = Input(shape  = (width,height,1), name = 'img_input')
 
-# Convo layers
+# CONVO LAYERS
 x = Conv2D(64, (3,3) , padding = 'same' , activation='relu', name = 'layer_1') (input_img)
 x = MaxPool2D((2,2), name = 'layer_2') (x)
-x = Dropout(0.25) (x)
+
 x = Conv2D(128, (3,3) , padding = 'same' , activation='relu', name = 'layer_3') (x)
 x = MaxPool2D((2,2), name = 'layer_4') (x)
-x = Dropout(0.25) (x)
+x = Dropout(0.1) (x)
+
 x = Conv2D(256, (3,3) , padding = 'same' , activation='relu', name = 'layer_5') (x)
 x = MaxPool2D((2,2), name = 'layer_6') (x)
-x = Dropout(0.25) (x)
+x = Dropout(0.1) (x)
+
+x = Conv2D(512, (3,3) , padding = 'same' , activation='relu', name = 'layer_7') (x)
+x = MaxPool2D((2,2), name = 'layer_8') (x)
+x = Dropout(0.1) (x)
+
 x = Flatten()(x)
-x= Dense(1024, name = 'layer_7')(x)
-x= Dense(512, name = 'layer_8')(x)
-x = Dropout(0.5) (x)
-x = Dense(105, activation='softmax', name='predictions')(x)
+
+# FULLY CONNECTED LAYERS
+x= Dense(1024, activation='relu', name = 'layer_9')(x)
+x = Dropout(0.3) (x)
+
+x= Dense(512, activation='relu', name = 'layer_10')(x)
+x = Dropout(0.3) (x)
+
+x = Dense(32, activation='softmax', name='predictions')(x)
 
 # # Generate the model
 my_model = Model(inputs = input_img, outputs =x , name='chars_classification' )
