@@ -83,6 +83,20 @@ def getTheDotOnTheLeft(dots):
     return left
 
 
+def trim(paw, contour):
+    x, _, w, _ = cv.boundingRect(contour)
+    start = x
+    end = x + w
+    if end + 4 < paw.shape[0]:
+        end = end + 4
+    if x - 4 < 0:
+        start = x - 4
+
+    timg = paw[:, start:end]
+
+    return timg
+
+
 def segment_to_chars(path, pawName):
     dots = []
     img = cv.imread(path)
@@ -116,7 +130,7 @@ def segment_to_chars(path, pawName):
     if len(left) != len(right):
         right.append(img.shape[1])
 
-    points = [0]
+    points = []
 
     intersectedDots = []
     for i in range(len(left)):
@@ -136,9 +150,18 @@ def segment_to_chars(path, pawName):
         elif len(intersectedDots) == 0:
 
             if len(left) != 0:
-                points.append(int((right[i] + left[i]) / 2))
+                if left[i] == 0:
+                    points.append(left[i])
+                elif right[i] == img.shape[1]:
+                    points.append(right[i])
+                else:
+                    points.append(int((right[i] + left[i]) / 2))
 
-    points.append(img.shape[1])
+    if len(points) > 0:
+        if points[0] != 0:
+            points.insert(0, 0)
+        if points[-1] != img.shape[1]:
+            points.append(img.shape[1])
 
     for i in range(len(points) - 1):
         segmented_char = img[:, points[i]:points[i + 1]]
