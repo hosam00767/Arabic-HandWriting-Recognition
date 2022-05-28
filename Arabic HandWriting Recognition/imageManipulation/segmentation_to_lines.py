@@ -1,5 +1,4 @@
 import cv2 as cv
-import cv2 as cv
 from .preprocessing import *
 import os
 import shutil
