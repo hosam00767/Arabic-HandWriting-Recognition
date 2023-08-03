@@ -43,7 +43,6 @@ def horizontal_proj(img):
    we extracted every connected component from the line to solve the issue of the overlapping characters and then we started to associate each point to the nearest compoment
 
 ![image](https://github.com/hosam00767/Arabic-HandWriting-Recognition/assets/48860916/b7647e2d-c334-4473-acc0-719f69b79865)
-![image](https://github.com/hosam00767/Arabic-HandWriting-Recognition/assets/48860916/dfc5e219-11ea-4810-ad33-3eb3300cd78c)
 
 ## 3. Paws to characters 
 in this phase we created the vertical projection vector of the image and segement each character with respect to the dots.
@@ -158,6 +157,3 @@ The model was able to accurately classify the majority of the characters in the 
 
 # Future Work
 We plan to further improve the accuracy of the model by incorporating more advanced image processing techniques and exploring other deep learning architectures. We also plan to expand the dataset to include more diverse handwriting styles and diacritics.
-
-# Acknowledgements
-We would like to thank the creators of the IFN/ENIT dataset for providing us with a high-quality dataset to work with. We would also like to thank the TensorFlow and OpenCV communities for their contributions to the field of deep learning and computer vision.
