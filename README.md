@@ -141,17 +141,6 @@ We trained a CNN model using TensorFlow to classify each segmented character int
 ![image](https://github.com/hosam00767/Arabic-HandWriting-Recognition/assets/48860916/4e0f085d-a283-4007-b031-5a039d3ad9e6) 
 
 
-
-# Requirements
-Python 3.6 or higher
-TensorFlow 2.0 or higher
-OpenCV
-Numpy
-Usage
-Clone the repository
-Install the required dependencies
-Run python predict.py <path_to_image> to predict the characters in the given image.
-
 # Results
 The model was able to accurately classify the majority of the characters in the test set. However, there were some cases where the model struggled to correctly classify characters due to variations in handwriting styles and the presence of noise in the input images.
 
