@@ -120,6 +120,15 @@ Our soloution to that problem was to completly change the color of the other  co
 ![image](https://github.com/hosam00767/Arabic-HandWriting-Recognition/assets/48860916/2b956ee1-a46d-4416-9781-824afdca6edf)
 
 
+# Graphical User Interface (GUI)
+
+for a GUI for our desktop application We chose to use PyQt5 and PySlide . PyQt5 is a Python binding for the Qt UI and application framework and PySlide is a library for whole slide image processing. Together, they provide a powerful set of tools for building a modern and user-friendly interface, while efficiently loading and processing large slide images.
+
+![image](https://github.com/hosam00767/Arabic-HandWriting-Recognition/assets/48860916/3260aaea-caec-46d4-b313-01debf32e0bc)
+
+
+
+
 
 # Dataset
 We used the HMBD V1 dataset which contains a total number of 54,115 handwritten Arabic words,The HMBD dataset captures the different positions of the Arabic handwritten characters; isolated, beginning, middle, and end.
