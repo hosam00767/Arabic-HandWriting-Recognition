@@ -123,8 +123,8 @@ Our soloution to that problem was to completly change the color of the other  co
 
 for a GUI for our desktop application We chose to use PyQt5 and PySlide . PyQt5 is a Python binding for the Qt UI and application framework and PySlide is a library for whole slide image processing. Together, they provide a powerful set of tools for building a modern and user-friendly interface, while efficiently loading and processing large slide images.
 
-![image](https://github.com/hosam00767/Arabic-HandWriting-Recognition/assets/48860916/3260aaea-caec-46d4-b313-01debf32e0bc)
 
+![Uploading image.png…]()
 
 
 
